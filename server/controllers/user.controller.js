@@ -23,13 +23,12 @@ const getUser = async (req, res, next) => {
 };
 
 /**
+ * This Function takes cookie from the request and responds with a userDocument to the frontend.
  * 
  * @param {*} req request has req.userId which is added by isLoggedin() middleware
  * @param {*} res responds with userDocument after removing password
  * @param {*} next to pass on errors
  * 
- * This Function takes cookie from the request and responds with a userDocument to the 
- * frontend.
  */
 const profile = async(req , res , next)=>{
 
