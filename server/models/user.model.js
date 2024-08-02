@@ -16,45 +16,46 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    avatar:{
+    phone_no: {
+      type: String,
+      required: true,
+      unique: true,
+    },
+    avatar: {
       type: String,
       default: "https://cdn-icons-png.flaticon.com/256/5989/5989400.png"
     },
-    saved:{
-      type:[{
+    saved: {
+      type: [{
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Product'        
+        ref: 'Product'
       }],
-      unique: true
+      default: [],
+      sparse:true
     },
-    orders:{
-      type : [
-        {
-          type : mongoose.Schema.Types.ObjectId,
-          ref : 'Order'
-        }
-      ]
+    orders: {
+      type: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Order'
+      }],
+      default: []
     },
-    // userBookings : {
-    //   type : [
-    //     {
-    //       type : mongoose.Schema.Types.ObjectId,
-    //       ref:"Booking"
-    //     }
-    //   ]
+    // userBookings: {
+    //   type: [{
+    //     type: mongoose.Schema.Types.ObjectId,
+    //     ref: "Booking"
+    //   }]
     // },
-    // listings:{
-    //   type:[
-    //     {
-    //       type: mongoose.Schema.Types.ObjectId,
-    //       ref: 'Listing'            
-    //     }
-    //   ],
-    //   unique : true
+    // listings: {
+    //   type: [{
+    //     type: mongoose.Schema.Types.ObjectId,
+    //     ref: 'Listing'
+    //   }],
+    //   default: []
     // }
   },
   { timestamps: true }
 );
 
 const User = mongoose.model('User', userSchema);
-module.exports = User
+module.exports = User;

@@ -60,8 +60,21 @@ const signoutUser = createAsyncThunk('user/signoutUser', async (_, { rejectWithV
 const userSlice = createSlice({
   name: 'user',
   initialState,
-  extraReducers: builder => {
 
+  reducers :{
+    addUser : (state , action)=>{
+      state.user = action.payload
+      state.error = ''
+      state.loading = false
+    },
+    clearUser : (state)=>{
+      
+      state.user = null
+      state.error = ''
+      state.loading = false      
+    }
+  },
+  extraReducers: builder => {
 
     builder.addCase(fetchUser.pending, state => {
       state.loading = true;
@@ -115,5 +128,9 @@ export default userSlice.reducer;
 export {
   loginUser,
   signoutUser,
-  fetchUser
+  fetchUser,
 }
+export const {
+  addUser,
+  clearUser,
+} = userSlice.actions

@@ -14,12 +14,14 @@ const jwt = require("jsonwebtoken")
 
 const signup = async (req, res, next) => {
 
-    const { username, email, password } = req.body;
+    const { username, email, password , phone_no} = req.body;
+    // console.log(req.body);
+    
     const hashedPassword = bcryptjs.hashSync(password, 10)
     const maxAge = 3 * 24 * 60 * 60
 
     try {
-        const newUser = new User({ username, email, password: hashedPassword })
+        const newUser = new User({ username, email,phone_no, password: hashedPassword , saved:[] , orders:[]})
         const token = jwt.sign({ id: newUser._id }, process.env.JWT_SECRET , {expiresIn : maxAge })
         await newUser.save()
         res
@@ -27,15 +29,17 @@ const signup = async (req, res, next) => {
             .status(201).json(newUser)
     } catch (error) {
         next(error)
+        console.log(error);
+        
     }
 }
 
 const signin = async (req, res, next) => {
-    const { email, password } = req.body;
+    const { username, password } = req.body;
     const maxAge = 3 * 24 * 60 * 60
 
     try {
-        const validUser = await User.findOne({ email })
+        const validUser = await User.findOne({ username })
         if (!validUser) {
             return next(errorhandler(404, 'User not found'))
         }
@@ -73,7 +77,7 @@ const google = async (req, res, next) => {
         //     next(errorhandler(404, "idToken missing"))
         // }
 
-        const user = await User.findOne({ email: req.body.email });
+        const user = await User.findOne({ username: req.body.email });
 
         if (user) {
             const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET);

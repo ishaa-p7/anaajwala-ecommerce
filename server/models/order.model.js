@@ -8,7 +8,6 @@ const mongoose = require('mongoose');
  * @property {number} pincode - The pincode of the delivery address.
  * @property {ObjectId} productId - The ID of the product.
  * @property {ObjectId} customerId - The ID of the customer.
- * @property {number} quantity - The quantity of the product ordered.
  * @property {string} status - The status of the order (pending, shipped, delivered, cancelled).
  * @property {string} paymentMethod - The payment method used (credit card, PayPal, cash on delivery).
  * @property {string} paymentStatus - The payment status (pending, completed, failed).
@@ -25,12 +24,16 @@ const orderSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    customer_phone_no :{
+      type : String,
+      required : true,
+    },
     address: {
       type: String,
       required: true,
     },
     pincode: {
-      type: Number,
+      type: String,
       required: true,
     },
     productId: {
@@ -41,10 +44,6 @@ const orderSchema = new mongoose.Schema(
     customerId: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'User',
-      required: true,
-    },
-    quantity: {
-      type: Number,
       required: true,
     },
     status: {
