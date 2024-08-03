@@ -11,7 +11,7 @@ export default function NavbarComponent() {
   return (
     <div className="">
       <Navbar fluid rounded>
-        <Navbar.Brand href="https://flowbite-react.com">
+        <Navbar.Brand href="">
           {/* <img
           src="/react.svg"
           className="mr-3 h-6 sm:h-9"

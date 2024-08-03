@@ -17,7 +17,7 @@ function Login() {
 
   // Handle form submission
   const onSubmit = async (data) => {
-    console.log(data);
+    // console.log(data);
     dispatch(loginUser(data))
   
   };

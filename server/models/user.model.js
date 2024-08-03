@@ -25,6 +25,11 @@ const userSchema = new mongoose.Schema(
       type: String,
       default: "https://cdn-icons-png.flaticon.com/256/5989/5989400.png"
     },
+    role : {
+      type : String,
+      enum : ["admin" , "user"],
+      default : "user"
+    },
     saved: {
       type: [{
         type: mongoose.Schema.Types.ObjectId,

@@ -16,6 +16,8 @@ main().catch(err => console.log(err));
 async function main() {
   // await mongoose.connect('mongodb://127.0.0.1:27017/anaaj-wala');
   await mongoose.connect(process.env.MONGO_STRING);
+  console.log("database connected");
+  
 }
 
 app.use(express.static(path.join(__dirname, 'dist')))
