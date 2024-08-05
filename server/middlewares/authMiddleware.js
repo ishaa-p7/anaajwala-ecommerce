@@ -35,6 +35,7 @@ const isLoggedIn = async (req, res, next) => {
         }
 
         req.user = user;
+        req.userId = decoded.id;
         next();
     } catch (error) {
         console.error('Error in auth middleware:', error);
