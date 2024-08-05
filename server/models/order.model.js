@@ -4,9 +4,9 @@ const mongoose = require('mongoose');
  * Schema for an order in the e-commerce platform.
  * @typedef {Object} OrderSchema
  * @property {string} customerName - The name of the customer.
+ * @property {string} customer_phone_no - The phone number of the customer.
  * @property {string} address - The address of the customer.
  * @property {number} pincode - The pincode of the delivery address.
- * @property {ObjectId} productId - The ID of the product.
  * @property {ObjectId} customerId - The ID of the customer.
  * @property {string} status - The status of the order (pending, shipped, delivered, cancelled).
  * @property {string} paymentMethod - The payment method used (credit card, PayPal, cash on delivery).
@@ -24,9 +24,9 @@ const orderSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    customer_phone_no :{
-      type : String,
-      required : true,
+    customer_phone_no: {
+      type: String,
+      required: true,
     },
     address: {
       type: String,
@@ -34,11 +34,6 @@ const orderSchema = new mongoose.Schema(
     },
     pincode: {
       type: String,
-      required: true,
-    },
-    productId: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'Product',
       required: true,
     },
     customerId: {

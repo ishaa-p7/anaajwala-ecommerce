@@ -5,6 +5,7 @@ const cookieParser = require('cookie-parser');
 const AuthRouter = require('./routes/auth.route.js')
 const UserRouter = require('./routes/user.route.js')
 const OrderRouter = require('./routes/order.route.js')
+const ProductRouter = require('./routes/product.route.js')
 const path = require('path')
 require('dotenv').config()
 const app = express()
@@ -27,6 +28,7 @@ app.use(cookieParser())
 app.use('/api/auth' , AuthRouter);
 app.use('/api/user' , UserRouter);
 app.use('/api/order' , OrderRouter);
+app.use('/api/product' , ProductRouter);
 
 app.get('/test', (req, res) => {
   res.send('Hello World!')
