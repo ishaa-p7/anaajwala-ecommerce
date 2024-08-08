@@ -54,6 +54,18 @@ const createOrder = async (req, res) => {
   }
 };
 
+const getOrder = async (req , res , next)=>{
+  try {
+    
+    const orders = await Order.find();
+    res.json(orders)
+
+  } catch (error) {
+    next(error)
+  }
+}
+
 module.exports = {
-  createOrder
+  createOrder,
+  getOrder
 };
