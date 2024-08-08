@@ -14,6 +14,7 @@ import Signup from "./pages/signup/Signup.jsx";
 import Layout from "./components/Layout.jsx";
 import AdminRoute from "./components/AdminRoute.jsx";
 import Dashboard from "./admin-panel/Dashboard.jsx";
+import ProductPage from "./pages/product-page/ProductPage.jsx";
 
 function App() {
   const dispatch = useDispatch();
@@ -25,6 +26,7 @@ function App() {
       <Routes>
         <Route path="" element={<Layout />}>
           <Route path="/" element={<LandingPage />} />
+          <Route path="/product/:id" element={<ProductPage />} />
         </Route>
 
         <Route path="/login" element={<Login />} />

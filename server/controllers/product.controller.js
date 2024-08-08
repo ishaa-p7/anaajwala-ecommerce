@@ -1,4 +1,5 @@
-const Product = require('../models/product.model')
+const Product = require('../models/product.model');
+const { errorhandler } = require('../utils/error');
 
 /**
  * Controller method to create a new product
@@ -41,6 +42,20 @@ const createProduct = async (req, res) => {
   }
 };
 
+const getProduct = async (req , res , next)=>{
+  try {
+    const {id} = req.params
+    const product = await Product.findById(id)
+    if(!product){
+      return next(errorhandler(404 , "Product does not exist, might've be deleted" , "product not found"))
+    }
+    res.json(product)
+  } catch (error) {
+    next(error)
+  }
+}
+
 module.exports = {
   createProduct,
+  getProduct
 };
