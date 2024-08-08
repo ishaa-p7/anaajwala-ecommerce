@@ -64,7 +64,7 @@ function SideBarContent({ isOpen, handleClose }) {
                       <Sidebar.Item icon={HiInformationCircle}>Home</Sidebar.Item>
                     </Link>
                     <Link to="/admin?tab=page1">
-                      <Sidebar.Item icon={HiChartPie}>Page1</Sidebar.Item>
+                      <Sidebar.Item icon={HiChartPie}>Order Tracker</Sidebar.Item>
                     </Link>
                     <Link to="/admin?tab=page2">
                       <Sidebar.Item icon={HiShoppingBag}>

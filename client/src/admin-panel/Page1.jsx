@@ -37,7 +37,6 @@ export default function Page1() {
     }
   };
 
-  console.log(orders);
 
   const activeClass = "border-b-purple-600 text-purple-600";
   const normalClass = "text-gray-600";
@@ -125,6 +124,7 @@ export default function Page1() {
                   name="search"
                   className="h-12 w-full border-b-gray-400 bg-transparent py-4 pl-12 text-sm outline-none focus:border-b-2"
                   placeholder="Search by Order ID, Date, Customer"
+                  disabled
                 />
               </form>
               <button
@@ -175,9 +175,6 @@ export default function Page1() {
                     Order ID
                   </td>
                   <td className="whitespace-normal py-4 text-sm font-medium text-gray-500 sm:px-3">
-                    Description
-                  </td>
-                  <td className="whitespace-normal py-4 text-sm font-medium text-gray-500 sm:px-3">
                     Contact no.
                   </td>
                   <td className="whitespace-normal py-4 text-sm font-medium text-gray-500 sm:px-3">
@@ -208,6 +205,9 @@ export default function Page1() {
                   </td>
                   <td className="whitespace-normal py-4 text-sm font-medium text-gray-500 sm:px-3">
                     Status
+                  </td>
+                  <td className="whitespace-normal py-4 text-sm font-medium text-gray-500 sm:px-3">
+                    Description
                   </td>
                 </tr>
               </thead>

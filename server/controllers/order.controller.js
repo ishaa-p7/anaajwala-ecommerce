@@ -1,6 +1,7 @@
 const Order = require('../models/order.model.js')
 const User = require('../models/user.model.js')
 const Product = require('../models/product.model.js')
+const {errorhandler} = require('../utils/error.js')
 
 
 /**
@@ -54,6 +55,9 @@ const createOrder = async (req, res) => {
   }
 };
 
+/**
+ * returns array of all orders
+ */
 const getOrder = async (req , res , next)=>{
   try {
     
@@ -65,7 +69,43 @@ const getOrder = async (req , res , next)=>{
   }
 }
 
+/**
+ * Currently updates the status of the order to new status coming from frontend.
+ */
+const updateOrder = async (req, res, next) => {
+  try {
+    const {id} = req.params
+    const { newStatus } = req.body;
+
+    console.log("req received");
+    
+
+    // Ensure that id and newStatus are provided
+    if (!id || !newStatus) {
+      return next(errorhandler(400 ,"Missing required fields: id and newStatus" , "update failure" ))
+    }
+
+    // Find the order and update it
+    const orderDoc = await Order.findByIdAndUpdate(
+      id, 
+      { status: newStatus },
+      { new: true }  // Return the updated document
+    );
+
+    // Check if the order was found
+    if (!orderDoc) {
+      return next(errorhandler(400 ,"Order not found" , "update failure" ))
+    }
+
+    res.status(200).json({ message: "Order updated successfully", order: orderDoc });
+  } catch (error) {
+    next(error);
+  }
+};
+
+
 module.exports = {
   createOrder,
-  getOrder
+  getOrder,
+  updateOrder
 };
