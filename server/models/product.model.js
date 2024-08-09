@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
  * @typedef {Object} ProductSchema
  * @property {string} name - The name of the product.
  * @property {string} type - The type of the product.
- * @property {number} price - The price of the product.
+ * @property {Object} price - The price of the product.
  * @property {string} thumbnail - URL of the product thumbnail image.
  * @property {string[]} images - Array of URLs of product images (max 6).
  * @property {string} description - A detailed description of the product.
@@ -27,10 +27,11 @@ const productSchema = new mongoose.Schema(
     },
     type: {
       type: String,
+      enum : ['gold' , 'platinum', 'diamond'],
       required: true,
     },
     price: {
-      type: Number,
+      type: {},
       required: true,
     },
     thumbnail: {
@@ -83,4 +84,9 @@ function arrayLimit(val) {
 }
 
 const Product = mongoose.model('Product', productSchema);
-module.exports = Product;
+// module.exports = Product;
+
+module.exports = {
+  productSchema,
+  Product
+}

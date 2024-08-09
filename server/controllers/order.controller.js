@@ -1,6 +1,6 @@
 const Order = require('../models/order.model.js')
 const User = require('../models/user.model.js')
-const Product = require('../models/product.model.js')
+const {Product} = require('../models/product.model.js')
 const {errorhandler} = require('../utils/error.js')
 
 

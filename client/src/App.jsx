@@ -16,6 +16,8 @@ import AdminRoute from "./components/AdminRoute.jsx";
 import Dashboard from "./admin-panel/Dashboard.jsx";
 import ProductPage from "./pages/product-page/ProductPage.jsx";
 import NotFoundPage from "./components/NotFoundPage.jsx";
+import CartPage from "./pages/Cart/CartPage.jsx";
+import Products from "./pages/products/Products.jsx";
 
 function App() {
   const dispatch = useDispatch();
@@ -28,6 +30,8 @@ function App() {
         <Route path="" element={<Layout />}>
           <Route path="/" element={<LandingPage />} />
           <Route path="/product/:id" element={<ProductPage />} />
+          <Route path="/user/cart" element={<CartPage/>} />
+          <Route path="/products" element={<Products/>} />
         </Route>
 
         <Route path="/login" element={<Login />} />

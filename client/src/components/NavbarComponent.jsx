@@ -11,15 +11,17 @@ export default function NavbarComponent() {
   return (
     <div className="">
       <Navbar fluid rounded>
-        <Navbar.Brand href="">
+        <Navbar.Brand>
           {/* <img
           src="/react.svg"
           className="mr-3 h-6 sm:h-9"
           alt="Flowbite React Logo"
         /> */}
+        <Link to="/">
           <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
             Flowbite React
           </span>
+          </Link>
         </Navbar.Brand>
         <div className="flex md:order-2">
           {currentUser.user ? (<><h4 className="text-xl font-medium mr-6 my-auto">@{currentUser.user.username}</h4></>) : <Link to="/login"><Button>Login</Button></Link>}
@@ -28,13 +30,13 @@ export default function NavbarComponent() {
           <Navbar.Toggle />
         </div>
         <Navbar.Collapse>
-          <Navbar.Link href="#" active>
-            Home
+          <Navbar.Link active>
+            <Link to="/">Home</Link>
           </Navbar.Link>
-          <Navbar.Link href="#">About</Navbar.Link>
-          <Navbar.Link href="#">Services</Navbar.Link>
-          <Navbar.Link href="#">Pricing</Navbar.Link>
-          <Navbar.Link href="#">Contact</Navbar.Link>
+          <Navbar.Link><Link to="/products">Products</Link></Navbar.Link>
+          <Navbar.Link><Link to="/">No-where</Link></Navbar.Link>
+          <Navbar.Link> <Link to="/user/cart">Cart</Link></Navbar.Link>
+          <Navbar.Link><Link to="/admin">admin Panel</Link></Navbar.Link>
         </Navbar.Collapse>
       </Navbar>
     </div>

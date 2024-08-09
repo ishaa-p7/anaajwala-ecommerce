@@ -1,4 +1,4 @@
-const Product = require('../models/product.model');
+const {Product} = require('../models/product.model');
 const { errorhandler } = require('../utils/error');
 
 /**
@@ -51,6 +51,8 @@ const getProduct = async (req , res , next)=>{
     }
     res.json(product)
   } catch (error) {
+    console.log(error);
+    
     next(error)
   }
 }

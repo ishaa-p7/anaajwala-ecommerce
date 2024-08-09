@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { Routes, Route, useParams } from "react-router-dom";
+import { Routes, Route, useParams, Link } from "react-router-dom";
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import { Spinner } from "flowbite-react";
 import { useNavigate } from "react-router-dom";
@@ -7,17 +10,27 @@ import { HiInformationCircle } from "react-icons/hi";
 import { Alert } from "flowbite-react";
 import axios from "axios";
 
+import { addToCart } from "../../features/cart/CartSlice";
+import { useDispatch  } from "react-redux";
+
 function ProductPage() {
   let { id } = useParams();
+  const dispatch = useDispatch()
+
   const [product, setProduct] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+
+  const [type, setType] = useState("platinum");
+  const [quantity, setQuantity] = useState("2");
+
+
 
   const fetchProduct = async () => {
     try {
-        // console.log("This happened");
-        
+      // console.log("This happened");
+
       setLoading((prev) => true);
       const { data } = await axios.get(`/api/product/${id}`);
       setProduct(data);
@@ -26,16 +39,36 @@ function ProductPage() {
         setError(error.response.data.message);
       } else {
         setError(error.message);
-    }
-    navigate('/not-found')
+      }
+      navigate("/not-found");
     } finally {
       setLoading((prev) => false);
     }
   };
-
   useEffect(() => {
     fetchProduct();
   }, []);
+
+  const handleTypeChange = (ev) => {
+    ev.preventDefault();
+    console.log(ev.target.value);
+    setType(ev.target.value);
+  };
+  const handleQuantityChange = (event) => {
+    setQuantity(event.target.value);
+  };
+
+  const handleAddToCart = ()=>{
+    dispatch(addToCart({
+      id : product._id,
+      product,
+      quantity,
+      type,
+    }))
+    notify()
+  }
+
+  const notify = () => toast.success("Added to cart!" , {autoClose : 1000 , position: "bottom-right",});
 
   if (error) {
     return (
@@ -54,29 +87,30 @@ function ProductPage() {
     );
   }
 
-  if(loading){
-    return(
-        <div className="h-screen ">
-            <h1 className="text-4xl my-auto text-center">Loading...</h1>
-        </div>
-    )
+  if (loading) {
+    return (
+      <div className="h-screen ">
+        <h1 className="text-4xl my-auto text-center">Loading...</h1>
+      </div>
+    );
   }
 
   return (
     <div>
+      <ToastContainer />
       <section className="py-12 sm:py-16">
         <div className="container mx-auto px-4">
           <nav className="flex">
             <ol role="list" className="flex items-center">
               <li className="text-left">
                 <div className="-m-1">
-                  <a
-                    href="#"
+                  <Link
+                    to="/"
                     className="rounded-md p-1 text-sm font-medium text-gray-600 focus:text-gray-900 focus:shadow hover:text-gray-800"
                   >
                     {" "}
                     Home{" "}
-                  </a>
+                  </Link>
                 </div>
               </li>
               <li className="text-left">
@@ -84,7 +118,7 @@ function ProductPage() {
                   <span className="mx-2 text-gray-400">/</span>
                   <div className="-m-1">
                     <a
-                      href="#"
+                      href="/"
                       className="rounded-md p-1 text-sm font-medium text-gray-600 focus:text-gray-900 focus:shadow hover:text-gray-800"
                     >
                       {" "}
@@ -103,7 +137,7 @@ function ProductPage() {
                       aria-current="page"
                     >
                       {" "}
-                      Coffee{" "}
+                      {product.name}{" "}
                     </a>
                   </div>
                 </div>
@@ -224,138 +258,166 @@ function ProductPage() {
                   1,209 Reviews
                 </p>
               </div>
-              <h2 className="mt-8 text-base text-gray-900">{product.type}</h2>
+              <h2 className="mt-8 text-base text-gray-900">Variant</h2>
               <div className="mt-3 flex select-none flex-wrap items-center gap-1">
-                <label className="">
+                <label className="cursor-pointer">
                   <input
                     type="radio"
                     name="type"
-                    defaultValue="Powder"
+                    value="gold"
                     className="peer sr-only"
-                    defaultChecked=""
+                    onChange={handleTypeChange}
+                    checked={type === "gold"}
                   />
-                  <p className="peer-checked:bg-black peer-checked:text-white rounded-lg border border-black px-6 py-2 font-bold">
-                    Bronze
-                  </p>
-                </label>
-                <label className="">
-                  <input
-                    type="radio"
-                    name="type"
-                    defaultValue="Whole Bean"
-                    className="peer sr-only"
-                  />
-                  <p className="peer-checked:bg-black peer-checked:text-white rounded-lg border border-black px-6 py-2 font-bold">
-                    Silver
-                  </p>
-                </label>
-                <label className="">
-                  <input
-                    type="radio"
-                    name="type"
-                    defaultValue="Groud"
-                    className="peer sr-only"
-                  />
-                  <p className="peer-checked:bg-black peer-checked:text-white rounded-lg border border-black px-6 py-2 font-bold">
+                  <p
+                    className={`${
+                      type == "gold" ? "bg-black text-white" : ""
+                    } rounded-lg border border-black px-6 py-2 font-bold`}
+                  >
                     Gold
                   </p>
                 </label>
-                <label className="">
+                <label className="cursor-pointer">
                   <input
                     type="radio"
                     name="type"
-                    defaultValue="Diamond"
+                    value="platinum"
                     className="peer sr-only"
+                    onChange={handleTypeChange}
+                    checked={type === "platinum"}
                   />
-                  <p className="peer-checked:bg-black peer-checked:text-white rounded-lg border border-black px-6 py-2 font-bold">
-                  Diamond
+                  <p
+                    className={`${
+                      type == "platinum" ? "bg-black text-white" : ""
+                    } rounded-lg border border-black px-6 py-2 font-bold`}
+                  >
+                    Platinum
+                  </p>
+                </label>
+                <label className="cursor-pointer">
+                  <input
+                    type="radio"
+                    name="type"
+                    value="diamond"
+                    className="peer sr-only"
+                    onChange={handleTypeChange}
+                    checked={type === "diamond"}
+                  />
+                  <p
+                    className={`${
+                      type == "diamond" ? "bg-black text-white" : ""
+                    } rounded-lg border border-black px-6 py-2 font-bold`}
+                  >
+                    Diamond
                   </p>
                 </label>
               </div>
-              <h2 className="mt-8 text-base text-gray-900">
-                Quantity
-              </h2>
+              <h2 className="mt-8 text-base text-gray-900">Quantity</h2>
               <div className="mt-3 flex select-none flex-wrap items-center gap-1">
-                <label className="">
+                <label className="cursor-pointer">
                   <input
                     type="radio"
                     name="quantity"
-                    defaultValue="1"
+                    value="1"
                     className="peer sr-only"
+                    onChange={handleQuantityChange}
+                    checked={quantity === "1"}
                   />
-                  <p className="peer-checked:bg-black peer-checked:text-white rounded-lg border border-black px-6 py-2 font-bold">
+                  <p
+                    className={`${
+                      quantity === "1" ? "bg-black text-white" : ""
+                    } rounded-lg border border-black px-6 py-2 font-bold`}
+                  >
                     1 Kg
                   </p>
-                  <span className="mt-1 block text-center text-xs">$80/mo</span>
+                  {/* <span className="mt-1 block text-center text-xs">$80/mo</span> */}
                 </label>
-                <label className="">
+
+                <label className="cursor-pointer">
                   <input
                     type="radio"
                     name="quantity"
-                    defaultValue="2"
+                    value="2"
                     className="peer sr-only"
-                    defaultChecked=""
+                    onChange={handleQuantityChange}
+                    checked={quantity === "2"}
                   />
-                  <p className="peer-checked:bg-black peer-checked:text-white rounded-lg border border-black px-6 py-2 font-bold">
+                  <p
+                    className={`${
+                      quantity === "2" ? "bg-black text-white" : ""
+                    } rounded-lg border border-black px-6 py-2 font-bold`}
+                  >
                     2 Kg
                   </p>
-                  <span className="mt-1 block text-center text-xs">$60/mo</span>
+                  {/* <span className="mt-1 block text-center text-xs">$60/mo</span> */}
                 </label>
-                <label className="">
+
+                <label className="cursor-pointer">
                   <input
                     type="radio"
                     name="quantity"
-                    defaultValue="3"
+                    value="3"
                     className="peer sr-only"
+                    onChange={handleQuantityChange}
+                    checked={quantity === "3"}
                   />
-                  <p className="peer-checked:bg-black peer-checked:text-white rounded-lg border border-black px-6 py-2 font-bold">
+                  <p
+                    className={`${
+                      quantity === "3" ? "bg-black text-white" : ""
+                    } rounded-lg border border-black px-6 py-2 font-bold`}
+                  >
                     3 Kg
                   </p>
-                  <span className="mt-1 block text-center text-xs">$40/mo</span>
+                  {/* <span className="mt-1 block text-center text-xs">$40/mo</span> */}
                 </label>
-                <label className="">
+
+                <label className="cursor-pointer">
                   <input
                     type="radio"
                     name="quantity"
-                    defaultValue="3"
+                    value="4"
                     className="peer sr-only"
+                    onChange={handleQuantityChange}
+                    checked={quantity === "4"}
                   />
-                  <p className="peer-checked:bg-black peer-checked:text-white rounded-lg border border-black px-6 py-2 font-bold">
-                    3 Kg
-                  </p>
-                  <span className="mt-1 block text-center text-xs">$40/mo</span>
-                </label>
-                <label className="">
-                  <input
-                    type="radio"
-                    name="quantity"
-                    defaultValue="4"
-                    className="peer sr-only"
-                  />
-                  <p className="peer-checked:bg-black peer-checked:text-white rounded-lg border border-black px-6 py-2 font-bold">
+                  <p
+                    className={`${
+                      quantity === "4" ? "bg-black text-white" : ""
+                    } rounded-lg border border-black px-6 py-2 font-bold`}
+                  >
                     4 Kg
                   </p>
-                  <span className="mt-1 block text-center text-xs">$40/mo</span>
+                  {/* <span className="mt-1 block text-center text-xs">$40/mo</span> */}
                 </label>
-                <label className="">
+
+                <label className="cursor-pointer">
                   <input
                     type="radio"
                     name="quantity"
-                    defaultValue="5"
+                    value="5"
                     className="peer sr-only"
+                    onChange={handleQuantityChange}
+                    checked={quantity === "5"}
                   />
-                  <p className="peer-checked:bg-black peer-checked:text-white rounded-lg border border-black px-6 py-2 font-bold">
+                  <p
+                    className={`${
+                      quantity === "5" ? "bg-black text-white" : ""
+                    } rounded-lg border border-black px-6 py-2 font-bold`}
+                  >
                     5 Kg
                   </p>
-                  <span className="mt-1 block text-center text-xs">$40/mo</span>
+                  {/* <span className="mt-1 block text-center text-xs">$40/mo</span> */}
                 </label>
               </div>
               <div className="mt-10 flex flex-col items-center justify-between space-y-4 border-t border-b py-4 sm:flex-row sm:space-y-0">
                 <div className="flex items-end">
-                  <h1 className="text-3xl font-bold">{product.price}</h1>
+                  <h1 className="text-3xl font-bold">
+                  ₹{product.price[type]}
+                  </h1>
                   <span className="text-base">/Kg</span>
                 </div>
                 <button
+                  onClick={handleAddToCart}
                   type="button"
                   className="inline-flex items-center justify-center rounded-md border-2 border-transparent bg-gray-900 bg-none px-12 py-3 text-center text-base font-bold text-white transition-all duration-200 ease-in-out focus:shadow hover:bg-gray-800"
                 >
@@ -376,7 +438,7 @@ function ProductPage() {
                   Add to cart
                 </button>
               </div>
-              <ul className="mt-8 space-y-2">
+              {/* <ul className="mt-8 space-y-2">
                 <li className="flex items-center text-left text-sm font-medium text-gray-600">
                   <svg
                     className="mr-2 block h-5 w-5 align-middle text-gray-500"
@@ -413,7 +475,7 @@ function ProductPage() {
                   </svg>
                   Cancel Anytime
                 </li>
-              </ul>
+              </ul> */}
             </div>
             <div className="lg:col-span-3">
               <div className="border-b border-gray-300">
@@ -441,21 +503,19 @@ function ProductPage() {
               </div>
               <div className="mt-8 flow-root sm:mt-12">
                 <h1 className="text-3xl font-bold">Delivered To Your Door</h1>
-                <p className="mt-4">
+                {/* <p className="mt-4">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia
                   accusantium nesciunt fuga.
-                </p>
-                <h1 className="mt-8 text-3xl font-bold">
+                </p> */}
+                {/* <h1 className="mt-8 text-3xl font-bold">
                   From the Fine Farms of Brazil
-                </h1>
-                <p className="mt-4">
+                </h1> */}
+                {/* <p className="mt-4">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio
                   numquam enim facere.
-                </p>
+                </p> */}
                 <p className="mt-4">
-                  Amet consectetur adipisicing elit. Optio numquam enim facere.
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                  Dolore rerum nostrum eius facere, ad neque.
+                  {product.description}
                 </p>
               </div>
             </div>
