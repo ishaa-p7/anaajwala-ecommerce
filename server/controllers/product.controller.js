@@ -55,7 +55,17 @@ const getProduct = async (req , res , next)=>{
   }
 }
 
+const getAllProducts = async (req , res , next)=>{
+  try {
+    const products = await Product.find();
+    res.json(products);
+  } catch (error) {
+    next(error)
+  }
+}
+
 module.exports = {
   createProduct,
-  getProduct
+  getProduct,
+  getAllProducts
 };

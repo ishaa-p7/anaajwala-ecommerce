@@ -7,15 +7,17 @@ import { HiInformationCircle } from "react-icons/hi";
 import { Alert } from "flowbite-react";
 import axios from "axios";
 
-
 function ProductPage() {
   let { id } = useParams();
   const [product, setProduct] = useState(null);
   const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const navigate = useNavigate()
 
   const fetchProduct = async () => {
     try {
+        // console.log("This happened");
+        
       setLoading((prev) => true);
       const { data } = await axios.get(`/api/product/${id}`);
       setProduct(data);
@@ -24,7 +26,8 @@ function ProductPage() {
         setError(error.response.data.message);
       } else {
         setError(error.message);
-      }
+    }
+    navigate('/not-found')
     } finally {
       setLoading((prev) => false);
     }
@@ -49,6 +52,14 @@ function ProductPage() {
         </>
       </>
     );
+  }
+
+  if(loading){
+    return(
+        <div className="h-screen ">
+            <h1 className="text-4xl my-auto text-center">Loading...</h1>
+        </div>
+    )
   }
 
   return (

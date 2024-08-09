@@ -15,6 +15,7 @@ import Layout from "./components/Layout.jsx";
 import AdminRoute from "./components/AdminRoute.jsx";
 import Dashboard from "./admin-panel/Dashboard.jsx";
 import ProductPage from "./pages/product-page/ProductPage.jsx";
+import NotFoundPage from "./components/NotFoundPage.jsx";
 
 function App() {
   const dispatch = useDispatch();
@@ -35,6 +36,7 @@ function App() {
         <Route path="/admin" element={<AdminRoute />}>
           <Route index element={<Dashboard />} />
         </Route>
+        <Route path="/not-found" element={<NotFoundPage/>} />
       </Routes>
     </BrowserRouter>
   );
