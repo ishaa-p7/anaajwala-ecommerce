@@ -12,13 +12,15 @@ const {errorhandler} = require('../utils/error.js')
 const createOrder = async (req, res) => {
   const {
     customerName,
-    customerPhoneNo,
+    customer_phone_no,
     address,
     pincode,
-    items, // Array of items with productId, quantity, and price
+    items, // Array of items with productId,productName, quantity, and price
     paymentMethod,
-    orderNotes
+    orderNotes,
+    totalPrice
   } = req.body;
+  console.log("order req ");
   
   try {
     // Validate the items array
@@ -27,12 +29,12 @@ const createOrder = async (req, res) => {
     }
 
     // Calculate total price
-    const totalPrice = items.reduce((total, item) => total + item.price * item.quantity, 0);
+    // const totalPrice = items.reduce((total, item) => total + item.price * item.quantity, 0);
 
     // Create a new order object
     const newOrder = new Order({
       customerName,
-      customer_phone_no: customerPhoneNo,
+      customer_phone_no: customer_phone_no,
       address,
       pincode,
       customerId: req.userId, // Retrieved from the auth middleware

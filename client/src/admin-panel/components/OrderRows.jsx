@@ -138,13 +138,13 @@ function OrderRows({ orders, status, setOrders }) {
                     <td className="whitespace-no-wrap hidden py-4 text-left text-sm text-gray-600 sm:px-3 lg:table-cell lg:text-left">
                       ${order.totalPrice}
                     </td>
-                    <td className="whitespace-no-wrap hidden py-4 text-left text-sm text-gray-600 sm:px-3 lg:table-cell lg:text-left">
+                    {/* <td className="whitespace-no-wrap hidden py-4 text-left text-sm text-gray-600 sm:px-3 lg:table-cell lg:text-left">
                       {order.items.reduce(
                         (total, order) => total + order.quantity,
                         0
                       )}{" "}
                       kg
-                    </td>
+                    </td> */}
                     <td className="whitespace-no-wrap py-4 text-right text-sm text-gray-600 sm:px-3 lg:text-left">
                       <select
                         className={`px-3 py-1 rounded-full cursor-pointer focus:outline-none ${getStatusStyle(

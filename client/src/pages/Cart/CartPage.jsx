@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import CartItem from "./components/CartItem";
 import Summary from "./components/Summary";
 import CustomerDetail from "./components/CustomerDetail";
@@ -6,11 +6,92 @@ import { useSelector, useDispatch } from "react-redux";
 import { removeFromCart } from "../../features/cart/CartSlice";
 import { format } from "date-fns";
 import CheckOut from "./components/CheckOut";
+import { useForm , FormProvider } from "react-hook-form";
+import axios from "axios";
+import { ToastContainer, toast } from 'react-toastify';
+import { Spinner } from "flowbite-react";
+import 'react-toastify/dist/ReactToastify.css';
+import { clearCart } from "../../features/cart/CartSlice";
+import { useNavigate } from "react-router-dom";
 
 function CartPage() {
+
+    const priceRef = useRef(0)
+
     const dispatch = useDispatch();
+    const navigate = useNavigate()
+
     const cart = useSelector((state) => state.cart);
-    console.log(cart);
+    const {user} = useSelector((state) => state.user);
+
+    const [loading , setLoading ] = useState(false)
+    
+    const methods = useForm({
+        mode: 'onChange', // Validate fields as they are filled
+    });
+    const functionThatReturnPromise = () => new Promise(resolve => setTimeout(resolve, 3000));
+
+    const notifySuccess = ()=>            toast.success('🦄 Order Added!', {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        });
+    const notifyError = ()=>            toast.error('Something went wrong!', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        });
+
+    const onSubmit = async (data) => {
+        const items = cart.map(item =>{
+            const obj = {
+                productId : item.id,
+                productName : item.product.name,
+                quantity : item.quantity,
+                price : Number(item.product.price[item.type]) * Number(item.quantity),
+            }
+            return obj;
+        })
+        
+        const payload = {
+            customerName : user.username,
+            customer_phone_no : user.phone_no,
+            address : data.address,
+            pincode : data.pincode,
+            customerId : user._id,
+            paymentMethod : "cash on delivery",
+            totalPrice : priceRef.current,
+            items,
+        }
+        console.log(payload);
+        
+        try {
+            setLoading(prev => true)
+            const {data} = await axios.post(`/api/order/create` , payload , {withCredentials : true})
+            console.log(data);
+            notifySuccess()
+            dispatch(clearCart())
+            // navigate('/')
+            
+        } catch (error) {
+            // console.log(error.response.data);
+            notifyError()
+        }
+        finally{
+            setLoading(false)
+        }
+    };
+
 
     // const [products, setProducts] = useState([]);//this will have array of products
     // const [error, setError] = useState(null);
@@ -47,6 +128,7 @@ function CartPage() {
     return (
         <>
             {/* component */}
+            <ToastContainer />
             <div className="py-14 px-4 md:px-6 2xl:px-20 2xl:container 2xl:mx-auto">
                 {/*- more free and premium Tailwind CSS components at https://tailwinduikit.com/ -*/}
                 <div className="flex justify-start item-start space-y-2 flex-col">
@@ -57,28 +139,32 @@ function CartPage() {
                         {format(Date.now(), "d MMMM yyyy ',' h:mm a")}
                     </p>
                 </div>
-                <div className="mt-10 flex flex-col xl:flex-row jusitfy-center items-stretch w-full xl:space-x-8 space-y-4 md:space-y-6 xl:space-y-0">
-                    <div className="flex flex-col justify-start items-start w-full space-y-4 md:space-y-6 xl:space-y-8">
-                        <div className="flex flex-col justify-start items-start dark:bg-gray-800 bg-gray-50 px-4 py-4 md:py-6 md:p-6 xl:p-8 w-full">
-                            <p className="text-lg md:text-xl dark:text-white font-semibold leading-6 xl:leading-5 text-gray-800">
-                                Customer’s Cart
-                            </p>
+                <FormProvider {...methods}>
+                <form onSubmit={methods.handleSubmit(onSubmit)}>
+                        <div className="mt-10 flex flex-col xl:flex-row jusitfy-center items-stretch w-full xl:space-x-8 space-y-4 md:space-y-6 xl:space-y-0">
+                            <div className="flex flex-col justify-start items-start w-full space-y-4 md:space-y-6 xl:space-y-8">
+                                <div className="flex flex-col justify-start items-start dark:bg-gray-800 bg-gray-50 px-4 py-4 md:py-6 md:p-6 xl:p-8 w-full">
+                                    <p className="text-lg md:text-xl dark:text-white font-semibold leading-6 xl:leading-5 text-gray-800">
+                                        Customer’s Cart
+                                    </p>
 
-                            {cart &&
-                                cart.length > 0 &&
-                                cart.map((item) => (
-                                    <>
-                                        <CartItem item={item} />
-                                    </>
-                                ))}
+                                    {cart &&
+                                        cart.length > 0 &&
+                                        cart.map((item) => (
+                                            <>
+                                                <CartItem item={item} />
+                                            </>
+                                        ))}
+                                </div>
+                                <div className="flex justify-center flex-col md:flex-row flex-col items-stretch w-full space-y-4 md:space-y-0 md:space-x-6 xl:space-x-8">
+                                    <Summary cart={cart} priceRef={priceRef} />
+                                    <CheckOut loading={loading} />
+                                </div>
+                            </div>
+                            <CustomerDetail />
                         </div>
-                        <div className="flex justify-center flex-col md:flex-row flex-col items-stretch w-full space-y-4 md:space-y-0 md:space-x-6 xl:space-x-8">
-                            <Summary cart={cart} />
-                            <CheckOut />
-                        </div>
-                    </div>
-                    <CustomerDetail />
-                </div>
+                    </form>
+                </FormProvider>
             </div>
         </>
     );

@@ -1,27 +1,21 @@
 import React, { useState } from "react";
 import { promoCodes } from "../../../utils/promoCodes";
 import CheckOut from "./CheckOut";
+import { calculateCost } from "../../../hooks/cost";
+import { forwardRef } from "react";
 
 /**
  *
  * @param {[]} cart
  * @returns
  */
-function Summary({ cart }) {
-    console.log(cart);
+function Summary({ cart , priceRef}) {
 
     const [promo, setPromo] = useState("ARIN420");
 
-    const totalPrice = cart.reduce((accumulator, item) => {
-        return (accumulator += Number(item.product.price[item.type]) * Number(item.quantity));
-    }, 0);
-
-    let finalPrice = totalPrice;
-    let discount = 0;
-    if (promoCodes.includes(promo)) {
-        finalPrice = totalPrice * 0.9;
-        discount = totalPrice - finalPrice;
-    }
+    const {totalPrice,finalPrice , discount} = calculateCost(cart , promo)
+    priceRef.current = finalPrice
+    // console.log(res);
 
     return (
         <>
@@ -77,4 +71,4 @@ function Summary({ cart }) {
     );
 }
 
-export default Summary;
+export default forwardRef(Summary);

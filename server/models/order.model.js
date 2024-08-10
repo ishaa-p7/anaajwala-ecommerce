@@ -72,11 +72,14 @@ const orderSchema = new mongoose.Schema(
         ref: 'Product',
         required: true,
       },
+      productName:{
+        type : String,
+      },
       quantity: {
         type: Number,
         required: true,
       },
-      price: {
+      price: {//Total price of that item
         type: Number,
         required: true,
       },

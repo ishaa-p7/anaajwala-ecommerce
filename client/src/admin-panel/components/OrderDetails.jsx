@@ -41,9 +41,9 @@ const OrderDetails = ({ order }) => {
               <p>
                 <strong>Order ID:</strong> {order._id}
               </p>
-              <p>
+              {/* <p>
                 <strong>Product ID:</strong> {order.productId}
-              </p>
+              </p> */} 
               <p>
                 <strong>Status:</strong>{" "}
                 <span
@@ -61,7 +61,7 @@ const OrderDetails = ({ order }) => {
                 <strong>Payment Status:</strong> {order.paymentStatus}
               </p>
               <p>
-                <strong>Total Price:</strong> ${order.totalPrice.toFixed(2)}
+                <strong>Total Price {"(After Discount)"}:</strong> ${order.totalPrice.toFixed(2)}
               </p>
               <p>
                 <strong>Delivery Date:</strong>{" "}
@@ -81,10 +81,13 @@ const OrderDetails = ({ order }) => {
                       <strong>Product ID:</strong> {item.productId}
                     </p>
                     <p>
-                      <strong>Quantity:</strong> {item.quantity}
+                      <strong>Product Name:</strong> {item.productName}
                     </p>
                     <p>
-                      <strong>Price:</strong> ${item.price.toFixed(2)}
+                      <strong>Quantity:</strong> {item.quantity} Kg
+                    </p>
+                    <p>
+                      <strong>Price {"(total)"}:</strong> ${item.price.toFixed(2)}
                     </p>
                   </li>
                 ))}

@@ -9,8 +9,10 @@ export default function NavbarComponent() {
   const dispatch = useDispatch()
 
   return (
+    
     <div className="">
-      <Navbar fluid rounded>
+      <Navbar fluid rounded >
+      
         <Navbar.Brand>
           {/* <img
           src="/react.svg"
@@ -18,14 +20,16 @@ export default function NavbarComponent() {
           alt="Flowbite React Logo"
         /> */}
         <Link to="/">
+        
           <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
-            Flowbite React
+            ANAAJWALA
           </span>
           </Link>
         </Navbar.Brand>
+        
         <div className="flex md:order-2">
-          {currentUser.user ? (<><h4 className="text-xl font-medium mr-6 my-auto">@{currentUser.user.username}</h4></>) : <Link to="/login"><Button>Login</Button></Link>}
-          {currentUser.user ? (<><Button onClick={()=>dispatch(signoutUser())}>Logout</Button></>) : null}
+          {currentUser.user ? (<><h4 className="text-xl font-medium mr-6 my-auto">@{currentUser.user.username}</h4></>) : <Link to="/login"><Button className="bg-fuchsia-900">Login</Button></Link>}
+          {currentUser.user ? (<><Button className="bg-fuchsia-900" onClick={()=>dispatch(signoutUser())}>Logout</Button></>) : null}
           
           <Navbar.Toggle />
         </div>

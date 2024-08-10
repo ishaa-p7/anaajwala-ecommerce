@@ -11,7 +11,7 @@ function CartItem({item}) {
                 />
                 <img
                     className="w-full md:hidden"
-                    src="https://i.ibb.co/L039qbN/Rectangle-10.png"
+                    src={item.product.thumbnail}
                     alt="dress"
                 />
             </div>

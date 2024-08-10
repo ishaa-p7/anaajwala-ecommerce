@@ -197,9 +197,9 @@ export default function Page1() {
                       />
                     </svg>
                   </td>
-                  <td className="whitespace-normal py-4 text-sm font-medium text-gray-500 sm:px-3">
+                  {/* <td className="whitespace-normal py-4 text-sm font-medium text-gray-500 sm:px-3">
                     Weight
-                  </td>
+                  </td> */}
                   <td className="whitespace-normal text-center py-4 text-sm font-medium text-gray-500 sm:px-3">
                     Payment Status
                   </td>

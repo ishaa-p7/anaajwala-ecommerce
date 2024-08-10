@@ -3,9 +3,13 @@ import NavbarComponent from "../../components/NavbarComponent";
 import { Carousel } from "flowbite-react";
 import { useState } from "react";
 import { useEffect } from "react";
+import ProductCard from "./components/ProductCard";
+import axios from "axios";
+import image1 from "../../assets/image1.jpg";
+import Chooseus from "./components/Chooseus";
 
 function LandingPage() {
-  const [products, setProducts] = useState([]);//this will have array of products
+  const [products, setProducts] = useState([]); //this will have array of products
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState([]);
 
@@ -32,114 +36,19 @@ function LandingPage() {
   if (loading) {
     return (
       <div className="h-screen flex items-center justify-center">
-        <h1 className="text-5xl my-auto text-center font-semibold">Loading...</h1>
+        <h1 className="text-5xl my-auto text-center font-semibold">
+          Loading...
+        </h1>
       </div>
-    )
+    );
   }
 
   return (
     <>
-      <nav id="header" className="w-full z-30 top-0 py-1">
-        <div className="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 px-6 py-3">
-          <label
-            htmlFor="menu-toggle"
-            className="cursor-pointer md:hidden block"
-          >
-            <svg
-              className="fill-current text-gray-900"
-              xmlns="http://www.w3.org/2000/svg"
-              width={20}
-              height={20}
-              viewBox="0 0 20 20"
-            >
-              <title>menu</title>
-              <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
-            </svg>
-          </label>
-          <input className="hidden" type="checkbox" id="menu-toggle" />
-          <div
-            className="hidden md:flex md:items-center md:w-auto w-full order-3 md:order-1"
-            id="menu"
-          >
-            <nav>
-              <ul className="md:flex items-center justify-between text-base text-gray-700 pt-4 md:pt-0">
-                <li>
-                  <a
-                    className="inline-block no-underline hover:text-black hover:underline py-2 px-4"
-                    href="#"
-                  >
-                    Shop
-                  </a>
-                </li>
-                <li>
-                  <a
-                    className="inline-block no-underline hover:text-black hover:underline py-2 px-4"
-                    href="#"
-                  >
-                    About
-                  </a>
-                </li>
-              </ul>
-            </nav>
-          </div>
-          <div className="order-1 md:order-2">
-            <a
-              className="flex items-center tracking-wide no-underline hover:no-underline font-bold text-gray-800 text-xl "
-              href="#"
-            >
-              <svg
-                className="fill-current text-gray-800 mr-2"
-                xmlns="http://www.w3.org/2000/svg"
-                width={24}
-                height={24}
-                viewBox="0 0 24 24"
-              >
-                <path d="M5,22h14c1.103,0,2-0.897,2-2V9c0-0.553-0.447-1-1-1h-3V7c0-2.757-2.243-5-5-5S7,4.243,7,7v1H4C3.447,8,3,8.447,3,9v11 C3,21.103,3.897,22,5,22z M9,7c0-1.654,1.346-3,3-3s3,1.346,3,3v1H9V7z M5,10h2v2h2v-2h6v2h2v-2h2l0.002,10H5V10z" />
-              </svg>
-              NORDICS
-            </a>
-          </div>
-          <div
-            className="order-2 md:order-3 flex items-center"
-            id="nav-content"
-          >
-            <a className="inline-block no-underline hover:text-black" href="#">
-              <svg
-                className="fill-current hover:text-black"
-                xmlns="http://www.w3.org/2000/svg"
-                width={24}
-                height={24}
-                viewBox="0 0 24 24"
-              >
-                <circle fill="none" cx={12} cy={7} r={3} />
-                <path d="M12 2C9.243 2 7 4.243 7 7s2.243 5 5 5 5-2.243 5-5S14.757 2 12 2zM12 10c-1.654 0-3-1.346-3-3s1.346-3 3-3 3 1.346 3 3S13.654 10 12 10zM21 21v-1c0-3.859-3.141-7-7-7h-4c-3.86 0-7 3.141-7 7v1h2v-1c0-2.757 2.243-5 5-5h4c2.757 0 5 2.243 5 5v1H21z" />
-              </svg>
-            </a>
-            <a
-              className="pl-3 inline-block no-underline hover:text-black"
-              href="#"
-            >
-              <svg
-                className="fill-current hover:text-black"
-                xmlns="http://www.w3.org/2000/svg"
-                width={24}
-                height={24}
-                viewBox="0 0 24 24"
-              >
-                <path d="M21,7H7.462L5.91,3.586C5.748,3.229,5.392,3,5,3H2v2h2.356L9.09,15.414C9.252,15.771,9.608,16,10,16h8 c0.4,0,0.762-0.238,0.919-0.606l3-7c0.133-0.309,0.101-0.663-0.084-0.944C21.649,7.169,21.336,7,21,7z M17.341,14h-6.697L8.371,9 h11.112L17.341,14z" />
-                <circle cx="10.5" cy="18.5" r="1.5" />
-                <circle cx="17.5" cy="18.5" r="1.5" />
-              </svg>
-            </a>
-          </div>
-        </div>
-      </nav>
+      <div></div>
       <div className="h-72 sm:h-80 xl:h-[30rem] 2xl:h-[36rem]">
         <Carousel slideInterval={3000}>
-          <img
-            src="https://flowbite.com/docs/images/carousel/carousel-1.svg"
-            alt="..."
-          />
+          <img src={image1} alt="..." />
           <img
             src="https://flowbite.com/docs/images/carousel/carousel-2.svg"
             alt="..."
@@ -220,255 +129,95 @@ function LandingPage() {
               </div>
             </div>
           </nav>
-          <div className="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col">
-            <a href="#">
-              <img
-                className="hover:grow hover:shadow-lg"
-                src="https://images.unsplash.com/photo-1555982105-d25af4182e4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&h=400&q=80"
-              />
-              <div className="pt-3 flex items-center justify-between">
-                <p className="">Product Name</p>
+          <div className="max-w-screen-xl mx-auto p-5 sm:p-10 md:p-16">
+            <div className="border-b mb-5 flex justify-between text-sm">
+              <div className="text-indigo-600 flex items-center pb-2 pr-2 border-b-2 border-indigo-600 uppercase">
                 <svg
-                  className="h-6 w-6 fill-current text-gray-500 hover:text-black"
+                  className="h-6 mr-3"
+                  version="1.1"
+                  id="Capa_1"
                   xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
+                  xmlnsXlink="http://www.w3.org/1999/xlink"
+                  x="0px"
+                  y="0px"
+                  viewBox="0 0 455.005 455.005"
+                  style={{ enableBackground: "new 0 0 455.005 455.005" }}
+                  xmlSpace="preserve"
                 >
-                  <path d="M12,4.595c-1.104-1.006-2.512-1.558-3.996-1.558c-1.578,0-3.072,0.623-4.213,1.758c-2.353,2.363-2.352,6.059,0.002,8.412 l7.332,7.332c0.17,0.299,0.498,0.492,0.875,0.492c0.322,0,0.609-0.163,0.792-0.409l7.415-7.415 c2.354-2.354,2.354-6.049-0.002-8.416c-1.137-1.131-2.631-1.754-4.209-1.754C14.513,3.037,13.104,3.589,12,4.595z M18.791,6.205 c1.563,1.571,1.564,4.025,0.002,5.588L12,18.586l-6.793-6.793C3.645,10.23,3.646,7.776,5.205,6.209 c0.76-0.756,1.754-1.172,2.799-1.172s2.035,0.416,2.789,1.17l0.5,0.5c0.391,0.391,1.023,0.391,1.414,0l0.5-0.5 C14.719,4.698,17.281,4.702,18.791,6.205z" />
+                  <g>
+                    <path d="M446.158,267.615c-5.622-3.103-12.756-2.421-19.574,1.871l-125.947,79.309c-3.505,2.208-4.557,6.838-2.35,10.343 c2.208,3.505,6.838,4.557,10.343,2.35l125.947-79.309c2.66-1.675,4.116-1.552,4.331-1.432c0.218,0.12,1.096,1.285,1.096,4.428 c0,8.449-6.271,19.809-13.42,24.311l-122.099,76.885c-6.492,4.088-12.427,5.212-16.284,3.084c-3.856-2.129-6.067-7.75-6.067-15.423 c0-19.438,13.896-44.61,30.345-54.967l139.023-87.542c2.181-1.373,3.503-3.77,3.503-6.347s-1.323-4.974-3.503-6.347L184.368,50.615 c-2.442-1.538-5.551-1.538-7.993,0L35.66,139.223C15.664,151.815,0,180.188,0,203.818v4c0,23.63,15.664,52.004,35.66,64.595 l209.292,131.791c3.505,2.207,8.136,1.154,10.343-2.35c2.207-3.505,1.155-8.136-2.35-10.343L43.653,259.72 C28.121,249.941,15,226.172,15,207.818v-4c0-18.354,13.121-42.122,28.653-51.902l136.718-86.091l253.059,159.35l-128.944,81.196 c-20.945,13.189-37.352,42.909-37.352,67.661c0,13.495,4.907,23.636,13.818,28.555c3.579,1.976,7.526,2.956,11.709,2.956 c6.231,0,12.985-2.176,19.817-6.479l122.099-76.885c11.455-7.213,20.427-23.467,20.427-37.004 C455.004,277.119,451.78,270.719,446.158,267.615z">
+                      {" "}
+                    </path>
+                    <path d="M353.664,232.676c2.492,0,4.928-1.241,6.354-3.504c2.207-3.505,1.155-8.136-2.35-10.343l-173.3-109.126 c-3.506-2.207-8.136-1.154-10.343,2.35c-2.207,3.505-1.155,8.136,2.35,10.343l173.3,109.126 C350.916,232.303,352.298,232.676,353.664,232.676z">
+                      {" "}
+                    </path>
+                    <path d="M323.68,252.58c2.497,0,4.938-1.246,6.361-3.517c2.201-3.509,1.14-8.138-2.37-10.338L254.46,192.82 c-3.511-2.202-8.139-1.139-10.338,2.37c-2.201,3.51-1.14,8.138,2.37,10.338l73.211,45.905 C320.941,252.21,322.318,252.58,323.68,252.58z">
+                      {" "}
+                    </path>
+                    <path d="M223.903,212.559c-3.513-2.194-8.14-1.124-10.334,2.39c-2.194,3.514-1.124,8.14,2.39,10.334l73.773,46.062 c1.236,0.771,2.608,1.139,3.965,1.139c2.501,0,4.947-1.251,6.369-3.529c2.194-3.514,1.124-8.14-2.39-10.334L223.903,212.559z">
+                      {" "}
+                    </path>
+                    <path d="M145.209,129.33l-62.33,39.254c-2.187,1.377-3.511,3.783-3.503,6.368s1.345,4.983,3.54,6.348l74.335,46.219 c1.213,0.754,2.586,1.131,3.96,1.131c1.417,0,2.833-0.401,4.071-1.201l16.556-10.7c3.479-2.249,4.476-6.891,2.228-10.37 c-2.248-3.479-6.891-4.475-10.37-2.228l-12.562,8.119l-60.119-37.38l48.2-30.355l59.244,37.147l-6.907,4.464 c-3.479,2.249-4.476,6.891-2.228,10.37c2.249,3.479,6.894,4.476,10.37,2.228l16.8-10.859c2.153-1.392,3.446-3.787,3.429-6.351 c-0.018-2.563-1.344-4.94-3.516-6.302l-73.218-45.909C150.749,127.792,147.647,127.795,145.209,129.33z">
+                      {" "}
+                    </path>
+                    <path d="M270.089,288.846c2.187-3.518,1.109-8.142-2.409-10.329l-74.337-46.221c-3.518-2.188-8.143-1.109-10.329,2.409 c-2.187,3.518-1.109,8.142,2.409,10.329l74.337,46.221c1.232,0.767,2.601,1.132,3.953,1.132 C266.219,292.387,268.669,291.131,270.089,288.846z">
+                      {" "}
+                    </path>
+                    <path d="M53.527,192.864c-2.187,3.518-1.109,8.142,2.409,10.329l183.478,114.081c1.232,0.767,2.601,1.132,3.953,1.132 c2.506,0,4.956-1.256,6.376-3.541c2.187-3.518,1.109-8.142-2.409-10.329L63.856,190.455 C60.338,188.266,55.714,189.346,53.527,192.864z">
+                      {" "}
+                    </path>
+                  </g>
                 </svg>
+                <a href="#" className="font-semibold inline-block">
+                  Our Products
+                </a>
               </div>
-              <p className="pt-1 text-gray-900">£9.99</p>
-            </a>
-          </div>
-          <div className="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col">
-            <a href="#">
-              <img
-                className="hover:grow hover:shadow-lg"
-                src="https://images.unsplash.com/photo-1508423134147-addf71308178?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&h=400&q=80"
-              />
-              <div className="pt-3 flex items-center justify-between">
-                <p className="">Product Name</p>
-                <svg
-                  className="h-6 w-6 fill-current text-gray-500 hover:text-black"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M12,4.595c-1.104-1.006-2.512-1.558-3.996-1.558c-1.578,0-3.072,0.623-4.213,1.758c-2.353,2.363-2.352,6.059,0.002,8.412 l7.332,7.332c0.17,0.299,0.498,0.492,0.875,0.492c0.322,0,0.609-0.163,0.792-0.409l7.415-7.415 c2.354-2.354,2.354-6.049-0.002-8.416c-1.137-1.131-2.631-1.754-4.209-1.754C14.513,3.037,13.104,3.589,12,4.595z M18.791,6.205 c1.563,1.571,1.564,4.025,0.002,5.588L12,18.586l-6.793-6.793C3.645,10.23,3.646,7.776,5.205,6.209 c0.76-0.756,1.754-1.172,2.799-1.172s2.035,0.416,2.789,1.17l0.5,0.5c0.391,0.391,1.023,0.391,1.414,0l0.5-0.5 C14.719,4.698,17.281,4.702,18.791,6.205z" />
-                </svg>
-              </div>
-              <p className="pt-1 text-gray-900">£9.99</p>
-            </a>
-          </div>
-          <div className="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col">
-            <a href="#">
-              <img
-                className="hover:grow hover:shadow-lg"
-                src="https://images.unsplash.com/photo-1449247709967-d4461a6a6103?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&h=400&q=80"
-              />
-              <div className="pt-3 flex items-center justify-between">
-                <p className="">Product Name</p>
-                <svg
-                  className="h-6 w-6 fill-current text-gray-500 hover:text-black"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M12,4.595c-1.104-1.006-2.512-1.558-3.996-1.558c-1.578,0-3.072,0.623-4.213,1.758c-2.353,2.363-2.352,6.059,0.002,8.412 l7.332,7.332c0.17,0.299,0.498,0.492,0.875,0.492c0.322,0,0.609-0.163,0.792-0.409l7.415-7.415 c2.354-2.354,2.354-6.049-0.002-8.416c-1.137-1.131-2.631-1.754-4.209-1.754C14.513,3.037,13.104,3.589,12,4.595z M18.791,6.205 c1.563,1.571,1.564,4.025,0.002,5.588L12,18.586l-6.793-6.793C3.645,10.23,3.646,7.776,5.205,6.209 c0.76-0.756,1.754-1.172,2.799-1.172s2.035,0.416,2.789,1.17l0.5,0.5c0.391,0.391,1.023,0.391,1.414,0l0.5-0.5 C14.719,4.698,17.281,4.702,18.791,6.205z" />
-                </svg>
-              </div>
-              <p className="pt-1 text-gray-900">£9.99</p>
-            </a>
-          </div>
-          <div className="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col">
-            <a href="#">
-              <img
-                className="hover:grow hover:shadow-lg"
-                src="https://images.unsplash.com/reserve/LJIZlzHgQ7WPSh5KVTCB_Typewriter.jpg?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&h=400&q=80"
-              />
-              <div className="pt-3 flex items-center justify-between">
-                <p className="">Product Name</p>
-                <svg
-                  className="h-6 w-6 fill-current text-gray-500 hover:text-black"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M12,4.595c-1.104-1.006-2.512-1.558-3.996-1.558c-1.578,0-3.072,0.623-4.213,1.758c-2.353,2.363-2.352,6.059,0.002,8.412 l7.332,7.332c0.17,0.299,0.498,0.492,0.875,0.492c0.322,0,0.609-0.163,0.792-0.409l7.415-7.415 c2.354-2.354,2.354-6.049-0.002-8.416c-1.137-1.131-2.631-1.754-4.209-1.754C14.513,3.037,13.104,3.589,12,4.595z M18.791,6.205 c1.563,1.571,1.564,4.025,0.002,5.588L12,18.586l-6.793-6.793C3.645,10.23,3.646,7.776,5.205,6.209 c0.76-0.756,1.754-1.172,2.799-1.172s2.035,0.416,2.789,1.17l0.5,0.5c0.391,0.391,1.023,0.391,1.414,0l0.5-0.5 C14.719,4.698,17.281,4.702,18.791,6.205z" />
-                </svg>
-              </div>
-              <p className="pt-1 text-gray-900">£9.99</p>
-            </a>
-          </div>
-          <div className="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col">
-            <a href="#">
-              <img
-                className="hover:grow hover:shadow-lg"
-                src="https://images.unsplash.com/photo-1467949576168-6ce8e2df4e13?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&h=400&q=80"
-              />
-              <div className="pt-3 flex items-center justify-between">
-                <p className="">Product Name</p>
-                <svg
-                  className="h-6 w-6 fill-current text-gray-500 hover:text-black"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M12,4.595c-1.104-1.006-2.512-1.558-3.996-1.558c-1.578,0-3.072,0.623-4.213,1.758c-2.353,2.363-2.352,6.059,0.002,8.412 l7.332,7.332c0.17,0.299,0.498,0.492,0.875,0.492c0.322,0,0.609-0.163,0.792-0.409l7.415-7.415 c2.354-2.354,2.354-6.049-0.002-8.416c-1.137-1.131-2.631-1.754-4.209-1.754C14.513,3.037,13.104,3.589,12,4.595z M18.791,6.205 c1.563,1.571,1.564,4.025,0.002,5.588L12,18.586l-6.793-6.793C3.645,10.23,3.646,7.776,5.205,6.209 c0.76-0.756,1.754-1.172,2.799-1.172s2.035,0.416,2.789,1.17l0.5,0.5c0.391,0.391,1.023,0.391,1.414,0l0.5-0.5 C14.719,4.698,17.281,4.702,18.791,6.205z" />
-                </svg>
-              </div>
-              <p className="pt-1 text-gray-900">£9.99</p>
-            </a>
-          </div>
-          <div className="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col">
-            <a href="#">
-              <img
-                className="hover:grow hover:shadow-lg"
-                src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&h=400&q=80"
-              />
-              <div className="pt-3 flex items-center justify-between">
-                <p className="">Product Name</p>
-                <svg
-                  className="h-6 w-6 fill-current text-gray-500 hover:text-black"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M12,4.595c-1.104-1.006-2.512-1.558-3.996-1.558c-1.578,0-3.072,0.623-4.213,1.758c-2.353,2.363-2.352,6.059,0.002,8.412 l7.332,7.332c0.17,0.299,0.498,0.492,0.875,0.492c0.322,0,0.609-0.163,0.792-0.409l7.415-7.415 c2.354-2.354,2.354-6.049-0.002-8.416c-1.137-1.131-2.631-1.754-4.209-1.754C14.513,3.037,13.104,3.589,12,4.595z M18.791,6.205 c1.563,1.571,1.564,4.025,0.002,5.588L12,18.586l-6.793-6.793C3.645,10.23,3.646,7.776,5.205,6.209 c0.76-0.756,1.754-1.172,2.799-1.172s2.035,0.416,2.789,1.17l0.5,0.5c0.391,0.391,1.023,0.391,1.414,0l0.5-0.5 C14.719,4.698,17.281,4.702,18.791,6.205z" />
-                </svg>
-              </div>
-              <p className="pt-1 text-gray-900">£9.99</p>
-            </a>
-          </div>
-          <div className="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col">
-            <a href="#">
-              <img
-                className="hover:grow hover:shadow-lg"
-                src="https://images.unsplash.com/photo-1550837368-6594235de85c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&h=400&q=80"
-              />
-              <div className="pt-3 flex items-center justify-between">
-                <p className="">Product Name</p>
-                <svg
-                  className="h-6 w-6 fill-current text-gray-500 hover:text-black"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M12,4.595c-1.104-1.006-2.512-1.558-3.996-1.558c-1.578,0-3.072,0.623-4.213,1.758c-2.353,2.363-2.352,6.059,0.002,8.412 l7.332,7.332c0.17,0.299,0.498,0.492,0.875,0.492c0.322,0,0.609-0.163,0.792-0.409l7.415-7.415 c2.354-2.354,2.354-6.049-0.002-8.416c-1.137-1.131-2.631-1.754-4.209-1.754C14.513,3.037,13.104,3.589,12,4.595z M18.791,6.205 c1.563,1.571,1.564,4.025,0.002,5.588L12,18.586l-6.793-6.793C3.645,10.23,3.646,7.776,5.205,6.209 c0.76-0.756,1.754-1.172,2.799-1.172s2.035,0.416,2.789,1.17l0.5,0.5c0.391,0.391,1.023,0.391,1.414,0l0.5-0.5 C14.719,4.698,17.281,4.702,18.791,6.205z" />
-                </svg>
-              </div>
-              <p className="pt-1 text-gray-900">£9.99</p>
-            </a>
-          </div>
-          <div className="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col">
-            <a href="#">
-              <img
-                className="hover:grow hover:shadow-lg"
-                src="https://images.unsplash.com/photo-1551431009-a802eeec77b1?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&h=400&q=80"
-              />
-              <div className="pt-3 flex items-center justify-between">
-                <p className="">Product Name</p>
-                <svg
-                  className="h-6 w-6 fill-current text-gray-500 hover:text-black"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M12,4.595c-1.104-1.006-2.512-1.558-3.996-1.558c-1.578,0-3.072,0.623-4.213,1.758c-2.353,2.363-2.352,6.059,0.002,8.412 l7.332,7.332c0.17,0.299,0.498,0.492,0.875,0.492c0.322,0,0.609-0.163,0.792-0.409l7.415-7.415 c2.354-2.354,2.354-6.049-0.002-8.416c-1.137-1.131-2.631-1.754-4.209-1.754C14.513,3.037,13.104,3.589,12,4.595z M18.791,6.205 c1.563,1.571,1.564,4.025,0.002,5.588L12,18.586l-6.793-6.793C3.645,10.23,3.646,7.776,5.205,6.209 c0.76-0.756,1.754-1.172,2.799-1.172s2.035,0.416,2.789,1.17l0.5,0.5c0.391,0.391,1.023,0.391,1.414,0l0.5-0.5 C14.719,4.698,17.281,4.702,18.791,6.205z" />
-                </svg>
-              </div>
-              <p className="pt-1 text-gray-900">£9.99</p>
-            </a>
+              <a href="#">See All</a>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
+              {/* CARD 1 */}
+
+              {products &&
+                products.length > 0 &&
+                products.map((item) => (
+                  <>
+                    <ProductCard item={item} />
+                  </>
+                ))}
+            </div>
           </div>
         </div>
       </section>
+
+      <Chooseus/>
+
       <section className="bg-white py-8">
         <div className="container py-8 px-6 mx-auto">
           <a
             className="uppercase tracking-wide no-underline hover:no-underline font-bold text-gray-800 text-xl mb-8"
             href="#"
           >
-            About
+
+            About Us
           </a>
-          <p className="mt-8 mb-8">
-            This template is inspired by the stunning nordic minimalist design -
-            in particular:
-            <br />
-            <a
-              className="text-gray-800 underline hover:text-gray-900"
-              href="http://savoy.nordicmade.com/"
-              target="_blank"
-            >
-              Savoy Theme
-            </a>{" "}
-            created by{" "}
-            <a
-              className="text-gray-800 underline hover:text-gray-900"
-              href="https://nordicmade.com/"
-            >
-              https://nordicmade.com/
-            </a>{" "}
-            and{" "}
-            <a
-              className="text-gray-800 underline hover:text-gray-900"
-              href="https://www.metricdesign.no/"
-              target="_blank"
-            >
-              https://www.metricdesign.no/
-            </a>
-          </p>
-          <p className="mb-8">
-            Lorem ipsum dolor sit amet, consectetur <a href="#">random link</a>{" "}
-            adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-            dolore magna aliqua. Vel risus commodo viverra maecenas accumsan
-            lacus vel facilisis volutpat. Vitae aliquet nec ullamcorper sit.
-            Nullam eget felis eget nunc lobortis mattis aliquam. In est ante in
-            nibh mauris. Egestas congue quisque egestas diam in. Facilisi nullam
-            vehicula ipsum a arcu. Nec nam aliquam sem et tortor consequat. Eget
-            mi proin sed libero enim sed faucibus turpis in. Hac habitasse
-            platea dictumst quisque. In aliquam sem fringilla ut. Gravida rutrum
-            quisque non tellus orci ac auctor augue mauris. Accumsan lacus vel
-            facilisis volutpat est velit egestas dui id. At tempor commodo
-            ullamcorper a. Volutpat commodo sed egestas egestas fringilla. Vitae
-            congue eu consequat ac.
+          
+          <p className="mb-8 mt-6">
+            Our company ANAJWALA is all about delivering freshly ground wheat
+            flour right to your doorstep, founded In 1995 By One Of The Well
+            Known Personality In Hospitality Industry , Mr. Nikhilesh Pandey He
+            Has Invested More Than 30 Years In Well Known Brand . Finest In
+            Quality This Appetizing Brand Was Brought In The Year 2023 (The
+            Cleanest City Of India) By Mr. Nikhilesh Pandey ( More Than 30 Years
+            Of Experience , Hotel Management ) & Mr. Harsh Pandey (MBA In
+            Marketing And Finance). We believe that the foundation of great
+            cooking starts with the best ingredients. That's why we are
+            committed to providing our customers with freshly milled flour that
+            not only meets but exceeds your expectations
           </p>
         </div>
       </section>
-      <footer className="container mx-auto bg-white py-8 border-t border-gray-400">
-        <div className="container flex px-3 py-8 ">
-          <div className="w-full mx-auto flex flex-wrap">
-            <div className="flex w-full lg:w-1/2 ">
-              <div className="px-3 md:px-0">
-                <h3 className="font-bold text-gray-900">About</h3>
-                <p className="py-4">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Maecenas vel mi ut felis tempus commodo nec id erat.
-                  Suspendisse consectetur dapibus velit ut lacinia.
-                </p>
-              </div>
-            </div>
-            <div className="flex w-full lg:w-1/2 lg:justify-end lg:text-right mt-6 md:mt-0">
-              <div className="px-3 md:px-0">
-                <h3 className="text-left font-bold text-gray-900">Social</h3>
-                <div className="w-full flex items-center py-4 mt-0">
-                  <a href="#" className="mx-2">
-                    <svg className="w-6 h-6 fill-current" viewBox="0 0 24 24">
-                      <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" />
-                    </svg>
-                  </a>
-                  <a href="#" className="mx-2">
-                    <svg className="w-6 h-6 fill-current" viewBox="0 0 24 24">
-                      <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
-                    </svg>
-                  </a>
-                  <a href="#" className="mx-2">
-                    <svg className="w-6 h-6 fill-current" viewBox="0 0 24 24">
-                      <path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z" />
-                    </svg>
-                  </a>
-                  <a href="#" className="mx-2">
-                    <svg className="w-6 h-6 fill-current" viewBox="0 0 24 24">
-                      <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.401.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.354-.629-2.758-1.379l-.749 2.848c-.269 1.045-1.004 2.352-1.498 3.146 1.123.345 2.306.535 3.55.535 6.607 0 11.985-5.365 11.985-11.987C23.97 5.39 18.592.026 11.985.026L12.017 0z" />
-                    </svg>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </footer>
+
+
     </>
   );
 }
