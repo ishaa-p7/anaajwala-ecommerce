@@ -2,7 +2,7 @@ const Order = require('../models/order.model.js')
 const User = require('../models/user.model.js')
 const {Product} = require('../models/product.model.js')
 const {errorhandler} = require('../utils/error.js')
-
+const client = require('../utils/twilio.js')
 
 /**
  * Controller method to create a new order
@@ -49,8 +49,16 @@ const createOrder = async (req, res) => {
 
     // Save the order to the database
     const savedOrder = await newOrder.save();
+    await User.findByIdAndUpdate(req.userId , {$addToSet :{orders : savedOrder._id}})
 
     res.status(201).json({ message: 'Order created successfully', order: savedOrder });
+
+    const message = await client.messages.create({
+      body: `Hi ${customerName}! \nYour order has successfully been placed!\nOrder Id : ${savedOrder._id}`,
+      from: 'whatsapp:+14155238886', // Replace with your Twilio WhatsApp-enabled number
+      to: `whatsapp:+91${customer_phone_no}`   // Replace with the recipient's WhatsApp number
+  });
+  console.log('Message SID:', message.sid);
   } catch (error) {
     console.error('Error creating order:', error);
     res.status(500).json({ message: 'Internal server error' });

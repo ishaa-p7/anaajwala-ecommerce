@@ -40,6 +40,7 @@ export default function NavbarComponent() {
           <Navbar.Link><Link to="/products">Products</Link></Navbar.Link>
           <Navbar.Link><Link to="/">No-where</Link></Navbar.Link>
           <Navbar.Link> <Link to="/user/cart">Cart</Link></Navbar.Link>
+          <Navbar.Link> <Link to="/user/orders">Orders</Link></Navbar.Link>
           <Navbar.Link><Link to="/admin">admin Panel</Link></Navbar.Link>
         </Navbar.Collapse>
       </Navbar>
