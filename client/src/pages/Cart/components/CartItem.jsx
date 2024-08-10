@@ -48,10 +48,10 @@ function CartItem({item}) {
                         </span>
                     </p>
                     <p className="font-semibold font-mono text-base dark:text-white xl:text-lg leading-6 text-gray-800">
-                        ₹{item.product.price[item.type]} /Kg
+                        ₹{item.product.price} /Kg
                     </p>
                     <p className="text-base dark:text-white xl:text-lg font-semibold leading-6 text-gray-800">
-                    ₹{item.product.price[item.type] * item.quantity}
+                    ₹{item.product.price * item.quantity}
                     </p>
                 </div>
             </div>

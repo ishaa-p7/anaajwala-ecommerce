@@ -22,7 +22,7 @@ function ProductPage() {
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
-  const [type, setType] = useState("platinum");
+  // const [type, setType] = useState("platinum");
   const [quantity, setQuantity] = useState("2");
 
 
@@ -49,11 +49,11 @@ function ProductPage() {
     fetchProduct();
   }, []);
 
-  const handleTypeChange = (ev) => {
-    ev.preventDefault();
-    console.log(ev.target.value);
-    setType(ev.target.value);
-  };
+  // const handleTypeChange = (ev) => {
+  //   ev.preventDefault();
+  //   console.log(ev.target.value);
+  //   setType(ev.target.value);
+  // };
   const handleQuantityChange = (event) => {
     setQuantity(event.target.value);
   };
@@ -63,7 +63,6 @@ function ProductPage() {
       id : product._id,
       product,
       quantity,
-      type,
     }))
     notify()
   }
@@ -260,7 +259,7 @@ function ProductPage() {
               </div>
               <h2 className="mt-8 text-base text-gray-900">Variant</h2>
               <div className="mt-3 flex select-none flex-wrap items-center gap-1">
-                <label className="cursor-pointer">
+                {/* <label className="cursor-pointer">
                   <input
                     type="radio"
                     name="type"
@@ -293,22 +292,18 @@ function ProductPage() {
                   >
                     Platinum
                   </p>
-                </label>
+                </label> */}
                 <label className="cursor-pointer">
                   <input
                     type="radio"
                     name="type"
                     value="diamond"
                     className="peer sr-only"
-                    onChange={handleTypeChange}
-                    checked={type === "diamond"}
                   />
                   <p
-                    className={`${
-                      type == "diamond" ? "bg-black text-white" : ""
-                    } rounded-lg border border-black px-6 py-2 font-bold`}
+                    className={`bg-black text-white rounded-lg border border-black px-6 py-2 font-bold`}
                   >
-                    Diamond
+                    {product.type}
                   </p>
                 </label>
               </div>
@@ -412,7 +407,7 @@ function ProductPage() {
               <div className="mt-10 flex flex-col items-center justify-between space-y-4 border-t border-b py-4 sm:flex-row sm:space-y-0">
                 <div className="flex items-end">
                   <h1 className="text-3xl font-bold">
-                  ₹{product.price[type]}
+                  ₹{product.price}
                   </h1>
                   <span className="text-base">/Kg</span>
                 </div>

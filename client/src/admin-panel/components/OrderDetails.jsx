@@ -84,6 +84,9 @@ const OrderDetails = ({ order }) => {
                       <strong>Product Name:</strong> {item.productName}
                     </p>
                     <p>
+                      <strong>Variant:</strong> {item.type}
+                    </p>
+                    <p>
                       <strong>Quantity:</strong> {item.quantity} Kg
                     </p>
                     <p>

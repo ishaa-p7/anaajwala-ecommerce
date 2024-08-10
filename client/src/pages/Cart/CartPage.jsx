@@ -58,7 +58,8 @@ function CartPage() {
                 productId : item.id,
                 productName : item.product.name,
                 quantity : item.quantity,
-                price : Number(item.product.price[item.type]) * Number(item.quantity),
+                price : Number(item.product.price) * Number(item.quantity),
+                type : item.product.type
             }
             return obj;
         })
@@ -150,14 +151,12 @@ function CartPage() {
 
                                     {cart &&
                                         cart.length > 0 &&
-                                        cart.map((item) => (
-                                            <>
-                                                <CartItem item={item} />
-                                            </>
+                                        cart.map((item , index) => (
+                                                <CartItem key={index} item={item} />
                                         ))}
                                 </div>
                                 <div className="flex justify-center flex-col md:flex-row flex-col items-stretch w-full space-y-4 md:space-y-0 md:space-x-6 xl:space-x-8">
-                                    <Summary cart={cart} priceRef={priceRef} />
+                                    <Summary cart={cart} ref={priceRef} />
                                     <CheckOut loading={loading} />
                                 </div>
                             </div>

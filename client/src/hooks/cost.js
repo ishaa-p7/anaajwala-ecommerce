@@ -6,7 +6,7 @@ import {promoCodes} from '../utils/promoCodes.js'
  */
 const calculateCost = (cart , code)=>{
     const totalPrice = cart.reduce((accumulator, item) => {
-        return (accumulator += Number(item.product.price[item.type]) * Number(item.quantity));
+        return (accumulator += Number(item.product.price) * Number(item.quantity));
     }, 0);
 
     let finalPrice = totalPrice;
