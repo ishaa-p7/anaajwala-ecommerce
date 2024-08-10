@@ -6,6 +6,8 @@ import { useEffect } from "react";
 import ProductCard from "./components/ProductCard";
 import axios from "axios";
 import image1 from "../../assets/image1.jpg";
+import banner2 from "../../assets/banner2.jpg";
+import banner3 from "../../assets/banner3.jpg";
 import Chooseus from "./components/Chooseus";
 
 function LandingPage() {
@@ -50,15 +52,15 @@ function LandingPage() {
         <Carousel slideInterval={3000}>
           <img src={image1} alt="..." />
           <img
-            src="https://flowbite.com/docs/images/carousel/carousel-2.svg"
-            alt="..."
-          />
-          <img
-            src="https://flowbite.com/docs/images/carousel/carousel-3.svg"
+            src={banner3}
             alt="..."
           />
           <img
             src="https://flowbite.com/docs/images/carousel/carousel-4.svg"
+            alt="..."
+          />
+          <img
+            src={banner2}
             alt="..."
           />
           <img
