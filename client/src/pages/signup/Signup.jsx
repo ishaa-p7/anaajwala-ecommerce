@@ -32,7 +32,8 @@ const Signup = () => {
   } = useForm();
 
   const onSubmit = async (data) => {
-    console.log(data);
+    data.username = data.username.toLowerCase()
+    // console.log(data);
     setLoading((prev) => true);
 
     try {
@@ -78,7 +79,8 @@ const Signup = () => {
                 Create your account
               </h1>
               <form onSubmit={handleSubmit(onSubmit)}>
-                <button
+
+                {/* <button
                   className="w-full inline-flex items-center justify-center py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-gray-900 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
                   type="button"
                 >
@@ -118,7 +120,8 @@ const Signup = () => {
                     </defs>
                   </svg>
                   Sign up with Google
-                </button>
+                </button> */}
+                
               </form>
               <div className="flex items-center">
                 <div className="w-full h-0.5 bg-gray-200 dark:bg-gray-700" />
@@ -187,6 +190,34 @@ const Signup = () => {
                   {errors.phone_no && (
                     <p className="mt-2 text-sm text-red-600 dark:text-red-500">
                       {errors.phone_no.message}
+                    </p>
+                  )}
+                </div>
+                <div>
+                  <label
+                    htmlFor="confirm_phone_no"
+                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  >
+                    Confirm Contact number
+                  </label>
+                  <input
+                    type="text"
+                    name="confirm_phone_no"
+                    id="confirm_phone_no"
+                    className={`bg-gray-50 border ${
+                      errors.phone_no ? "border-red-500" : "border-gray-300"
+                    } text-gray-900 sm:text-sm rounded-lg focus:ring-teal-600 focus:border-teal-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500`}
+                    placeholder="confirm you contact number"
+                    {...register("confirm_phone_no", {
+                      required: "Please confirm your contact number",
+                      validate: (value) =>
+                        value === getValues("phone_no") ||
+                        "Contact Number do not match.",
+                    })}
+                  />
+                  {errors.confirm_phone_no && (
+                    <p className="mt-2 text-sm text-red-600 dark:text-red-500">
+                      {errors.confirm_phone_no.message}
                     </p>
                   )}
                 </div>

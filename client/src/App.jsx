@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import {
+  clearError,
   fetchUser,
   loginUser,
   signoutUser,
@@ -19,11 +20,17 @@ import NotFoundPage from "./components/NotFoundPage.jsx";
 import CartPage from "./pages/Cart/CartPage.jsx";
 import Products from "./pages/products/Products.jsx";
 import Orders from "./pages/orders/Orders.jsx";
+import ForgotPassword from "./pages/forgot-password/ForgotPassword.jsx";
+import ResetPassword from "./pages/forgot-password/ResetPassword.jsx";
 
 function App() {
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(fetchUser());
+    async function fetchUserOnLoad(){
+      await dispatch(fetchUser());
+      dispatch(clearError())
+    }
+    fetchUserOnLoad()
   }, []);
   return (
     <BrowserRouter>
@@ -38,6 +45,8 @@ function App() {
 
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="/reset-password/:username/:id/:token" element={<ResetPassword />} />
 
         <Route path="/admin" element={<AdminRoute />}>
           <Route index element={<Dashboard />} />

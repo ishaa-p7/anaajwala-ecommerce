@@ -72,6 +72,9 @@ const userSlice = createSlice({
       state.user = null
       state.error = ''
       state.loading = false      
+    },
+    clearError : (state)=>{
+      state.error = ''
     }
   },
   extraReducers: builder => {
@@ -133,4 +136,5 @@ export {
 export const {
   addUser,
   clearUser,
+  clearError,
 } = userSlice.actions

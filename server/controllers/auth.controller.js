@@ -2,6 +2,7 @@ const User = require("../models/user.model.js")
 const bcryptjs = require("bcryptjs")
 const { errorhandler } = require("../utils/error.js")
 const jwt = require("jsonwebtoken")
+const client = require('../utils/twilio.js')
 
 
 // import admin from 'firebase-admin'
@@ -21,7 +22,7 @@ const signup = async (req, res, next) => {
     const maxAge = 3 * 24 * 60 * 60
 
     try {
-        const newUser = new User({ username, email,phone_no, password: hashedPassword , saved:[] , orders:[]})
+        const newUser = new User({ username : username.toLowerCase().trim(), email,phone_no, password: hashedPassword , saved:[] , orders:[]})
         const token = jwt.sign({ id: newUser._id }, process.env.JWT_SECRET , {expiresIn : maxAge })
         await newUser.save()
         res
@@ -39,7 +40,7 @@ const signin = async (req, res, next) => {
     const maxAge = 3 * 24 * 60 * 60
 
     try {
-        const validUser = await User.findOne({ username })
+        const validUser = await User.findOne({ username : username.toLowerCase().trim() })
         if (!validUser) {
             return next(errorhandler(404, 'User not found'))
         }
@@ -121,9 +122,65 @@ const signOut = async (req, res, next) => {
     }
 };
 
+const applyForResetPassword = async(req , res , next)=>{
+    try {
+        let {username} = req.body;
+        username = username.toLowerCase()
+        const user = await User.findOne({username})
+        if(!user){
+            return next(errorhandler(404 , "Given username does not exists!" , "user not found"))
+        }
+        const token = jwt.sign({id: user._id}, process.env.JWT_SECRET, {expiresIn: "1d"})
+
+        const message = await client.messages.create({
+            body: `Follow the given link to reset your password\n\n${process.env.DOMAIN || "http://localhost:5173"}/${user.username.split(' ')[0]}/${user._id}/${token}`,
+            from: 'whatsapp:+14155238886', // Replace with your Twilio WhatsApp-enabled number
+            to: `whatsapp:+91${user.phone_no}`   // Replace with the recipient's WhatsApp number
+        });        
+
+
+        res.json({message : "Reset link send to your registered whatsapp number."})
+
+    } catch (error) {
+        console.log(error);
+        next(error)
+    }
+}
+const resetPassword = async(req , res , next)=>{
+    try {
+        
+        const {id, token} = req.params
+        const {password} = req.body
+    
+        const decoded = jwt.verify(token, process.env.JWT_SECRET);
+
+        if(decoded.id != id){
+            return next(errorhandler(401 , "You are not authorized!" , "unauthorized"))
+        }
+        
+        const hashedPassword = bcryptjs.hashSync(password, 10)
+        await User.findByIdAndUpdate({_id: id}, {password: hashedPassword})
+
+        const user = await User.findById(id)
+        res.json(user)
+
+        const message = await client.messages.create({
+            body: `Your password was updated successfully.\n Don't forget the new one!!!`,
+            from: 'whatsapp:+14155238886', // Replace with your Twilio WhatsApp-enabled number
+            to: `whatsapp:+91${user.phone_no}`   // Replace with the recipient's WhatsApp number
+        });            
+
+    } catch (error) {
+        console.log(error);
+        next(error)
+    }
+}
+
 module.exports =  {
     signup,
     signin,
     google,
     signOut,
+    applyForResetPassword,
+    resetPassword,
 }
