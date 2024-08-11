@@ -1,4 +1,5 @@
 const User = require("../models/user.model.js");
+const Order = require("../models/order.model.js")
 const mongoose = require("mongoose");
 const path = require("path");
 require('dotenv').config({ path: path.resolve(__dirname, '../.env') });
@@ -24,4 +25,13 @@ async function addFieldToCollection() {
     }
 }
 
-addFieldToCollection()
+const clearOrders = async ()=>{
+    await User.updateMany({} , {$set:{orders : []}})
+    await Order.deleteMany({})
+
+    console.log("Job Done");
+    
+}
+
+// addFieldToCollection()
+clearOrders()

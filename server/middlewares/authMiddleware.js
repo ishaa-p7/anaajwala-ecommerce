@@ -21,7 +21,7 @@ const User = require('../models/user.model.js')
 
 const isLoggedIn = async (req, res, next) => {
     const token = req.cookies.access_token;
-
+    
     if (!token) {
         return next(errorhandler(401, 'Unauthorized'));
     }

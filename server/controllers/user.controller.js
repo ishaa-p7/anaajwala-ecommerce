@@ -41,8 +41,23 @@ const profile = async(req , res , next)=>{
     }
 }
 
+const getOrders = async (req , res , next)=>{
+    try {
+        // console.log(req.userId);
+        // console.log("req came");
+        
+        //_id was there as well, therefore have to destructure
+        const {orders} = await User.findById(req.userId).populate('orders').select('orders');
+        res.json(orders);
+
+    } catch (error) {
+        console.log(error);
+        next(error)
+    }
+}
 
 module.exports = {
     getUser,
     profile,
+    getOrders,
 }

@@ -59,7 +59,8 @@ function CartPage() {
                 productName : item.product.name,
                 quantity : item.quantity,
                 price : Number(item.product.price) * Number(item.quantity),
-                type : item.product.type
+                type : item.product.type,
+                thumbnail : item.product.thumbnail,
             }
             return obj;
         })
