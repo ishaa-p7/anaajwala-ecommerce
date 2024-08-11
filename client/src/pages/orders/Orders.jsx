@@ -64,10 +64,10 @@ function Orders() {
     }
 
     return (
-        <div className="p-20 min-h-screen">
+        <div className="p-0 md:p-20 min-h-screen">
             <Tabs aria-label="Tabs with icons" variant="fullWidth">
                 <Tabs.Item active title="Your Orders" icon={HiUserCircle}>
-                    <Accordion className="w-3/4 mx-auto">
+                    <Accordion className="w-full md:w-3/4 mx-auto">
                         {pendingOrders.map((order) => (
                             <Accordion.Panel key={order._id}>
                                 <Accordion.Title>
@@ -76,7 +76,7 @@ function Orders() {
                                         "dd MMMM yyyy, h:mm:ss a"
                                     )}
                                 </Accordion.Title>
-                                <Accordion.Content>
+                                <Accordion.Content className="p-1">
                                     <Order order={order} />
                                 </Accordion.Content>
                             </Accordion.Panel>
@@ -84,7 +84,7 @@ function Orders() {
                     </Accordion>
                 </Tabs.Item>
                 <Tabs.Item title="Completed Orders" icon={MdDashboard}>
-                    <Accordion className="w-3/4 mx-auto">
+                    <Accordion className="w-full md:w-3/4 mx-auto">
                         {completedOrders.map((order) => (
                             <Accordion.Panel key={order._id}>
                                 <Accordion.Title>

@@ -11,7 +11,7 @@ function Order({order}) {
 
     return (
                 <section className="py-24 pt-10 relative">
-                    <div className="w-full max-w-7xl px-4 md:px-5 lg-6 mx-auto">
+                    <div className="w-full max-w-7xl px-0 md:px-5 lg-6 mx-auto">
                         <h2 className="font-manrope font-bold text-4xl leading-10 text-black text-center">
                             Order Summary
                         </h2>
