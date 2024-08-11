@@ -16,6 +16,7 @@ function ForgotPassword() {
 
 
     const [loading , setLoading] = useState(false)
+    const[error , setError] = useState('')
     const notify = () => toast.success("Reset Link was sent to your registered whatsapp number to this platform number" , {autoClose : 10000 , position: "top-right",});
 
     // Initialize useForm hook
@@ -43,6 +44,12 @@ function ForgotPassword() {
             notify()
         } catch (error) {
             console.log(error);
+            if(error.response && error.response.data){
+                setError(error.response.data.message)
+            }
+            else{
+                setError(error.message)
+            }
         }
         finally{
             setLoading(prev=>false)
@@ -55,20 +62,21 @@ function ForgotPassword() {
         }
     }, [user]);
 
+
     return (
         <section className="py-4 md:py-8 dark:bg-gray-800">
             <ToastContainer />
             <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-                {user.error ? (
+                {error ? (
                     <>
                         <Alert
-                            onDismiss={() => dispatch(clearUser())}
+                            onDismiss={() => setError('')}
                             className="mb-4"
                             color="failure"
                             icon={HiInformationCircle}
                         >
                             <span className="font-medium">Error!</span>{" "}
-                            {user.error}
+                            {error}
                         </Alert>
                     </>
                 ) : null}
