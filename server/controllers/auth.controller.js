@@ -133,7 +133,7 @@ const applyForResetPassword = async(req , res , next)=>{
         const token = jwt.sign({id: user._id}, process.env.JWT_SECRET, {expiresIn: "1d"})
 
         const message = await client.messages.create({
-            body: `Follow the given link to reset your password\n\n${process.env.DOMAIN || "http://localhost:5173"}/${user.username.split(' ')[0]}/${user._id}/${token}`,
+            body: `Follow the given link to reset your password\n\n${process.env.DOMAIN || "http://localhost:5173"}/reset-password/${user.username.split(' ')[0]}/${user._id}/${token}`,
             from: 'whatsapp:+14155238886', // Replace with your Twilio WhatsApp-enabled number
             to: `whatsapp:+91${user.phone_no}`   // Replace with the recipient's WhatsApp number
         });        
