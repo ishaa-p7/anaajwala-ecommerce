@@ -36,7 +36,7 @@ function Dashboard() {
   }, [location.search]);
   return (
     <div className="">
-      <Button onClick={() => setIsOpen(true)} className="m-4 mb-0 ">
+      <Button onClick={() => setIsOpen(true)} className="m-4 mb-0">
         <AiOutlineMenu className="h-6 w-6" />
       </Button>
       <SideBarContent isOpen={isOpen} handleClose={handleClose} />

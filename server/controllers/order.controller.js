@@ -85,27 +85,25 @@ const getOrder = async (req , res , next)=>{
 const updateOrder = async (req, res, next) => {
   try {
     const {id} = req.params
-    const { newStatus } = req.body;
-
-    console.log("req received");
-    
+    const { newStatus , newPaymentStatus} = req.body;
 
     // Ensure that id and newStatus are provided
-    if (!id || !newStatus) {
+    if (!id && !newStatus && !newPaymentStatus ) {
       return next(errorhandler(400 ,"Missing required fields: id and newStatus" , "update failure" ))
     }
-
-    // Find the order and update it
-    const orderDoc = await Order.findByIdAndUpdate(
-      id, 
-      { status: newStatus },
-      { new: true }  // Return the updated document
-    );
-
-    // Check if the order was found
+    
+    const orderDoc = await Order.findById(id);
     if (!orderDoc) {
       return next(errorhandler(400 ,"Order not found" , "update failure" ))
     }
+    if(newPaymentStatus){
+        orderDoc.paymentStatus = newPaymentStatus
+    }
+    if(newStatus){
+      orderDoc.status = newStatus
+    }
+
+    await orderDoc.save()
 
     res.status(200).json({ message: "Order updated successfully", order: orderDoc });
   } catch (error) {

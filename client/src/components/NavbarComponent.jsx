@@ -22,7 +22,7 @@ export default function NavbarComponent() {
         <Link to="/">
         
           <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
-            ANAAJWALA
+            Anaajwala
           </span>
           </Link>
         </Navbar.Brand>

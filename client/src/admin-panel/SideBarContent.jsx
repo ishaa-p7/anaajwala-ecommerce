@@ -68,7 +68,7 @@ function SideBarContent({ isOpen, handleClose }) {
                     </Link>
                     <Link to="/admin?tab=page2">
                       <Sidebar.Item icon={HiShoppingBag}>
-                        Page 2
+                        Customer Data Form
                       </Sidebar.Item>
                     </Link>
                     <Link to="/admin?tab=page3">

@@ -8,7 +8,7 @@ import { calculateCost } from "../../../hooks/cost";
  * @returns
  */
 const Summary = forwardRef(({ cart }, ref) => {
-    const [promo, setPromo] = useState("ARIN420");
+    const [promo, setPromo] = useState("CODE...");
 
     const { totalPrice, finalPrice, discount } = calculateCost(cart, promo);
 

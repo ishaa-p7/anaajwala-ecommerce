@@ -37,7 +37,7 @@ function ProductCard({ item }) {
             href="#"
             className="py-1 text-xs font-regular text-gray-900 mr-1 flex flex-row items-center"
           >
-            <svg
+            {/* <svg
               height="13px"
               width="13px"
               version="1.1"
@@ -55,10 +55,10 @@ function ProductCard({ item }) {
                   <path d="M256,0C114.837,0,0,114.837,0,256s114.837,256,256,256s256-114.837,256-256S397.163,0,256,0z M277.333,256 c0,11.797-9.536,21.333-21.333,21.333h-85.333c-11.797,0-21.333-9.536-21.333-21.333s9.536-21.333,21.333-21.333h64v-128 c0-11.797,9.536-21.333,21.333-21.333s21.333,9.536,21.333,21.333V256z"></path>
                 </g>
               </g>
-            </svg>
-            <span className="ml-1">6 mins ago</span>
+            </svg> */}
+            <span className="ml-1 font-semibold text-lg">₹{item.price} <span className="text-sm font-light">/Kg</span></span>
           </span>
-          <span
+          {/* <span
             href="#"
             className="py-1 text-xs font-regular text-gray-900 mr-1 flex flex-row items-center"
           >
@@ -76,7 +76,7 @@ function ProductCard({ item }) {
               ></path>
             </svg>
             <span className="ml-1">39 Comments</span>
-          </span>
+          </span> */}
         </div>
       </div>
     </>
@@ -101,7 +101,7 @@ function ProductCard({ item }) {
       </svg> */}
         </div>
         <p className="pt-1 text-gray-900">
-          ₹{item.price["gold"]} /Kg - ₹{item.price["diamond"]} /Kg
+          {/* ₹{item.price["gold"]} /Kg - ₹{item.price["diamond"]} /Kg */}
         </p>
       </Link>
     </div>

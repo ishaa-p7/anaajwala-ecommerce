@@ -25,7 +25,7 @@ function CartItem({item}) {
                             <span className="dark:text-gray-400 text-gray-300">
                                 Variant:{" "}
                             </span>{" "}
-                            {item.type}
+                            {item.product.type}
                         </p>
                         {/* <p className="text-sm dark:text-white leading-none text-gray-800">
                             <span className="dark:text-gray-400 text-gray-300">

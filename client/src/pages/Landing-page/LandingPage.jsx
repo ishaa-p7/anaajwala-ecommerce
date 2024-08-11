@@ -56,7 +56,7 @@ function LandingPage() {
             alt="..."
           />
           <img
-            src="https://flowbite.com/docs/images/carousel/carousel-4.svg"
+            src="https://media.istockphoto.com/id/689762756/photo/empty-field-at-the-sunset.webp?b=1&s=170667a&w=0&k=20&c=w672ocquxE3tEOwB0u2t17bM3CRujjXspd6YVIOdIAg="
             alt="..."
           />
           <img

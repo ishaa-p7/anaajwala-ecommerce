@@ -30,10 +30,13 @@ function OrderRows({ orders, status, setOrders }) {
       }
     }
   };
-  const handlePaymentStatusChange = (id, newStatus) => {
+  const handlePaymentStatusChange = async (id, newPaymentStatus) => {
     // Update the status of the specific order
+    const { data } = await axios.post(`/api/order/${id}/update`, {
+      newPaymentStatus,
+    });
     const updatedOrders = orders.map((order) =>
-      order._id === id ? { ...order, paymentStatus: newStatus } : order
+      order._id === id ? { ...order, paymentStatus: newPaymentStatus } : order
     );
     setOrders(updatedOrders);
   };
@@ -67,7 +70,7 @@ function OrderRows({ orders, status, setOrders }) {
             <>
               {order.status == status ? (
                 <>
-                  <tr className="">
+                  <tr className=""  key={order._id}>
                     <td className="whitespace-no-wrap py-4 text-left text-sm text-gray-600 sm:px-3 lg:text-left">
                       {format(order.createdAt, "yyyy MMMM dd")}
 

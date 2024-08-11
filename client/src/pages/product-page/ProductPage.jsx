@@ -67,7 +67,7 @@ function ProductPage() {
     notify()
   }
 
-  const notify = () => toast.success("Added to cart!" , {autoClose : 1000 , position: "bottom-right",});
+  const notify = () => toast.success("Added to cart!" , {autoClose : 3000 , position: "bottom-right",theme: "dark",});
 
   if (error) {
     return (
