@@ -22,6 +22,7 @@ import Products from "./pages/products/Products.jsx";
 import Orders from "./pages/orders/Orders.jsx";
 import ForgotPassword from "./pages/forgot-password/ForgotPassword.jsx";
 import ResetPassword from "./pages/forgot-password/ResetPassword.jsx";
+import AboutUs from "./pages/about-us/AboutUs.jsx";
 
 function App() {
   const dispatch = useDispatch();
@@ -41,6 +42,7 @@ function App() {
           <Route path="/user/cart" element={<CartPage/>} />
           <Route path="/user/orders" element={<Orders/>} />
           <Route path="/products" element={<Products/>} />
+          <Route path="/about-us" element={<AboutUs/>} />
         </Route>
 
         <Route path="/login" element={<Login />} />
