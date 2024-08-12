@@ -10,6 +10,7 @@ import banner2 from "../../assets/banner2.jpg";
 import banner3 from "../../assets/banner3.jpg";
 import Chooseus from "./components/Chooseus";
 import Harsh1 from "../../assets/Harsh1.jpg"
+import Testimonial from "./components/Testimonial";
 
 function LandingPage() {
   const [products, setProducts] = useState([]); //this will have array of products
@@ -193,6 +194,8 @@ function LandingPage() {
       </section>
 
       <Chooseus/>
+
+      <Testimonial />
 
       <div className="sm:flex items-center max-w-screen-xl mx-auto">
         <div className="sm:w-1/3 p-10 sm:mr-5">

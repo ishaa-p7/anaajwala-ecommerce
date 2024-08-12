@@ -8,8 +8,15 @@ export default {
     flowbite.content(),
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        edu: ['"Edu VIC WA NT Beginner"', 'sans-serif'],
+        lilita: ['"Lilita One"', 'sans-serif'],
+        oswald: ['"Oswald"', 'sans-serif'],
+      },
+    },
   },
+
   plugins: [
     flowbite.plugin(),
   ],

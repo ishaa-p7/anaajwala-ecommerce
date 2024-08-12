@@ -1,5 +1,6 @@
 import React from "react";
 import logo from '../assets/logo.jpg.ico'
+import { Link } from "react-router-dom";
 
 function Footer() {
   return (
@@ -177,28 +178,28 @@ function Footer() {
               </p>
               <ul>
                 <li className="mt-[15px]">
-                  <a
+                  <Link
                     className="text-deutziawhite hover:text-deutziawhite/80 font-inter text-[15px] font-normal hover:font-semibold"
-                    href="/"
+                    to="/"
                   >
                     Home
-                  </a>
+                  </Link>
                 </li>
                 <li className="mt-[15px]">
-                  <a
+                  <Link
                     className="text-deutziawhite hover:text-deutziawhite/80 font-inter text-[15px] font-normal hover:font-semibold"
-                    href="/our-tutors"
+                    to="/"
                   >
                     Products
-                  </a>
+                  </Link>
                 </li>
                 <li className="mt-[15px]">
-                  <a
+                  <Link
                     className="text-deutziawhite hover:text-deutziawhite/80 font-inter text-[15px] font-normal hover:font-semibold"
-                    href="/become-a-tutor"
+                    to="/user/cart"
                   >
                     Cart
-                  </a>
+                  </Link>
                 </li>
                 <li className="mt-[15px]">
                   <a
@@ -220,7 +221,7 @@ function Footer() {
                     loading="lazy"
                     width={168}
                     height={50}
-                    decoding="async"
+                    decoding="async"  
                     data-nimg={1}
                     style={{ color: "transparent" }}
                     src="https://mcqmate.com/public/images/icons/playstore.svg"

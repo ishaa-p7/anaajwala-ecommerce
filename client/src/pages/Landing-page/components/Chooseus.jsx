@@ -19,7 +19,7 @@ function Chooseus() {
               />
             </div>
             <h2 className="title-font font-regular text-2xl text-gray-900">
-              Latest Milling Machinery
+              Freshly Prepared
             </h2>
           </div>
         </div>
@@ -58,7 +58,7 @@ function Chooseus() {
               />
             </div>
             <h2 className="title-font font-regular text-2xl text-gray-900">
-              Expertise in Industry
+              100% Nutritional Assurance
             </h2>
           </div>
         </div>

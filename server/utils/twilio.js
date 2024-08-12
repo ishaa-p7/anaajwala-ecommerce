@@ -16,4 +16,13 @@ const client = twilio(accountSid, authToken);
 // .then(message => console.log('Message SID:', message.sid))
 // .catch(error => console.error('Error:', error));
 
+// client.messages
+//   .create({
+//     body: 'Hello, this is a message from your Twilio trial account!',
+//     from: '+19383481577', // Replace with your Twilio phone number
+//     to: '917999624503'    // Replace with the recipient's phone number
+//   })
+//   .then(message => console.log(`Message sent with SID: ${message.sid}`))
+//   .catch(error => console.error(`Error sending message: ${error}`));
+
 module.exports = client
