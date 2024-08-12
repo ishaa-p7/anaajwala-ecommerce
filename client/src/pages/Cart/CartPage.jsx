@@ -75,7 +75,7 @@ function CartPage() {
             totalPrice : priceRef.current,
             items,
         }
-        console.log(payload);
+        // console.log(payload);
         
         try {
             setLoading(prev => true)

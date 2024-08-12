@@ -1,7 +1,7 @@
 const useInfo = (data)=>{
     
     const {orders , products , users} = data
-    console.log({orders , products , users});
+    // console.log({orders , products , users});
     
     const userCount = users.length;
     const orderCount = orders.length;

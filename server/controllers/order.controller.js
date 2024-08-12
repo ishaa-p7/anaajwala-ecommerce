@@ -20,7 +20,7 @@ const createOrder = async (req, res) => {
     orderNotes,
     totalPrice
   } = req.body;
-  console.log("order req ");
+  // console.log("order req ");
   
   try {
     // Validate the items array

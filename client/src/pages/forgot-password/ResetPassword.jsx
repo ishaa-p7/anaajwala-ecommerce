@@ -36,7 +36,6 @@ function ResetPassword() {
 
         try {
             const { data: user } = await axios.post(`/api/auth/reset-password/${id}/${token}`, data);
-            dispatch(addUser(user));
             navigate("/");
         } catch (error) {
             if (error.response && error.response.data.message) {

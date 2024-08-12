@@ -150,7 +150,9 @@ export default function Page1() {
               </button>
             </div>
           </div>
-          <div className="mt-6 overflow-hidden rounded-xl bg-white px-6 shadow lg:px-4">
+
+          {/* Overflow property here */}
+          <div className="mt-6 overflow-auto rounded-xl bg-white px-6 shadow lg:px-4">
             <table className="min-w-full border-collapse border-spacing-y-2 border-spacing-x-2">
               <thead className="hidden border-b lg:table-header-group">
                 <tr className="">

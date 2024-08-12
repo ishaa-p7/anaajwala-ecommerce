@@ -163,7 +163,7 @@ function OrderRows({ orders, status, setOrders }) {
                         <option value="failed">Failed</option>
                       </select>
                     </td>
-                    <td className="whitespace-no-wrap hidden py-4 text-sm font-normal text-gray-500 sm:px-3 lg:table-cell">
+                    <td className="whitespace-no-wrap  py-4 text-sm font-normal text-gray-500 sm:px-3 lg:table-cell">
                       <select
                         className={`px-3 py-1 rounded-full cursor-pointer focus:outline-none ${getStatusStyle(
                           order.status

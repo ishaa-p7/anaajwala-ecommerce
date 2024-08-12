@@ -16,7 +16,7 @@ function Home() {
         setLoading(prev=>true)
         const {data} = await axios.get('/api/site/info')
         const res = useInfo(data)
-        console.log(res);
+        // console.log(res);
         setData(res)
         
       } catch (error) {
