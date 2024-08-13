@@ -1,6 +1,8 @@
 const User = require("../models/user.model.js")
 const { errorhandler } =  require("../utils/error.js")
 const bcryptjs = require('bcryptjs')
+const jwt = require('jsonwebtoken')
+
 
 /**
  * 
@@ -56,8 +58,43 @@ const getOrders = async (req , res , next)=>{
     }
 }
 
+const updateUser = async (req, res, next) => {
+    const { name, phone_no, password } = req.body;
+
+    try {
+        const validUser = await User.findById(req.user.id); // Assuming you have a middleware that adds the user's ID to req.user
+        if (!validUser) {
+            return next(errorhandler(404, 'User not found'));
+        }
+
+        // Verify the provided password
+        const validPassword = bcryptjs.compareSync(password, validUser.password);
+        if (!validPassword) {
+            return next(errorhandler(401, 'Incorrect password'));
+        }
+
+        // Update fields if password verification is successful
+        if (name) validUser.username = name.toLowerCase().trim();
+        if (phone_no) validUser.phone_no = phone_no;
+
+        const updatedUser = await validUser.save();
+
+        const maxAge = 3 * 24 * 60 * 60;
+        const token = jwt.sign({ id: updatedUser._id }, process.env.JWT_SECRET, { expiresIn: maxAge });
+
+        const { password: pass, ...rest } = updatedUser._doc; // Exclude password from the response
+
+        res
+            .cookie('access_token', token, { httpOnly: true, maxAge: maxAge * 1000 })
+            .status(200)
+            .json(rest);
+    } catch (error) {
+        next(error);
+    }
+};
 module.exports = {
     getUser,
     profile,
     getOrders,
+    updateUser
 }

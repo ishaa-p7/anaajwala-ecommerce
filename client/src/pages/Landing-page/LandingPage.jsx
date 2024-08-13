@@ -8,9 +8,12 @@ import axios from "axios";
 import image1 from "../../assets/image1.jpg";
 import banner2 from "../../assets/banner2.jpg";
 import banner3 from "../../assets/banner3.jpg";
+import banner4 from "../../assets/banner4.jpg";
 import Chooseus from "./components/Chooseus";
 import Harsh1 from "../../assets/Harsh1.jpg"
 import Testimonial from "./components/Testimonial";
+
+
 
 function LandingPage() {
   const [products, setProducts] = useState([]); //this will have array of products
@@ -54,21 +57,22 @@ function LandingPage() {
         <Carousel slideInterval={3000}>
           <img src={image1} alt="..." />
           <img
+            
+            src={banner4}
+            alt="..."
+          />
+          <img
             src={banner3}
             alt="..."
           />
-          <img
-            src="https://media.istockphoto.com/id/689762756/photo/empty-field-at-the-sunset.webp?b=1&s=170667a&w=0&k=20&c=w672ocquxE3tEOwB0u2t17bM3CRujjXspd6YVIOdIAg="
-            alt="..."
-          />
-          <img
+          {/* <img
             src={banner2}
             alt="..."
-          />
-          <img
+          /> */}
+          {/* <img
             src="https://flowbite.com/docs/images/carousel/carousel-5.svg"
             alt="..."
-          />
+          /> */}
         </Carousel>
       </div>
 

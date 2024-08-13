@@ -23,16 +23,32 @@ import Orders from "./pages/orders/Orders.jsx";
 import ForgotPassword from "./pages/forgot-password/ForgotPassword.jsx";
 import ResetPassword from "./pages/forgot-password/ResetPassword.jsx";
 import AboutUs from "./pages/about-us/AboutUs.jsx";
+import Profile from "./pages/Profile/Profile.jsx";
 
 function App() {
+
+  const [loading , setLoading ] = useState(true)
+
   const dispatch = useDispatch();
   useEffect(() => {
     async function fetchUserOnLoad(){
       await dispatch(fetchUser());
       dispatch(clearError())
+      setLoading(false)
     }
     fetchUserOnLoad()
   }, []);
+
+  if(loading){
+    return (
+      <div className="h-screen flex items-center justify-center">
+        <h1 className="text-5xl my-auto text-center font-semibold">
+          Loading...
+        </h1>
+      </div>
+    )
+  }
+
   return (
     <BrowserRouter>
       <Routes>
@@ -43,6 +59,7 @@ function App() {
           <Route path="/user/orders" element={<Orders/>} />
           <Route path="/products" element={<Products/>} />
           <Route path="/about-us" element={<AboutUs/>} />
+          <Route path="/user/profile" element={<Profile/>} />
         </Route>
 
         <Route path="/login" element={<Login />} />
