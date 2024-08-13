@@ -28,7 +28,7 @@ function Profile() {
         if(!currentUser){
             navigate('/')
         }
-    } , [])
+    } , [currentUser])
 
     const {
         register,

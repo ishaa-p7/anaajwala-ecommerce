@@ -17,7 +17,7 @@ export default function NavbarComponent() {
           alt="Flowbite React Logo"
         /> */}
                     <Link to="/">
-                        <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
+                        <span className="self-center whitespace-nowrap text-purple-600 text-2xl font-extrabold dark:text-white">
                             Anaajwala
                         </span>
                     </Link>
@@ -26,7 +26,7 @@ export default function NavbarComponent() {
                 <div className="flex md:order-2">
                     {currentUser.user ? (
                         <Link to="/user/profile">
-                            <h4 className="text-xl font-medium mr-6 my-auto">
+                            <h4 className="text-xl font-bold italic mr-6 my-auto">
                                 @{currentUser.user.username}
                             </h4>
                         </Link>
@@ -55,7 +55,7 @@ export default function NavbarComponent() {
                                 ({ isActive }) =>
                                     isActive
                                         ? "text-blue-600 font-bold" // Active link styling
-                                        : "text-gray-600" // Inactive link styling
+                                        : "text-gray-600 font-extrabold" // Inactive link styling
                             }
                             to="/"
                         >
@@ -68,7 +68,7 @@ export default function NavbarComponent() {
                                 ({ isActive }) =>
                                     isActive
                                         ? "text-blue-600 font-bold" // Active link styling
-                                        : "text-gray-600" // Inactive link styling
+                                        : "text-gray-600 font-extrabold" // Inactive link styling
                             }
                             to="/products"
                         >
@@ -81,7 +81,7 @@ export default function NavbarComponent() {
                                 ({ isActive }) =>
                                     isActive
                                         ? "text-blue-600 font-bold" // Active link styling
-                                        : "text-gray-600" // Inactive link styling
+                                        : "text-gray-600 font-extrabold" // Inactive link styling
                             }
                             to="/about-us"
                         >
@@ -95,11 +95,11 @@ export default function NavbarComponent() {
                                 ({ isActive }) =>
                                     isActive
                                         ? "text-blue-600 font-bold" // Active link styling
-                                        : "text-gray-600" // Inactive link styling
+                                        : "text-gray-600 font-extrabold" // Inactive link styling
                             }
                             to="/user/cart"
                         >
-                            Cart
+                            My Cart
                         </NavLink>
                     </Navbar.Link>
                     <Navbar.Link>
@@ -109,11 +109,11 @@ export default function NavbarComponent() {
                                 ({ isActive }) =>
                                     isActive
                                         ? "text-blue-600 font-bold" // Active link styling
-                                        : "text-gray-600" // Inactive link styling
+                                        : "text-gray-600 font-extrabold" // Inactive link styling
                             }
                             to="/user/orders"
                         >
-                            Orders
+                            My Orders
                         </NavLink>
                     </Navbar.Link>
                     {/* <Navbar.Link><NavLink to="/admin">admin Panel</NavLink></Navbar.Link> */}

@@ -13,16 +13,16 @@ function AboutUs() {
                 <main className="container mx-auto px-6 py-8">
                     <section className="mb-12">
                         <div className="text-center mb-6">
-                            <h2 className="text-4xl font-semibold text-purple-700">
+                            <h2 className="text-4xl font-bold text-purple-700">
                                 Our Story
                             </h2>
-                            <p className="mt-2 text-gray-600">
+                            {/* <p className="mt-2 text-gray-600">
                                 Delivering freshly ground wheat flour since
                                 1995.
-                            </p>
+                            </p> */}
                         </div>
                         <div className="p-6 bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
-                            <h3 className="text-xl font-semibold text-purple-800 mb-4">
+                            <h3 className="text-xl italic font-semibold text-purple-800 mb-4">
                                 Who We Are
                             </h3>
                             <p className="text-gray-600 leading-relaxed">
@@ -88,7 +88,7 @@ function AboutUs() {
                             </h2>
                         </div>
                         <div className="p-6 bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
-                            <h3 className="text-xl font-semibold text-purple-800 mb-4">
+                            <h3 className="text-xl italic font-semibold text-purple-800 mb-4">
                                 Our Commitment
                             </h3>
                             <p className="text-gray-600 leading-relaxed">
@@ -123,7 +123,7 @@ function AboutUs() {
                         </div>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                             <div className="p-6 bg-white rounded-lg shadow-lg hover:bg-purple-50 transition-colors duration-300">
-                                <h4 className="text-lg font-semibold text-purple-800 mb-2">
+                                <h4 className="text-lg italic font-semibold text-purple-800 mb-2">
                                     Diverse Range of Flours
                                 </h4>
                                 <p className="text-gray-600 leading-relaxed">
@@ -139,7 +139,7 @@ function AboutUs() {
                                 </p>
                             </div>
                             <div className="p-6 bg-white rounded-lg shadow-lg hover:bg-purple-50 transition-colors duration-300">
-                                <h4 className="text-lg font-semibold text-purple-800 mb-2">
+                                <h4 className="text-lg italic font-semibold text-purple-800 mb-2">
                                     Quality Assurance
                                 </h4>
                                 <p className="text-gray-600 leading-relaxed">
@@ -163,7 +163,7 @@ function AboutUs() {
                             </h2>
                         </div>
                         <div className="p-6 bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
-                            <h3 className="text-xl font-semibold text-purple-800 mb-4">
+                            <h3 className="text-xl italic font-semibold text-purple-800 mb-4">
                                 Your Satisfaction is Our Priority
                             </h3>
                             <p className="text-gray-600 leading-relaxed">
@@ -182,7 +182,7 @@ function AboutUs() {
                     <section className="mb-12">
                         <div className="text-center">
                             <h2 className="text-2xl font-semibold text-purple-700">
-                                Connect with me
+                                Contact us
                             </h2>
                             <p className="mt-2 text-gray-600">
                                 We are always looking for passionate and
