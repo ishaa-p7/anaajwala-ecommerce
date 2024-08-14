@@ -3,6 +3,7 @@ import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 
 const ReadMore = ({ children, initialHeight = 400 }) => {
   const [isExpanded, setIsExpanded] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 775);
 
   const toggleExpand = () => {
     setIsExpanded(!isExpanded);
@@ -10,10 +11,11 @@ const ReadMore = ({ children, initialHeight = 400 }) => {
 
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth >= 775) {
+      const isNowMobile = window.innerWidth < 775;
+      setIsMobile(isNowMobile);
+
+      if (!isNowMobile) {
         setIsExpanded(true); // Automatically expand on large screens
-      } else {
-        setIsExpanded(false); // Collapse on smaller screens
       }
     };
 
@@ -45,29 +47,27 @@ const ReadMore = ({ children, initialHeight = 400 }) => {
             className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-white to-transparent"
             style={{
               backdropFilter: "blur(5px)",
-              opacity: "0.8",
+              opacity: "0.6",
               transition: "opacity 0.3s ease-in-out",
             }}
           ></div>
         )}
       </div>
-      {!isExpanded && (
+      {isMobile && (
         <div className="text-center mt-4">
           <button
             onClick={toggleExpand}
             className="bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700 transition flex items-center justify-center mx-auto"
           >
-            <FaChevronDown className="mr-2" /> Read More
-          </button>
-        </div>
-      )}
-      {isExpanded && window.innerWidth < 775 && (
-        <div className="text-center mt-4">
-          <button
-            onClick={toggleExpand}
-            className="bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700 transition flex items-center justify-center mx-auto"
-          >
-            <FaChevronUp className="mr-2" /> Show Less
+            {isExpanded ? (
+              <>
+                <FaChevronUp className="mr-2" /> Show Less
+              </>
+            ) : (
+              <>
+                <FaChevronDown className="mr-2" /> Read More
+              </>
+            )}
           </button>
         </div>
       )}
