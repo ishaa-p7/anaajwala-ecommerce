@@ -12,6 +12,7 @@ import banner4 from "../../assets/banner4.jpg";
 import Chooseus from "./components/Chooseus";
 import Harsh1 from "../../assets/Harsh1.jpg"
 import Testimonial from "./components/Testimonial";
+import HeroGrid from "./components/HeroGrid";
 
 
 
@@ -53,7 +54,7 @@ function LandingPage() {
   return (
     <>
       <div></div>
-      <div className="h-72 sm:h-80 xl:h-[30rem] 2xl:h-[36rem]">
+      {/* <div className="h-72 sm:h-80 xl:h-[30rem] 2xl:h-[36rem]">
         <Carousel slideInterval={3000}>
           <img src={image1} alt="..." />
           <img
@@ -65,16 +66,11 @@ function LandingPage() {
             src={banner3}
             alt="..."
           />
-          {/* <img
-            src={banner2}
-            alt="..."
-          /> */}
-          {/* <img
-            src="https://flowbite.com/docs/images/carousel/carousel-5.svg"
-            alt="..."
-          /> */}
         </Carousel>
-      </div>
+      </div> */}
+
+        <HeroGrid />
+
 
       {/*	 
   
@@ -200,34 +196,6 @@ function LandingPage() {
       <Chooseus/>
 
       <Testimonial />
-
-      <div className="sm:flex items-center max-w-screen-xl mx-auto">
-        <div className="sm:w-1/3 p-10 sm:mr-5">
-          <div className="image object-center rounded-full overflow-hidden text-center">
-            <img src={Harsh1} alt="..." />
-          </div>
-        </div>
-
-        <div className="sm:w-1/2 sm:ml-5 p-5">
-          <div className="text Arial">
-            <p className="sm:text-5xl uppercase font-semibold pb-5">About Us</p>
-            <p className="text-black">
-              Our company ANAAJWALA is all about delivering freshly ground wheat
-              flour right to your doorstep, founded In 1995 By One Of The Well
-              Known Personality In Hospitality Industry, Mr. Nikhilesh Pandey.
-              He has invested more than 30 years in a well-known brand. Finest
-              in quality, this appetizing brand was brought in the year 2023
-              (The Cleanest City Of India) by Mr. Nikhilesh Pandey (More Than 30
-              Years Of Experience, Hotel Management) & Mr. Harsh Pandey (MBA In
-              Marketing And Finance). We believe that the foundation of great
-              cooking starts with the best ingredients. That's why we are
-              committed to providing our customers with freshly milled flour
-              that not only meets but exceeds your expectations.
-            </p>
-          </div>
-        </div>
-      </div>
-
 
     </>
   );

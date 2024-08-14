@@ -1,11 +1,19 @@
-import { Button, Navbar } from "flowbite-react";
+import { Button, Navbar, Drawer } from "flowbite-react";
 import { Link, NavLink } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { signoutUser } from "../features/user/userSlice.js";
+import { useState } from "react";
+import CartDrawer from "./CartDrawer.jsx";
+import CartDrawerContent from "./CartDrawerContent.jsx";
+import Logo from "../assets/logo.png";
 
 export default function NavbarComponent() {
     const currentUser = useSelector((state) => state.user);
     const dispatch = useDispatch();
+
+    const [isOpen, setIsOpen] = useState(false);
+
+    const handleClose = () => setIsOpen(false);
 
     return (
         <div className="">
@@ -17,9 +25,10 @@ export default function NavbarComponent() {
           alt="Flowbite React Logo"
         /> */}
                     <Link to="/">
-                        <span className="self-center whitespace-nowrap text-purple-600 text-2xl font-extrabold dark:text-white">
+                        {/* <span className="self-center whitespace-nowrap text-purple-600 text-2xl font-extrabold dark:text-white">
                             Anaajwala
-                        </span>
+                        </span> */}
+                        <img src={Logo} alt="" className="h-6" />
                     </Link>
                 </Navbar.Brand>
 
@@ -31,18 +40,34 @@ export default function NavbarComponent() {
                             </h4>
                         </Link>
                     ) : (
-                        <Link to="/login">
-                            <Button className="bg-fuchsia-900">Login</Button>
-                        </Link>
+                        <>
+                            <Link to="/login">
+                                <span className="hidden lg:inline-block lg:ml-auto lg:mr-3 py-2 px-6 bg-gray-50 hover:bg-gray-100 text-sm text-gray-900 font-bold  rounded-xl transition duration-200">
+                                    Sign In
+                                </span>
+                            </Link>
+                            <Link to="/signup">
+                                <span className="hidden lg:inline-block py-2 px-6 bg-blue-500 hover:bg-blue-600 text-sm text-white font-bold rounded-xl transition duration-200">
+                                    Sign up
+                                </span>
+                            </Link>
+                        </>
                     )}
                     {currentUser.user ? (
                         <>
-                            <Button
+                            {/* <Button
                                 className="bg-fuchsia-900"
                                 onClick={() => dispatch(signoutUser())}
                             >
                                 Logout
-                            </Button>
+                            </Button> */}
+
+                            <button
+                                className="hidden lg:inline-block py-2 px-6 bg-red-500 hover:bg-red-700 text-sm text-white font-bold rounded-xl transition duration-200"
+                                onClick={() => dispatch(signoutUser())}
+                            >
+                                Sign Out
+                            </button>
                         </>
                     ) : null}
 
@@ -90,17 +115,32 @@ export default function NavbarComponent() {
                     </Navbar.Link>
                     <Navbar.Link>
                         {" "}
-                        <NavLink
+                        {/* <NavLink
                             className={
                                 ({ isActive }) =>
                                     isActive
                                         ? "text-blue-600 font-bold" // Active link styling
                                         : "text-gray-600 font-extrabold" // Inactive link styling
                             }
-                            to="/user/cart"
+                            // to="/user/cart"
+                            onClick={() => setIsOpen(true)}
                         >
                             My Cart
+                            <CartDrawer isOpen={isOpen} handleClose={handleClose}  />
                         </NavLink>
+                         */}
+                        <span
+                            className={`
+                                ${
+                                    isOpen
+                                        ? "text-blue-600 font-bold"
+                                        : "text-gray-600 font-extrabold"
+                                } cursor-pointer`}
+                            onClick={() => setIsOpen(true)}
+                        >
+                            My Cart
+                            {/* <CartDrawer isOpen={isOpen} handleClose={handleClose}  /> */}
+                        </span>
                     </Navbar.Link>
                     <Navbar.Link>
                         {" "}
@@ -119,6 +159,26 @@ export default function NavbarComponent() {
                     {/* <Navbar.Link><NavLink to="/admin">admin Panel</NavLink></Navbar.Link> */}
                 </Navbar.Collapse>
             </Navbar>
+
+            {/* <Drawer
+                open={isOpen}
+                onClose={handleClose}
+                position="right"
+                className="w-80 p-2 md:w-80 overflow-hidden"
+            >
+                <Drawer.Header title="Cart" />
+                <Drawer.Items>
+                    <CartDrawerContent />
+                </Drawer.Items>
+            </Drawer> */}
+
+<Drawer open={isOpen} onClose={handleClose} position="right">
+        <Drawer.Header title="Drawer" />
+        <Drawer.Items>
+        <CartDrawerContent handleClose={handleClose} />
+        </Drawer.Items>
+      </Drawer>
+
         </div>
     );
 }

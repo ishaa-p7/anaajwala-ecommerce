@@ -1,18 +1,19 @@
 import React from "react";
 import logo from '../assets/logo.jpg.ico'
 import { Link } from "react-router-dom";
+import FooterLogo from '../assets/footerLogo.png'
 
 function Footer() {
   return (
-    <div className="mt-8 bg-fuchsia-700 pt-9">
+    <div className="mt-8 bg-slate-700 pt-9">
       <div className="mx-auto w-full max-w-[1166px] px-4 xl:px-0">
         <div className="flex flex-col justify-between sm:px-[18px] md:flex-row md:px-10">
           <div className="md:w-[316px]">
             <p className="text-[18px] font-medium text-white"></p>
             <h1 className="text-white font-extrabold">
             <img
-            src={logo}
-            className="h-16 w-100 border"
+            src={FooterLogo}
+            className="h-20"
             alt="..."
           />
             </h1>
