@@ -35,7 +35,7 @@ export default function NavbarComponent() {
                 <div className="flex md:order-2">
                     {currentUser.user ? (
                         <Link to="/user/profile">
-                            <h4 className="text-xl font-bold italic mr-6 my-auto">
+                            <h4 className="text-xl font-bold italic mr-6">
                                 @{currentUser.user.username}
                             </h4>
                         </Link>
@@ -156,6 +156,30 @@ export default function NavbarComponent() {
                             My Orders
                         </NavLink>
                     </Navbar.Link>
+                    <Navbar.Link className="hidden">
+                        {" "}
+                        {currentUser.user ? (
+                            <>                                <button
+                            className="lg:inline-block py-2 px-6 bg-red-500 hover:bg-red-700 text-sm text-white font-bold rounded-xl transition duration-200"
+                            onClick={() => dispatch(signoutUser())}
+                        >
+                            Sign Out
+                        </button></>
+                        ) : (
+                            <div className="p-1">
+                                <Link to="/login">
+                                    <span className="lg:inline-block mr-2 lg:ml-auto lg:mr-3 py-2 px-6 bg-gray-50 hover:bg-gray-100 text-sm text-gray-900 font-bold  rounded-xl transition duration-200">
+                                        Sign In
+                                    </span>
+                                </Link>
+                                <Link to="/signup">
+                                    <span className="lg:inline-block py-2 px-6 bg-blue-500 hover:bg-blue-600 text-sm text-white font-bold rounded-xl transition duration-200">
+                                        Sign up
+                                    </span>
+                                </Link>
+                            </div>
+                        )}
+                    </Navbar.Link>
                     {/* <Navbar.Link><NavLink to="/admin">admin Panel</NavLink></Navbar.Link> */}
                 </Navbar.Collapse>
             </Navbar>
@@ -172,13 +196,12 @@ export default function NavbarComponent() {
                 </Drawer.Items>
             </Drawer> */}
 
-<Drawer open={isOpen} onClose={handleClose} position="right">
-        <Drawer.Header title="Drawer" />
-        <Drawer.Items>
-        <CartDrawerContent handleClose={handleClose} />
-        </Drawer.Items>
-      </Drawer>
-
+            <Drawer open={isOpen} onClose={handleClose} position="right">
+                <Drawer.Header title="Drawer" />
+                <Drawer.Items>
+                    <CartDrawerContent handleClose={handleClose} />
+                </Drawer.Items>
+            </Drawer>
         </div>
     );
 }

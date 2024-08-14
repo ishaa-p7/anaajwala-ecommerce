@@ -1,10 +1,13 @@
 import React from "react";
 import { Carousel } from "flowbite-react";
+import ReadMore from "../../../components/ReadMore ";
+
 
 function HeroGrid() {
     return (
         <div className="">
             <div className="container mx-auto px-4 py-8">
+            <ReadMore>
                 {/* <h1 className="text-4xl font-bold text-center mb-8">
       Bento Grid Layout with Images
     </h1> */}
@@ -176,6 +179,7 @@ function HeroGrid() {
                         </div>
                     </div>
                 </div>
+            </ReadMore>
             </div>
         </div>
     );
