@@ -156,7 +156,7 @@ export default function NavbarComponent() {
                             My Orders
                         </NavLink>
                     </Navbar.Link>
-                    <Navbar.Link className="hidden">
+                    <Navbar.Link className="md:hidden">
                         {" "}
                         {currentUser.user ? (
                             <>                                <button
