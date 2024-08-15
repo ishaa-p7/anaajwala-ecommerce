@@ -87,7 +87,7 @@ export default function NavbarComponent() {
                             Home
                         </NavLink>
                     </Navbar.Link>
-                    <Navbar.Link>
+                    {/* <Navbar.Link>
                         <NavLink
                             className={
                                 ({ isActive }) =>
@@ -99,7 +99,7 @@ export default function NavbarComponent() {
                         >
                             Products
                         </NavLink>
-                    </Navbar.Link>
+                    </Navbar.Link> */}
                     <Navbar.Link>
                         <NavLink
                             className={
