@@ -25,6 +25,10 @@ import ResetPassword from "./pages/forgot-password/ResetPassword.jsx";
 import AboutUs from "./pages/about-us/AboutUs.jsx";
 import Profile from "./pages/Profile/Profile.jsx";
 import ContactUs from "./pages/contact-us/ContactUs.jsx";
+import Privacy from "./pages/Policy-pages/Privacy.jsx";
+import TermsOfUse from "./pages/Policy-pages/TermsOfUse.jsx";
+import ReturnRefund from "./pages/Policy-pages/ReturnRefund.jsx";
+import BillingTerms from "./pages/Policy-pages/BillingTerms.jsx";
 
 function App() {
 
@@ -62,6 +66,10 @@ function App() {
           <Route path="/about-us" element={<AboutUs/>} />
           <Route path="/user/profile" element={<Profile/>} />
           <Route path="/contact-us" element={<ContactUs/>} />
+          <Route path="/privacy-policy" element={<Privacy/>} />
+          <Route path="/terms-and-condition" element={<TermsOfUse/>} />
+          <Route path="/return-refund" element={<ReturnRefund/>} />
+          <Route path="/billing-policy" element={<BillingTerms/>} />
         </Route>
 
         <Route path="/login" element={<Login />} />

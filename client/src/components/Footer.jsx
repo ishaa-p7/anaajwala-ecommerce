@@ -196,7 +196,7 @@ function Footer() {
                                 <li className="mt-2">
                                     <Link
                                         className="text-deutziawhite hover:text-deutziawhite/80 font-inter text-[15px] font-normal hover:font-semibold"
-                                        // to="/contact-us"
+                                        to="/contact-us"
                                     >
                                         Contact Us
                                     </Link>
@@ -204,7 +204,7 @@ function Footer() {
                                 <li className="mt-2">
                                     <Link
                                         className="text-deutziawhite hover:text-deutziawhite/80 font-inter text-[15px] font-normal hover:font-semibold"
-                                        // to="/privacy-policy"
+                                        to="/privacy-policy"
                                     >
                                         Privacy Policy
                                     </Link>
@@ -212,7 +212,7 @@ function Footer() {
                                 <li className="mt-2">
                                     <Link
                                         className="text-deutziawhite hover:text-deutziawhite/80 font-inter text-[15px] font-normal hover:font-semibold"
-                                        // to="/terms-of-use"
+                                        to="/terms-and-condition"
                                     >
                                         Terms of Use
                                     </Link>
@@ -220,7 +220,7 @@ function Footer() {
                                 <li className="mt-2">
                                     <Link
                                         className="text-deutziawhite hover:text-deutziawhite/80 font-inter text-[15px] font-normal hover:font-semibold"
-                                        // to="/returns-refund-cancellation"
+                                        to="/return-refund"
                                     >
                                         Returns, Refund, Cancellation
                                     </Link>
@@ -228,7 +228,7 @@ function Footer() {
                                 <li className="mt-2">
                                     <Link
                                         className="text-deutziawhite hover:text-deutziawhite/80 font-inter text-[15px] font-normal hover:font-semibold"
-                                        // to="/billing-terms-conditions"
+                                        to="/billing-policy"
                                     >
                                         Billing Terms and Conditions
                                     </Link>
@@ -236,7 +236,7 @@ function Footer() {
                                 <li className="mt-2">
                                     <Link
                                         className="text-deutziawhite hover:text-deutziawhite/80 font-inter text-[15px] font-normal hover:font-semibold"
-                                        // to="/careers"
+                                        to="mailto:harshnikhilesh@gmail.com"
                                     >
                                         Careers
                                     </Link>
