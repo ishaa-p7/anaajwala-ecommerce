@@ -2,6 +2,7 @@ const User = require("../models/user.model.js");
 const Order = require("../models/order.model.js")
 const mongoose = require("mongoose");
 const path = require("path");
+const { Product } = require("../models/product.model.js");
 require('dotenv').config({ path: path.resolve(__dirname, '../.env') });
 
 
@@ -18,8 +19,19 @@ async function addFieldToCollection() {
 
     try {
         // Update all users to add the role field with the value "user"
-        const result = await User.updateMany({}, { $set: { role: 'user' } });
+        const result = await User.updateMany({}, { $set: { MRP: 10000 } });
         console.log(`Successfully updated ${result.nModified} users`);
+    } catch (error) {
+        console.error('Error updating users:', error);
+    }
+}
+async function addFieldToProductCollection() {
+
+
+    try {
+        // Update all users to add the role field with the value "user"
+        const result = await Product.updateMany({}, { $set: { MRP: 1000 } });
+        console.log(`Successfully updated ${result.nModified} products`);
     } catch (error) {
         console.error('Error updating users:', error);
     }
@@ -34,4 +46,5 @@ const clearOrders = async ()=>{
 }
 
 // addFieldToCollection()
-clearOrders()
+addFieldToProductCollection()
+// clearOrders()

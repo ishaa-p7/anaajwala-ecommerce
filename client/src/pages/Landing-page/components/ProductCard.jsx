@@ -56,7 +56,8 @@ function ProductCard({ item }) {
                 </g>
               </g>
             </svg> */}
-            <span className="ml-1 font-semibold text-lg">₹{item.price} <span className="text-sm font-light">/Kg</span></span>
+            <span className="ml-1 line-through font-semibold text-lg">₹{item.MRP}</span>
+            <span className="ml-3 font-semibold text-lg">₹{item.price} <span className="text-sm font-light">/Kg</span></span>
           </span>
           {/* <span
             href="#"

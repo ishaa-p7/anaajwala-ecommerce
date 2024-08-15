@@ -86,7 +86,7 @@ function CartDrawerContent({handleClose}) {
                                                                 {
                                                                     item.product
                                                                         .price
-                                                                }
+                                                                } /Kg
                                                             </p>
                                                         </div>
                                                         <p className="mt-1 text-sm text-gray-500">

@@ -97,7 +97,7 @@ function SecondSection() {
                     </p>
                 </div>
             </div> */}
-            <div className="sm:hidden block relative mt-8">
+            {/* <div className="sm:hidden block relative mt-8">
                 <div className="grid sm:grid-cols-3 grid-cols-2 sm:gap-8 gap-4">
                     <img
                         src="https://tuk-cdn.s3.amazonaws.com/can-uploader/about-us-3-svg3.svg"
@@ -117,7 +117,7 @@ function SecondSection() {
                         looking at its layout.
                     </p>
                 </div>
-            </div>
+            </div> */}
             <div className="flex lg:flex-row flex-col md:gap-14 gap-16 justify-between lg:mt-20 mt-16">
                 <div className="w-full lg:w-6/12">
                     {/* <h2 className="font-bold lg:text-4xl text-3xl lg:leading-9 leading-7 text-gray-800 dark:text-white">

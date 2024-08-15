@@ -37,6 +37,9 @@ const productSchema = new mongoose.Schema(
     price :{
       type : Number,
     },
+    MRP :{
+      type : Number,
+    },
     thumbnail: {
       type: String,
       required: true,

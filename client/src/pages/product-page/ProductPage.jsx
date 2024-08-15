@@ -313,82 +313,6 @@ function ProductPage() {
                   <input
                     type="radio"
                     name="quantity"
-                    value="1"
-                    className="peer sr-only"
-                    onChange={handleQuantityChange}
-                    checked={quantity === "1"}
-                  />
-                  <p
-                    className={`${
-                      quantity === "1" ? "bg-black text-white" : ""
-                    } rounded-lg border border-black px-6 py-2 font-bold`}
-                  >
-                    1 Kg
-                  </p>
-                  {/* <span className="mt-1 block text-center text-xs">$80/mo</span> */}
-                </label>
-
-                <label className="cursor-pointer">
-                  <input
-                    type="radio"
-                    name="quantity"
-                    value="2"
-                    className="peer sr-only"
-                    onChange={handleQuantityChange}
-                    checked={quantity === "2"}
-                  />
-                  <p
-                    className={`${
-                      quantity === "2" ? "bg-black text-white" : ""
-                    } rounded-lg border border-black px-6 py-2 font-bold`}
-                  >
-                    2 Kg
-                  </p>
-                  {/* <span className="mt-1 block text-center text-xs">$60/mo</span> */}
-                </label>
-
-                <label className="cursor-pointer">
-                  <input
-                    type="radio"
-                    name="quantity"
-                    value="3"
-                    className="peer sr-only"
-                    onChange={handleQuantityChange}
-                    checked={quantity === "3"}
-                  />
-                  <p
-                    className={`${
-                      quantity === "3" ? "bg-black text-white" : ""
-                    } rounded-lg border border-black px-6 py-2 font-bold`}
-                  >
-                    3 Kg
-                  </p>
-                  {/* <span className="mt-1 block text-center text-xs">$40/mo</span> */}
-                </label>
-
-                <label className="cursor-pointer">
-                  <input
-                    type="radio"
-                    name="quantity"
-                    value="4"
-                    className="peer sr-only"
-                    onChange={handleQuantityChange}
-                    checked={quantity === "4"}
-                  />
-                  <p
-                    className={`${
-                      quantity === "4" ? "bg-black text-white" : ""
-                    } rounded-lg border border-black px-6 py-2 font-bold`}
-                  >
-                    4 Kg
-                  </p>
-                  {/* <span className="mt-1 block text-center text-xs">$40/mo</span> */}
-                </label>
-
-                <label className="cursor-pointer">
-                  <input
-                    type="radio"
-                    name="quantity"
                     value="5"
                     className="peer sr-only"
                     onChange={handleQuantityChange}
@@ -400,6 +324,42 @@ function ProductPage() {
                     } rounded-lg border border-black px-6 py-2 font-bold`}
                   >
                     5 Kg
+                  </p>
+                  {/* <span className="mt-1 block text-center text-xs">$40/mo</span> */}
+                </label>
+                <label className="cursor-pointer">
+                  <input
+                    type="radio"
+                    name="quantity"
+                    value="10"
+                    className="peer sr-only"
+                    onChange={handleQuantityChange}
+                    checked={quantity === "10"}
+                  />
+                  <p
+                    className={`${
+                      quantity === "10" ? "bg-black text-white" : ""
+                    } rounded-lg border border-black px-6 py-2 font-bold`}
+                  >
+                    10 Kg
+                  </p>
+                  {/* <span className="mt-1 block text-center text-xs">$40/mo</span> */}
+                </label>
+                <label className="cursor-pointer">
+                  <input
+                    type="radio"
+                    name="quantity"
+                    value="20"
+                    className="peer sr-only"
+                    onChange={handleQuantityChange}
+                    checked={quantity === "20"}
+                  />
+                  <p
+                    className={`${
+                      quantity === "20" ? "bg-black text-white" : ""
+                    } rounded-lg border border-black px-6 py-2 font-bold`}
+                  >
+                    20 Kg
                   </p>
                   {/* <span className="mt-1 block text-center text-xs">$40/mo</span> */}
                 </label>
