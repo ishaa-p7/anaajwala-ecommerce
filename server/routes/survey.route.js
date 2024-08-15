@@ -4,6 +4,6 @@ const {  saveSurveyData } = require('../controllers/survey.controller.js')
 const { isLoggedIn , isAdmin} = require('../middlewares/authMiddleware.js');
 
 
-router.post('/' , isLoggedIn , isAdmin , saveSurveyData)
+router.post('/' , saveSurveyData)
 
 module.exports = router

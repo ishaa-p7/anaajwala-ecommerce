@@ -24,6 +24,7 @@ import ForgotPassword from "./pages/forgot-password/ForgotPassword.jsx";
 import ResetPassword from "./pages/forgot-password/ResetPassword.jsx";
 import AboutUs from "./pages/about-us/AboutUs.jsx";
 import Profile from "./pages/Profile/Profile.jsx";
+import ContactUs from "./pages/contact-us/ContactUs.jsx";
 
 function App() {
 
@@ -60,6 +61,7 @@ function App() {
           <Route path="/products" element={<Products/>} />
           <Route path="/about-us" element={<AboutUs/>} />
           <Route path="/user/profile" element={<Profile/>} />
+          <Route path="/contact-us" element={<ContactUs/>} />
         </Route>
 
         <Route path="/login" element={<Login />} />

@@ -110,7 +110,7 @@ export default function NavbarComponent() {
                             }
                             to="/about-us"
                         >
-                            About Us
+                            Our Story
                         </NavLink>
                     </Navbar.Link>
                     <Navbar.Link>
@@ -156,6 +156,19 @@ export default function NavbarComponent() {
                             My Orders
                         </NavLink>
                     </Navbar.Link>
+                    <Navbar.Link>
+                        <NavLink
+                            className={
+                                ({ isActive }) =>
+                                    isActive
+                                        ? "text-blue-600 font-bold" // Active link styling
+                                        : "text-gray-600 font-extrabold" // Inactive link styling
+                            }
+                            to="/contact-us"
+                        >
+                            Contact-us
+                        </NavLink>
+                    </Navbar.Link>
                     <Navbar.Link className="md:hidden">
                         {" "}
                         {currentUser.user ? (
@@ -180,6 +193,7 @@ export default function NavbarComponent() {
                             </div>
                         )}
                     </Navbar.Link>
+                    
                     {/* <Navbar.Link><NavLink to="/admin">admin Panel</NavLink></Navbar.Link> */}
                 </Navbar.Collapse>
             </Navbar>
