@@ -3,8 +3,9 @@ import { useSelector, useDispatch } from "react-redux";
 import { removeFromCart } from "../features/cart/CartSlice";
 import { calculateCost } from "../hooks/cost";
 import { Link } from "react-router-dom";
+import emptyImage from '../assets/empty-order.png'
 
-function CartDrawerContent({handleClose}) {
+function CartDrawerContent({ handleClose }) {
     const dispatch = useDispatch();
     const cart = useSelector((state) => state.cart);
     const { finalPrice } = calculateCost(cart, "");
@@ -86,7 +87,8 @@ function CartDrawerContent({handleClose}) {
                                                                 {
                                                                     item.product
                                                                         .price
-                                                                } /Kg
+                                                                }{" "}
+                                                                /Kg
                                                             </p>
                                                         </div>
                                                         <p className="mt-1 text-sm text-gray-500">
@@ -119,6 +121,9 @@ function CartDrawerContent({handleClose}) {
                                                 </div>
                                             </li>
                                         ))}
+                                        {cart && cart.length == 0 && (<>
+                                            <img src={emptyImage} alt="" />
+                                        </>)}
                                 </ul>
                             </div>
                         </div>

@@ -5,6 +5,7 @@ import { MdDashboard } from "react-icons/md";
 import Order from "./components/Order";
 import axios from "axios";
 import { format } from "date-fns";
+import emptyImage from '../../assets/empty-order.png'
 
 function Orders() {
     const [completedOrders, setCompletedOrders] = useState([]);
@@ -56,9 +57,10 @@ function Orders() {
     if (!pendingOrders.length && !completedOrders.length) {
         return (
             <div className="h-screen flex items-center justify-center">
-                <h1 className="text-5xl my-auto text-center font-semibold">
+                {/* <h1 className="text-5xl my-auto text-center font-semibold">
                     Order List is empty!...
-                </h1>
+                </h1> */}
+                <img src={emptyImage} alt="" />
             </div>
         );
     }
