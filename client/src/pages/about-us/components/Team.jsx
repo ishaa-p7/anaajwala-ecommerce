@@ -1,16 +1,90 @@
 import React from "react";
-import { useTeamData } from "../../../hooks/useTeamData";
+import { useTeamData , useMentorData } from "../../../hooks/useTeamData";
+import linkedinLogo from "../../../assets/linkedin.svg";
+import { FaLinkedin, FaTwitter, FaInstagram } from "react-icons/fa";
 
 function Team() {
     const teamData = useTeamData();
+    const mentorData = useMentorData()
 
     return (
         <>
+            <div className="flex items-center justify-center min-h-screen bg-white py-48 pb-0">
+                <div className="flex flex-col">
+                    {/* Notes */}
+                    <div className="flex flex-col mt-8">
+                        {/* Meet the Team */}
+                        <div className="container max-w-7xl px-4">
+                            {/* Section Header */}
+                            <div className="flex flex-wrap justify-center text-center mb-24">
+                                <div className="w-full lg:w-6/12 px-4">
+                                    {/* Header */}
+                                    <h1 className="text-gray-900 text-4xl font-bold mb-8">
+                                        Meet Our Mentors
+                                    </h1>
+                                    {/* Description */}
+                                </div>
+                            </div>
+                            {/* Team Members */}
+                            <div className="flex flex-wrap">
+                                {/* Member #1 */}
+
+                                {mentorData && mentorData.length>0 && mentorData.map((mentor)=>(
+                                    <div className="w-full md:w-6/12 lg:w-3/12 mb-6 px-6 sm:px-6 lg:px-4">
+                                    <div className="flex flex-col">
+                                        {/* Avatar */}
+                                        <a href="#" className="mx-auto">
+                                            <img
+                                                className="rounded-2xl drop-shadow-md hover:drop-shadow-xl h-96 transition-all duration-200 delay-100"
+                                                src={mentor.image}
+                                                alt="Team Member 1"
+                                            />
+                                        </a>
+                                        {/* Details */}
+                                        <div className="text-center mt-6">
+                                            {/* Name */}
+                                            <h1 className="text-gray-900 text-xl font-bold mb-1">
+                                                {mentor.name}
+                                            </h1>
+                                            {/* Title */}
+                                            <div className="text-gray-700 font-light mb-2">
+                                                {mentor.role}
+                                            </div>
+                                            {/* Social Icons */}
+                                            {/* <div className="flex items-center justify-center opacity-50 hover:opacity-100 transition-opacity duration-300">
+                                                <a
+                                                    href="#"
+                                                    className="flex rounded-full hover:bg-indigo-50 h-10 w-10"
+                                                >
+                                                    <FaLinkedin className="text-indigo-500 mx-auto mt-2" />
+                                                </a>
+                                                <a
+                                                    href="#"
+                                                    className="flex rounded-full hover:bg-blue-50 h-10 w-10"
+                                                >
+                                                    <FaTwitter className="text-blue-300 mx-auto mt-2" />
+                                                </a>
+                                                <a
+                                                    href="#"
+                                                    className="flex rounded-full hover:bg-orange-50 h-10 w-10"
+                                                >
+                                                    <FaInstagram className="text-orange-400 mx-auto mt-2" />
+                                                </a>
+                                            </div> */}
+                                        </div>
+                                    </div>
+                                </div>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div className="container flex justify-center mx-auto pt-16 pb-0">
                 <div>
-                    <p className="text-gray-500 dark:text-gray-200 text-lg text-center font-normal pb-3">
+                    {/* <p className="text-gray-500 dark:text-gray-200 text-lg text-center font-normal pb-3">
                         BUILDING TEAM
-                    </p>
+                    </p> */}
                     <h1 className="xl:text-4xl text-3xl text-center text-gray-800 dark:text-white font-extrabold pb-6 sm:w-4/6 w-5/6 mx-auto">
                         The Talented People Behind the Scenes of the
                         Organization
@@ -54,7 +128,10 @@ function Team() {
                                             </p>
                                             <div className="w-full flex justify-center pt-5 pb-5">
                                                 <a
-                                                    href="javascript:void(0)"
+                                                    href={
+                                                        person.github ||
+                                                        "javascript:void(0)"
+                                                    }
                                                     className="mx-5"
                                                 >
                                                     <div
@@ -68,7 +145,10 @@ function Team() {
                                                     </div>
                                                 </a>
                                                 <a
-                                                    href="javascript:void(0)"
+                                                    href={
+                                                        person.linkdin ||
+                                                        "javascript:void(0)"
+                                                    }
                                                     className="mx-5"
                                                 >
                                                     <div
@@ -76,8 +156,9 @@ function Team() {
                                                         role="img"
                                                     >
                                                         <img
-                                                            src="https://tuk-cdn.s3.amazonaws.com/can-uploader/gray-bg-with-description-svg2.svg"
-                                                            alt="twitter"
+                                                            src={linkedinLogo}
+                                                            alt="linkdin"
+                                                            className="h-6"
                                                         />
                                                     </div>
                                                 </a>

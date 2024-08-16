@@ -87,7 +87,7 @@ export default function NavbarComponent() {
                             Home
                         </NavLink>
                     </Navbar.Link>
-                    {/* <Navbar.Link>
+                    <Navbar.Link>
                         <NavLink
                             className={
                                 ({ isActive }) =>
@@ -99,7 +99,7 @@ export default function NavbarComponent() {
                         >
                             Products
                         </NavLink>
-                    </Navbar.Link> */}
+                    </Navbar.Link>
                     <Navbar.Link>
                         <NavLink
                             className={
@@ -167,6 +167,19 @@ export default function NavbarComponent() {
                             to="/contact-us"
                         >
                             Contact-us
+                        </NavLink>
+                    </Navbar.Link>
+                    <Navbar.Link>
+                        <NavLink
+                            className={
+                                ({ isActive }) =>
+                                    isActive
+                                        ? "text-blue-600 font-bold" // Active link styling
+                                        : "text-gray-600 font-extrabold" // Inactive link styling
+                            }
+                            to="/user/profile"
+                        >
+                            Update-Profile
                         </NavLink>
                     </Navbar.Link>
                     <Navbar.Link className="md:hidden">

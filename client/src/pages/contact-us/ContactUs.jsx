@@ -25,7 +25,10 @@ function ContactUs() {
                                 />
                             </div>
                             <p className="pl-4 text-white text-base">
-                                +91 8889990352
+                                +91 8889990352,
+                            </p>
+                            <p className="pl-4 text-white text-base">
+                                +91 8889990358 
                             </p>
                         </div>
                         <div className="flex items-center">
@@ -40,7 +43,7 @@ function ContactUs() {
                             </Link>
                         </div>
                         <p className="text-lg text-white pt-10 tracking-wide">
-                        Head office - SGSITS, Idealab,
+                        Start Up Cell Idea Lab , Sgsits, Park Road,
                             <br />
                             Indore(M.P)
                         </p>

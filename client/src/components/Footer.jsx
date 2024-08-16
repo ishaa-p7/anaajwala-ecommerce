@@ -126,6 +126,12 @@ function Footer() {
                                     className="font-Inter text-[14px] font-medium text-white"
                                 >
                                     +91 8889990352
+                                </a><br />
+                                <a
+                                    href="tel:+911800123444"
+                                    className="font-Inter text-[14px] font-medium text-white"
+                                >
+                                    +91 8889990358
                                 </a>
                                 <p className="font-Inter text-[12px] font-medium text-white">
                                     Support Number
@@ -179,7 +185,7 @@ function Footer() {
                                     href="mailto:help@lorem.com"
                                     className="font-Inter text-[14px] font-medium text-[#fff]"
                                 >
-                                    Head office - SGSITS, Idealab, Indore(M.P)
+                                    Start Up Cell Idea Lab , Sgsits, Park Road ,Indore (M.P)
                                 </a>
                                 <p className="font-Inter text-[12px] font-medium text-white">
                                     Address

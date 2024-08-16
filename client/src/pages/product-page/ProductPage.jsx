@@ -23,7 +23,7 @@ function ProductPage() {
   const navigate = useNavigate();
 
   // const [type, setType] = useState("platinum");
-  const [quantity, setQuantity] = useState("2");
+  const [quantity, setQuantity] = useState("5");
 
 
 
@@ -116,13 +116,13 @@ function ProductPage() {
                 <div className="flex items-center">
                   <span className="mx-2 text-gray-400">/</span>
                   <div className="-m-1">
-                    <a
-                      href="/"
+                    <Link
+                      to="/products"
                       className="rounded-md p-1 text-sm font-medium text-gray-600 focus:text-gray-900 focus:shadow hover:text-gray-800"
                     >
                       {" "}
                       Products{" "}
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </li>
@@ -367,9 +367,9 @@ function ProductPage() {
               <div className="mt-10 flex flex-col items-center justify-between space-y-4 border-t border-b py-4 sm:flex-row sm:space-y-0">
                 <div className="flex items-end">
                   <h1 className="text-3xl font-bold">
-                  ₹{product.price}
+                  ₹{product.price * quantity}
                   </h1>
-                  <span className="text-base">/Kg</span>
+                  {/* <span className="text-base">/Kg</span> */}
                 </div>
                 <button
                   onClick={handleAddToCart}

@@ -1,6 +1,16 @@
 import React from "react";
 import { Carousel } from "flowbite-react";
 import ReadMore from "../../../components/ReadMore ";
+import c1 from '../../../assets/landing-images/c1.jpg'
+import c2 from '../../../assets/landing-images/c2.jpg'
+import c3 from '../../../assets/landing-images/c3.jpg'
+import c4 from '../../../assets/landing-images/c4.jpg'
+import b10 from '../../../assets/landing-images/b10.jpg'
+import g1 from '../../../assets/landing-images/g1.jpg'
+import g2 from '../../../assets/landing-images/g2.jpg'
+import b7 from '../../../assets/landing-images/r1.avif'
+import logo from '../../../assets/footerLogo.png'
+import imgLogo from '../../../assets/landing-images/img-logo.png'
 
 
 function HeroGrid() {
@@ -32,7 +42,8 @@ function HeroGrid() {
                                 }
                                 alt="..."
                             />
-                            <img
+
+                            {/* <img
                                 src={
                                     "https://images.unsplash.com/photo-1469474968028-56623f02e42e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHwxfHxuYXR1cmV8ZW58MHwwfHx8MTcyMTA0MjYwMXww&ixlib=rb-4.0.3&q=80&w=1080"
                                 }
@@ -49,7 +60,7 @@ function HeroGrid() {
                                     "https://images.unsplash.com/photo-1469474968028-56623f02e42e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHwxfHxuYXR1cmV8ZW58MHwwfHx8MTcyMTA0MjYwMXww&ixlib=rb-4.0.3&q=80&w=1080"
                                 }
                                 alt="..."
-                            />
+                            /> */}
                         </Carousel>
                         </div>                          
                         {/* <div className="absolute inset-0 bg-black bg-opacity-60 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -66,115 +77,115 @@ function HeroGrid() {
                     {/* Two small items */}
                     <div className="relative overflow-hidden rounded-2xl shadow-lg group">
                         <img
-                            src="https://images.unsplash.com/photo-1493770348161-369560ae357d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHw2fHxmb29kfGVufDB8MHx8fDE3MjEwNDI2MTR8MA&ixlib=rb-4.0.3&q=80&w=1080"
+                            src={c1}
                             alt="Food"
                             className="w-full h-48 object-cover"
                         />
                         <div className="absolute inset-0 bg-black bg-opacity-60 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                             <div className="absolute bottom-0 left-0 right-0 p-4">
-                                <h4 className="text-xl font-bold text-white">
+                                {/* <h4 className="text-xl font-bold text-white">
                                     Culinary Delights
-                                </h4>
+                                </h4> */}
                             </div>
                         </div>
                     </div>
                     <div className="relative overflow-hidden rounded-2xl shadow-lg group">
                         <img
-                            src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHw1fHx0ZWNobm9sb2d5fGVufDB8MHx8fDE3MjEwNDI2Mjh8MA&ixlib=rb-4.0.3&q=80&w=1080"
+                            src={c4}
                             alt="Technology"
                             className="w-full h-48 object-cover"
                         />
                         <div className="absolute inset-0 bg-black bg-opacity-60 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                             <div className="absolute bottom-0 left-0 right-0 p-4">
-                                <h4 className="text-xl font-bold text-white">
+                                {/* <h4 className="text-xl font-bold text-white">
                                     Tech Innovations
-                                </h4>
+                                </h4> */}
                             </div>
                         </div>
                     </div>
                     {/* Three medium items */}
                     <div className="relative overflow-hidden rounded-2xl shadow-lg group">
                         <img
-                            src="https://images.unsplash.com/photo-1503220317375-aaad61436b1b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHw1fHx0cmF2ZWx8ZW58MHwwfHx8MTcyMTA0MjY0MXww&ixlib=rb-4.0.3&q=80&w=1080"
+                            src={g2}
                             alt="Travel"
                             className="w-full h-48 object-cover"
                         />
                         <div className="absolute inset-0 bg-black bg-opacity-60 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                             <div className="absolute bottom-0 left-0 right-0 p-4">
-                                <h4 className="text-xl font-bold text-white">
+                                {/* <h4 className="text-xl font-bold text-white">
                                     Travel Adventures
-                                </h4>
+                                </h4> */}
                             </div>
                         </div>
                     </div>
                     <div className="relative overflow-hidden rounded-2xl shadow-lg group">
                         <img
-                            src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHwxfHxhcnR8ZW58MHwwfHx8MTcyMTA0MjY5Nnww&ixlib=rb-4.0.3&q=80&w=1080"
+                            src={c3}
                             alt="Art"
                             className="w-full h-48 object-cover"
                         />
                         <div className="absolute inset-0 bg-black bg-opacity-60 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                             <div className="absolute bottom-0 left-0 right-0 p-4">
-                                <h4 className="text-xl font-bold text-white">
+                                {/* <h4 className="text-xl font-bold text-white">
                                     Artistic Expressions
-                                </h4>
+                                </h4> */}
                             </div>
                         </div>
                     </div>
                     {/* bottom cards */}
                     <div className="relative overflow-hidden rounded-2xl shadow-lg group">
                         <img
-                            src="https://images.unsplash.com/photo-1530549387789-4c1017266635?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHwyfHxzd2ltbWluZ3xlbnwwfDB8fHwxNzIxMDQzMjkxfDA&ixlib=rb-4.0.3&q=80&w=1080"
+                            src={g1}
                             alt="Sport"
                             className="w-full h-48 object-cover"
                         />
                         <div className="absolute inset-0 bg-black bg-opacity-60 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                             <div className="absolute bottom-0 left-0 right-0 p-4">
-                                <h4 className="text-xl font-bold text-white">
+                                {/* <h4 className="text-xl font-bold text-white">
                                     Swimming
-                                </h4>
+                                </h4> */}
                             </div>
                         </div>
                     </div>
                     <div className="relative overflow-hidden rounded-2xl shadow-lg group">
                         <img
-                            src="https://images.unsplash.com/photo-1611195974226-a6a9be9dd763?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHwxMnx8Y2hlc3N8ZW58MHwwfHx8MTcyMTA0MzI0Nnww&ixlib=rb-4.0.3&q=80&w=1080"
+                            src={c2}
                             alt="Sport"
                             className="w-full h-48 object-cover"
                         />
                         <div className="absolute inset-0 bg-black bg-opacity-60 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                             <div className="absolute bottom-0 left-0 right-0 p-4">
-                                <h4 className="text-xl font-bold text-white">
+                                {/* <h4 className="text-xl font-bold text-white">
                                     Chess
-                                </h4>
+                                </h4> */}
                             </div>
                         </div>
                     </div>
                     <div className="relative overflow-hidden rounded-2xl shadow-lg group">
                         <img
-                            src="https://images.unsplash.com/photo-1553778263-73a83bab9b0c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHw1fHxmb290YmFsbHxlbnwwfDB8fHwxNzIxMDQzMjExfDA&ixlib=rb-4.0.3&q=80&w=1080"
+                            src={b7}
                             alt="Sport"
                             className="w-full h-48 object-cover"
                         />
                         <div className="absolute inset-0 bg-black bg-opacity-60 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                             <div className="absolute bottom-0 left-0 right-0 p-4">
-                                <h4 className="text-xl font-bold text-white">
+                                {/* <h4 className="text-xl font-bold text-white">
                                     Football
-                                </h4>
+                                </h4> */}
                             </div>
                         </div>
                     </div>
                     <div className="relative overflow-hidden rounded-2xl shadow-lg group">
                         <img
-                            src="https://images.unsplash.com/photo-1624526267942-ab0ff8a3e972?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHw3fHxjcmlja2V0fGVufDB8MHx8fDE3MjEwNDMxNTh8MA&ixlib=rb-4.0.3&q=80&w=1080"
+                            src={b10}
                             alt="Sport"
                             className="w-full h-48 object-cover"
                         />
                         <div className="absolute inset-0 bg-black bg-opacity-60 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                             <div className="absolute bottom-0 left-0 right-0 p-4">
-                                <h4 className="text-xl font-bold text-white">
+                                {/* <h4 className="text-xl font-bold text-white">
                                     Cricket
-                                </h4>
+                                </h4> */}
                             </div>
                         </div>
                     </div>

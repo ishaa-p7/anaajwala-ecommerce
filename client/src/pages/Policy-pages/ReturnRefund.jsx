@@ -2,135 +2,259 @@ import React from 'react'
 
 function ReturnRefund() {
   return (
-    <main id="content">
-    {/* Heading */}
-    <div className="md:max-w-screen-sm text-center px-4 sm:px-6 lg:px-8 pt-24 pb-6 mx-auto">
-        <h1 className="mb-2 text-2xl font-bold md:text-4xl dark:text-white">
-            Terms &amp; Conditions
-        </h1>
-        <p className="text-gray-700 dark:text-neutral-400">
-            Last updated: January 31, 2024
-        </p>
-    </div>
-    {/* End Heading */}
-    {/* Content */}
-    <div className="md:max-w-screen-sm lg:max-w-[992px] px-4 sm:px-6 lg:px-8 pb-12 md:pt-6 sm:pb-20 mx-auto">
-        <div className="grid gap-4 md:gap-8">
-            <div>
-                {/* <p className="mb-8 dark:text-neutral-400 text-xl">
-  Welcome to Preline Labs Ltd ("us", "we", or "our"). Our website
-  (preline.co), offers 100% digital products and services under these
-  terms and conditions. By accessing or using our site, you agree to be
-  bound by these terms.
-</p> */}
-                {/* <h2 className="text-lg font-semibold mb-2 dark:text-white">
-  General Terms
-</h2> */}
-                <p className="mb-5 dark:text-neutral-400">
-                    <strong>Use of Our Service</strong>: By accessing
-                    and placing an order with Preline Labs Ltd, you
-                    confirm your agreement to our digital-only product
-                    policy. We're not liable for any indirect damages
-                    arising from your use or inability to use our site.
-                    We may change prices and policies at any time and
-                    will notify you of significant changes through
-                    email.
-                </p>
-                <h2 className="text-lg font-semibold mb-2 dark:text-white">
-                    User Account
-                </h2>
-                <p className="mb-5 dark:text-neutral-400">
-                    <strong>Account Responsibility</strong>: For some
-                    services, an account is required. Keep your account
-                    details confidential. Providing false information
-                    may lead to account termination.
-                </p>
-                <h2 className="text-lg font-semibold mb-2 dark:text-white">
-                    Products and Services
-                </h2>
-                <p className="mb-5 dark:text-neutral-400">
-                    <strong>Digital Product Delivery</strong>: All our
-                    products are 100% digital and delivered
-                    electronically. They can be accessed on your account
-                    page. We aren't responsible for delays outside our
-                    control. If technology issues prevent access, you'll
-                    find your purchases on the account page.
-                </p>
-                <h2 className="text-lg font-semibold mb-2 dark:text-white">
-                    Order Cancellation
-                </h2>
-                <p className="mb-5 dark:text-neutral-400">
-                    <strong>Cancellation Rights</strong>: We may cancel
-                    orders at any time for any reason. If this happens,
-                    we'll notify you and issue a refund.
-                </p>
-                <h2 className="text-lg font-semibold mb-2 dark:text-white">
-                    Third-Party Links
-                </h2>
-                <p className="mb-5 dark:text-neutral-400">
-                    <strong>External Sites</strong>: Our website might
-                    have links to third-party sites. We aren't
-                    responsible for their content or practices. Please
-                    review their terms.
-                </p>
-                <h2 className="text-lg font-semibold mb-2 dark:text-white">
-                    Product Availability and Errors
-                </h2>
-                <p className="mb-5 dark:text-neutral-400">
-                    <strong>Information Accuracy</strong>: We try to
-                    provide up-to-date information about our 100%
-                    digital products but errors in pricing and
-                    availability may occur. We reserve the right to
-                    correct any errors without liability.
-                </p>
-                <h2 className="text-lg font-semibold mb-2 dark:text-white">
-                    Data Rights
-                </h2>
-                <p className="mb-5 dark:text-neutral-400">
-                    <strong>Data Modification and Deletion</strong>: For
-                    details on how we handle data modification,
-                    deletion, and protect your privacy, please refer to
-                    our{" "}
-                    <a
-                        className="text-blue-600 decoration-2 hover:underline focus:outline-none focus:underline font-medium dark:text-blue-500"
-                        href="./privacy.html"
-                    >
-                        Privacy Policy
-                    </a>
-                    .
-                </p>
-                <h2 className="text-lg font-semibold mb-2 dark:text-white">
-                    Changes to Terms
-                </h2>
-                <p className="mb-5 dark:text-neutral-400">
-                    <strong>Liability Cap</strong>: We're not liable for
-                    data loss, lost profits, or any damages from using
-                    our site.
-                </p>
-                <h2 className="text-lg font-semibold mb-2 dark:text-white">
-                    Governing Law and Jurisdiction
-                </h2>
-                <p className="mb-5 dark:text-neutral-400">
-                    <strong>Legal Framework</strong>: These terms are
-                    governed by applicable federal laws and regulations.
-                    Any disputes arising from or relating to the terms
-                    shall be subject to the exclusive jurisdiction of
-                    the competent courts as determined by applicable
-                    law.
-                </p>
-                <h2 className="text-lg font-semibold mb-2 dark:text-white">
-                    Contact Information
-                </h2>
-                <p className="mb-5 dark:text-neutral-400">
-                    <strong>Queries</strong>: If you have questions
-                    about these terms, contact us via chat from our
-                    website.
-                </p>
-            </div>
-        </div>
-    </div>
-    {/* End Content */}
-</main>
+    <div className='p-16'>
+  <>
+  <p
+    style={{
+      marginTop: "0cm",
+      marginRight: "0cm",
+      marginBottom: "8.0pt",
+      marginLeft: "0cm",
+      fontSize: "11.0pt",
+      fontFamily: '"Calibri",sans-serif',
+      textAlign: "center"
+    }}
+  >
+    <strong>
+      <span style={{ fontSize: 24, lineHeight: "107%" }}>
+        Returns-refund-and-cancellation
+      </span>
+    </strong>
+  </p>
+  <p
+    style={{
+      marginTop: "0cm",
+      marginRight: "0cm",
+      marginBottom: "8.0pt",
+      marginLeft: "0cm",
+      fontSize: "11.0pt",
+      fontFamily: '"Calibri",sans-serif'
+    }}
+  >
+    <strong>
+      <span style={{ fontSize: 21, lineHeight: "107%" }}>
+        General Return Policy
+      </span>
+    </strong>
+  </p>
+  <p
+    style={{
+      marginTop: "0cm",
+      marginRight: "0cm",
+      marginBottom: "8.0pt",
+      marginLeft: "0cm",
+      fontSize: "11.0pt",
+      fontFamily: '"Calibri",sans-serif'
+    }}
+  >
+    At the event of product/products found to be physically damaged, defective
+    or different from the description on the detail page shall be subject to
+    refund. The customer can raise a complaint and share the supporting images
+    and receipt or invoice issued at the time of delivery with customer care
+    team to substantiate their claim. But the reporting needs to done within 24
+    hours of delivery of the order.
+  </p>
+  <p
+    style={{
+      marginTop: "0cm",
+      marginRight: "0cm",
+      marginBottom: "8.0pt",
+      marginLeft: "0cm",
+      fontSize: "11.0pt",
+      fontFamily: '"Calibri",sans-serif'
+    }}
+  >
+    In case of partial delivery, the customer can raise a complaint and share
+    the the receipt or invoice issued at the time of delivery with customer care
+    team to substantiate their claim. But the reporting needs to done within 24
+    hours of delivery of the order.
+  </p>
+  <p
+    style={{
+      marginTop: "0cm",
+      marginRight: "0cm",
+      marginBottom: "0cm",
+      marginLeft: "0cm",
+      fontSize: "11.0pt",
+      fontFamily: '"Calibri",sans-serif'
+    }}
+  >
+    <strong>
+      <span style={{ fontSize: 19, lineHeight: "107%" }}>Conditions:</span>
+    </strong>
+  </p>
+  <p
+    style={{
+      marginTop: "0cm",
+      marginRight: "0cm",
+      marginBottom: "0cm",
+      marginLeft: "0cm",
+      fontSize: "11.0pt",
+      fontFamily: '"Calibri",sans-serif'
+    }}
+  >
+    Refunds can be requested if the following conditions apply to at least any
+    one of the following:
+  </p>
+  <p
+    style={{
+      marginTop: "0cm",
+      marginRight: "0cm",
+      marginBottom: "0cm",
+      marginLeft: "0cm",
+      fontSize: "11.0pt",
+      fontFamily: '"Calibri",sans-serif'
+    }}
+  >
+    &nbsp;
+  </p>
+  <ol start={1} style={{ listStyleType: "lower-alpha" }}>
+    <li>Item received is physically damaged</li>
+    <li>Item received has missing parts</li>
+    <li>
+      Item received is different from their description on the product detail
+      page
+    </li>
+    <li>Item received is defective/does not work properly.</li>
+  </ol>
+  <p
+    style={{
+      marginTop: "0cm",
+      marginRight: "0cm",
+      marginBottom: "0cm",
+      marginLeft: "0cm",
+      fontSize: "11.0pt",
+      fontFamily: '"Calibri",sans-serif'
+    }}
+  >
+    &nbsp;
+  </p>
+  <p
+    style={{
+      marginTop: "0cm",
+      marginRight: "0cm",
+      marginBottom: "8.0pt",
+      marginLeft: "0cm",
+      fontSize: "11.0pt",
+      fontFamily: '"Calibri",sans-serif'
+    }}
+  >
+    <strong>
+      <span style={{ fontSize: 19, lineHeight: "107%" }}>Note:</span>
+    </strong>
+  </p>
+  <ol start={9} style={{ listStyleType: "lower-alpha", marginLeft: 44 }}>
+    <li>
+      If your order includes multiple items, partial replacement of the required
+      items is also possible. If purchase of the Product is made under a special
+      promotional offer or any special scheme, special rules shall apply for
+      replacement.
+    </li>
+    <li>
+      Replacement process must be initiated within 24 hours from the time of
+      receipt of order by the User. The Product must be in an unused state
+      before seeking a for a replacement and should be accompanied by a copy of
+      the original receipt or invoice issued at the time of sale of the Product.
+    </li>
+    <li>
+      Any request for replacement will be accepted only after inspection of the
+      Product. Once the replacement request is placed with the customer service,
+      the anajwala partner will arrange for a pickup of the Product from the
+      address provided at the time of placing the order within 2 working days.
+      Once the Product is received, it takes about 1 working day for inspection
+      team to confirm on the replacement. On confirmation of the genuine need
+      for replacement of the Product, we shall replace the desired Product with
+      the User in 2 working days.
+    </li>
+    <li>
+      At every step of the replacement process, we shall keep you updated
+      through emails and/or SMS. However, if you have any queries before, during
+      or after the replacement is completed, feel free to contact us.
+    </li>
+  </ol>
+  <p
+    style={{
+      marginTop: "0cm",
+      marginRight: "0cm",
+      marginBottom: "8.0pt",
+      marginLeft: "0cm",
+      fontSize: "11.0pt",
+      fontFamily: '"Calibri",sans-serif'
+    }}
+  >
+    <strong>
+      <span style={{ fontSize: 19, lineHeight: "107%" }}>
+        Cancellation Policy
+      </span>
+    </strong>
+  </p>
+  <p
+    style={{
+      marginTop: "0cm",
+      marginRight: "0cm",
+      marginBottom: "8.0pt",
+      marginLeft: "0cm",
+      fontSize: "11.0pt",
+      fontFamily: '"Calibri",sans-serif'
+    }}
+  >
+    An order once placed and confirmed by the user is not entitled to be
+    cancelled.
+  </p>
+  <p
+    style={{
+      marginTop: "0cm",
+      marginRight: "0cm",
+      marginBottom: "8.0pt",
+      marginLeft: "0cm",
+      fontSize: "11.0pt",
+      fontFamily: '"Calibri",sans-serif'
+    }}
+  >
+    Billings &amp; terms n conditions
+  </p>
+  <p
+    style={{
+      marginTop: "0cm",
+      marginRight: "0cm",
+      marginBottom: "8.0pt",
+      marginLeft: "0cm",
+      fontSize: "11.0pt",
+      fontFamily: '"Calibri",sans-serif'
+    }}
+  >
+    <span style={{ fontSize: 19, lineHeight: "107%" }}>
+      &nbsp;<strong>Serviceable locations</strong>
+    </span>{" "}
+    – Indore only. The delivery may be delayed due to unforeseeable
+    circumstances.
+  </p>
+  <ul style={{ listStyleType: "undefined" }}>
+    <li>
+      Order delivered within 1 days. If ordered before 6 pm order will be
+      delivered within 2 Days.
+    </li>
+    <li>
+      Free delivery is available for orders above 270/- &nbsp;after considering
+      all applicable discounts and coupon codes.
+    </li>
+    <li>
+      Coupon Code is valid till 31<sup>st</sup> /December /2024.
+    </li>
+    <li>
+      Discount will be applied to cart value. Taxes or delivery charges are not
+      subject to discounts.
+    </li>
+    <li>Discount cannot be clubbed with any other offer / scheme.</li>
+    <li>
+      If any of the product related to offer is returned, the refund will equal
+      the amount you paid for the product subject to applicable refund policies.
+    </li>
+  </ul>
+</>
+
+</div>
+
   )
 }
 
