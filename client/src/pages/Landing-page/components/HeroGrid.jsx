@@ -8,6 +8,7 @@ import c4 from '../../../assets/landing-images/c4.jpg'
 import b10 from '../../../assets/landing-images/b10.jpg'
 import g1 from '../../../assets/landing-images/g1.jpg'
 import g2 from '../../../assets/landing-images/g2.jpg'
+import g3 from '../../../assets/landing-images/g3.jpg'
 import b7 from '../../../assets/landing-images/r1.avif'
 import logo from '../../../assets/footerLogo.png'
 import imgLogo from '../../../assets/landing-images/img-logo.png'
@@ -135,9 +136,9 @@ function HeroGrid() {
                     {/* bottom cards */}
                     <div className="relative overflow-hidden rounded-2xl shadow-lg group">
                         <img
-                            src={g1}
+                            src={g3}
                             alt="Sport"
-                            className="w-full h-48 object-cover"
+                            className="w-full h-48 object-cover object-center"
                         />
                         <div className="absolute inset-0 bg-black bg-opacity-60 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                             <div className="absolute bottom-0 left-0 right-0 p-4">

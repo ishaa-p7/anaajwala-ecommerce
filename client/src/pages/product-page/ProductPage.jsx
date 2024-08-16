@@ -25,7 +25,11 @@ function ProductPage() {
   // const [type, setType] = useState("platinum");
   const [quantity, setQuantity] = useState("5");
 
-
+  const discount = {
+    5 : 0,
+    10 : 20,
+    20 : 20,
+  }
 
   const fetchProduct = async () => {
     try {
@@ -367,7 +371,8 @@ function ProductPage() {
               <div className="mt-10 flex flex-col items-center justify-between space-y-4 border-t border-b py-4 sm:flex-row sm:space-y-0">
                 <div className="flex items-end">
                   <h1 className="text-3xl font-bold">
-                  ₹{product.price * quantity}
+                  ₹{product.price * quantity - discount[quantity]}
+                  <span className="text-red-600 text-lg"> ₹(-{discount[quantity]}) discount</span>
                   </h1>
                   {/* <span className="text-base">/Kg</span> */}
                 </div>

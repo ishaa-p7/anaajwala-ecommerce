@@ -288,7 +288,7 @@ function Footer() {
                     <p className="text-[10px] font-normal text-white md:text-[12px]">
                         © Copyright
                         {/* */}2024
-                        {/* */}, All Rights Reserved by YOUR WEBSITES. PVT. LTD
+                        {/* */}, All Rights Reserved by Anajwala. PVT. LTD
                     </p>
                 </div>
             </div>

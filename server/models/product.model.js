@@ -27,7 +27,7 @@ const productSchema = new mongoose.Schema(
     },
     type: {
       type: String,
-      enum : ['gold' , 'platinum', 'diamond'],
+      enum : ['gold' , 'platinum', 'diamond' , 'silver' , 'multi-grain'],
       required: true,
     },
     // price: {

@@ -66,8 +66,53 @@ const getAllProducts = async (req , res , next)=>{
   }
 }
 
+const updateProduct = async (req, res) => {
+  const { id } = req.params; // Product ID from the request parameters
+  const {
+    name,
+    type,           
+    price,
+    thumbnail,  
+    images,
+    description,
+    stockQuantity,
+    category,
+    ratings,
+    discount,
+  } = req.body; // Product fields from the request body
+
+  try {
+    // Find the product by ID
+    const product = await Product.findById(id);
+
+    if (!product) {
+      return res.status(404).json({ message: 'Product not found' });
+    }
+
+    // Update the product fields
+    product.name = name !== undefined ? name : product.name;
+    product.type = type !== undefined ? type : product.type;
+    product.price = price !== undefined ? price : product.price;
+    product.thumbnail = thumbnail !== undefined ? thumbnail : product.thumbnail;
+    product.images = images !== undefined ? images : product.images;
+    product.description = description !== undefined ? description : product.description;
+    product.stockQuantity = stockQuantity !== undefined ? stockQuantity : product.stockQuantity;
+    product.category = category !== undefined ? category : product.category;
+    product.ratings = ratings !== undefined ? ratings : product.ratings;
+    product.discount = discount !== undefined ? discount : product.discount;
+
+    // Save the updated product
+    const updatedProduct = await product.save();
+
+    res.status(200).json({ message: 'Product updated successfully', product: updatedProduct });
+  } catch (error) {
+    console.error('Error updating product:', error);
+    res.status(500).json({ message: 'Internal server error' });
+  }
+};
 module.exports = {
   createProduct,
   getProduct,
-  getAllProducts
+  getAllProducts,
+  updateProduct
 };
