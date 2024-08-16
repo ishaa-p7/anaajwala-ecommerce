@@ -14,11 +14,8 @@ function Footer() {
                             <img src={FooterLogo} className="h-20" alt="..." />
                         </h1>
                         <p />
-                        <p className="mt-[18px] text-[15px] font-normal text-white/[80%]">
-                            Anajwala delivers the freshest wheat flour, ground
-                            within 40 days to retain maximum nutrients.
-                            Committed to quality, they ensure the best
-                            ingredients for your health and culinary needs
+                        <p className="mt-[18px] text-[15px] font-normal text-lg text-white/[80%]">
+                        Delivering Freshness At Door Step.
                         </p>
                         <div className="mt-[18px] flex gap-4">
                             <a
