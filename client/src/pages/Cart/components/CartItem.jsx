@@ -60,7 +60,7 @@ function CartItem({item}) {
                     </p>
                     <p className="text-base dark:text-white xl:text-lg font-semibold leading-6 text-gray-800">
                     ₹{item.product.price * item.quantity - discount[item.quantity]}
-                    <span className="text-red-600 text-sm"> ₹(-{discount[item.quantity]}) discount</span>
+                    {/* <span className="text-red-600 text-sm"> ₹(-{discount[item.quantity]}) discount</span> */}
                     </p>
                 </div>
             </div>

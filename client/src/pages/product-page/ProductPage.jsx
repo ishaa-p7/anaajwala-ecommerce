@@ -372,7 +372,7 @@ function ProductPage() {
                 <div className="flex items-end">
                   <h1 className="text-3xl font-bold">
                   ₹{product.price * quantity - discount[quantity]}
-                  <span className="text-red-600 text-lg"> ₹(-{discount[quantity]}) discount</span>
+                  {/* <span className="text-red-600 text-lg"> ₹(-{discount[quantity]}) discount</span> */}
                   </h1>
                   {/* <span className="text-base">/Kg</span> */}
                 </div>
