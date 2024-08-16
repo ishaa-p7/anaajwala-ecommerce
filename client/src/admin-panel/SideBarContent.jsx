@@ -15,6 +15,7 @@ import {
   HiOutlineArrowLeft,
 } from "react-icons/hi";
 import { Link, useNavigate } from "react-router-dom";
+import { signoutUser } from "../features/user/userSlice";
 
 import { useDispatch, useSelector } from "react-redux";
 
@@ -24,18 +25,7 @@ function SideBarContent({ isOpen, handleClose }) {
   const dispatch = useDispatch();
 
   const handleSignOut = async () => {
-//     try {
-//       dispatch(signOutUserStart());
-//       const res = await fetch("/api/auth/signout");
-//       const data = await res.json();
-//       if (data.success === false) {
-//         dispatch(deleteUserFailure(data.message));
-//         return;
-//       }
-//       dispatch(deleteUserSuccess(data));
-//     } catch (error) {
-//       dispatch(deleteUserFailure(data.message));
-//     }
+    dispatch(signoutUser())
   };
 
   return (
