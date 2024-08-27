@@ -40,6 +40,9 @@ const productSchema = new mongoose.Schema(
     MRP :{
       type : Number,
     },
+    size : {
+      type : Number
+    },
     thumbnail: {
       type: String,
       required: true,

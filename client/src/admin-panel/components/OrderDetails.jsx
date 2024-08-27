@@ -87,7 +87,7 @@ const OrderDetails = ({ order }) => {
                       <strong>Variant:</strong> {item.type}
                     </p>
                     <p>
-                      <strong>Quantity:</strong> {item.quantity} Kg
+                      <strong>Quantity:</strong> {item.quantity}
                     </p>
                     <p>
                       <strong>Price {"(total)"}:</strong> ${item.price.toFixed(2)}

@@ -29,8 +29,9 @@ async function addFieldToProductCollection() {
 
 
     try {
-        // Update all users to add the role field with the value "user"
-        const result = await Product.updateMany({}, { $set: { MRP: 1000 } });
+        
+        // const result = await Product.updateMany({}, { $set: { MRP: 1000 } });
+        const result = await Product.updateMany({}, { $set: { size: 5 } });
         console.log(`Successfully updated ${result.nModified} products`);
     } catch (error) {
         console.error('Error updating users:', error);

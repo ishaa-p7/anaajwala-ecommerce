@@ -88,7 +88,6 @@ function CartDrawerContent({ handleClose }) {
                                                                     item.product
                                                                         .price
                                                                 }{" "}
-                                                                /Kg
                                                             </p>
                                                         </div>
                                                         <p className="mt-1 text-sm text-gray-500">
@@ -98,7 +97,7 @@ function CartDrawerContent({ handleClose }) {
                                                     <div className="flex flex-1 items-end justify-between text-sm">
                                                         <p className="text-gray-500">
                                                             Qty {item.quantity}{" "}
-                                                            Kg
+                                                            
                                                         </p>
                                                         <div className="flex">
                                                             <button

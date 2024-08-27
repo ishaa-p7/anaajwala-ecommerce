@@ -52,14 +52,14 @@ function CartItem({item}) {
                 <div className="flex justify-between space-x-8 items-start w-full">
                     <p className="text-base dark:text-white xl:text-lg leading-6">
                         <span className="font-semibold font-mono">
-                            {item.quantity} Kg
+                            x{item.quantity} 
                         </span>
                     </p>
                     <p className="font-semibold font-mono text-base dark:text-white xl:text-lg leading-6 text-gray-800">
-                        ₹{item.product.price} /Kg
+                        ₹{item.product.price}/pack
                     </p>
                     <p className="text-base dark:text-white xl:text-lg font-semibold leading-6 text-gray-800">
-                    ₹{item.product.price * item.quantity - discount[item.quantity]}
+                    ₹{item.product.price * item.quantity}
                     {/* <span className="text-red-600 text-sm"> ₹(-{discount[item.quantity]}) discount</span> */}
                     </p>
                 </div>
