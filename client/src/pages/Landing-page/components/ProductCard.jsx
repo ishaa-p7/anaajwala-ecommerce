@@ -1,10 +1,40 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { addToCart } from "../../../features/cart/CartSlice";
+import { useDispatch  } from "react-redux";
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function ProductCard({ item }) {
+
+  const dispatch = useDispatch()
+  
+
+  const notify = () => toast.success("Added to cart!" , {autoClose : 3000 , position: "bottom-right",theme: "dark",});
+  const handleAddToCart = ()=>{
+
+    try {
+      console.log("happepend");
+      
+      dispatch(addToCart({
+        id : item._id,
+        product : item,
+        quantity : 1,
+      }))
+      notify()      
+    } catch (error) {
+      console.log(error);
+      
+    }
+
+  }
+
+
   return (
     <>
       <div className="rounded overflow-hidden shadow-lg flex flex-col">
+    <ToastContainer />
         <a href="#" />
         <div className="relative">
           <Link to={`/product/${item._id}`}>
@@ -22,12 +52,12 @@ function ProductCard({ item }) {
           </a>
         </div>
         <div className="px-6 py-4 mb-auto">
-          <a
-            href="#"
+          <Link
+            to={`/product/${item._id}`}
             className="font-medium text-lg inline-block hover:text-indigo-600 transition duration-500 ease-in-out inline-block mb-2"
           >
             {item.name}
-          </a>
+          </Link>
           <p className="text-gray-500 text-sm">
             {item.description}
           </p>
@@ -78,6 +108,12 @@ function ProductCard({ item }) {
             </svg>
             <span className="ml-1">39 Comments</span>
           </span> */}
+          <button 
+            onClick={handleAddToCart}
+          className="px-6 py-2 min-w-[120px] text-center text-white bg-violet-600 border border-violet-600 rounded active:text-violet-500 hover:bg-transparent hover:text-violet-600 focus:outline-none focus:ring">
+            Add 
+          </button>
+          
         </div>
       </div>
     </>
