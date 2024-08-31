@@ -1,6 +1,7 @@
 import React from "react";
 import ReadMoreText from "../../../components/ReadMoreText";
 import { useAboutUsContent } from "../../../hooks/useAboutUsContent";
+import Banner from '../../../assets/about-us-images/first-banner-2.jpg'
 
 function FirstSection() {
 
@@ -24,17 +25,20 @@ function FirstSection() {
             <div className="lg:mt-14 sm:mt-10 mt-12">
                 <img
                     className="lg:block hidden w-full"
-                    src="https://i.ibb.co/GvwJnvn/Group-736.png"
+                    // src="https://i.ibb.co/GvwJnvn/Group-736.png"
+                    src={Banner}
                     alt="Group of people Chilling"
                 />
                 <img
                     className="lg:hidden sm:block hidden w-full"
-                    src="https://i.ibb.co/5sZTmHq/Rectangle-116.png"
+                    // src="https://i.ibb.co/5sZTmHq/Rectangle-116.png"
+                    src={Banner}
                     alt="Group of people Chilling"
                 />
                 <img
                     className="sm:hidden block w-full"
-                    src="https://i.ibb.co/zSxXJGQ/Rectangle-122.png"
+                    // src="https://i.ibb.co/zSxXJGQ/Rectangle-122.png"
+                    src={Banner}
                     alt="Group of people Chilling"
                 />
             </div>

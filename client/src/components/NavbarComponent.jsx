@@ -169,28 +169,35 @@ export default function NavbarComponent() {
                             Contact-us
                         </NavLink>
                     </Navbar.Link>
-                    <Navbar.Link>
-                        <NavLink
-                            className={
-                                ({ isActive }) =>
-                                    isActive
-                                        ? "text-blue-600 font-bold" // Active link styling
-                                        : "text-gray-600 font-extrabold" // Inactive link styling
-                            }
-                            to="/user/profile"
-                        >
-                            Update-Profile
-                        </NavLink>
-                    </Navbar.Link>
+
+                    {currentUser.user && (
+                        <Navbar.Link>
+                            <NavLink
+                                className={
+                                    ({ isActive }) =>
+                                        isActive
+                                            ? "text-blue-600 font-bold" // Active link styling
+                                            : "text-gray-600 font-extrabold" // Inactive link styling
+                                }
+                                to="/user/profile"
+                            >
+                                Update-Profile
+                            </NavLink>
+                        </Navbar.Link>
+                    )}
+
                     <Navbar.Link className="md:hidden">
                         {" "}
                         {currentUser.user ? (
-                            <>                                <button
-                            className="lg:inline-block py-2 px-6 bg-red-500 hover:bg-red-700 text-sm text-white font-bold rounded-xl transition duration-200"
-                            onClick={() => dispatch(signoutUser())}
-                        >
-                            Sign Out
-                        </button></>
+                            <>
+                                {" "}
+                                <button
+                                    className="lg:inline-block py-2 px-6 bg-red-500 hover:bg-red-700 text-sm text-white font-bold rounded-xl transition duration-200"
+                                    onClick={() => dispatch(signoutUser())}
+                                >
+                                    Sign Out
+                                </button>
+                            </>
                         ) : (
                             <div className="p-1">
                                 <Link to="/login">
@@ -206,7 +213,7 @@ export default function NavbarComponent() {
                             </div>
                         )}
                     </Navbar.Link>
-                    
+
                     {/* <Navbar.Link><NavLink to="/admin">admin Panel</NavLink></Navbar.Link> */}
                 </Navbar.Collapse>
             </Navbar>
