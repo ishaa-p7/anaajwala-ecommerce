@@ -55,7 +55,7 @@ const createOrder = async (req, res) => {
 
     const message = await client.messages.create({
       body: `Hi ${customerName}! \nYour order has successfully been placed!\nOrder Id : ${savedOrder._id}`,
-      from: 'whatsapp:+14155238886', // Replace with your Twilio WhatsApp-enabled number
+      from: `whatsapp:${process.env.TWILIO_NO}`, // Replace with your Twilio WhatsApp-enabled number
       to: `whatsapp:+91${customer_phone_no}`   // Replace with the recipient's WhatsApp number
   });
   console.log('Message SID:', message.sid);

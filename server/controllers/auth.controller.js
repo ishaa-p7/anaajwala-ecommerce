@@ -134,7 +134,7 @@ const applyForResetPassword = async(req , res , next)=>{
 
         const message = await client.messages.create({
             body: `Follow the given link to reset your password\n\n${process.env.DOMAIN || "http://localhost:5173"}/reset-password/${user.username.split(' ')[0]}/${user._id}/${token}`,
-            from: 'whatsapp:+14155238886', // Replace with your Twilio WhatsApp-enabled number
+            from: `whatsapp:${process.env.TWILIO_NO}`, // Replace with your Twilio WhatsApp-enabled number
             to: `whatsapp:+91${user.phone_no}`   // Replace with the recipient's WhatsApp number
         });        
 
@@ -166,7 +166,7 @@ const resetPassword = async(req , res , next)=>{
 
         const message = await client.messages.create({
             body: `Your password was updated successfully.\n Don't forget the new one!!!`,
-            from: 'whatsapp:+14155238886', // Replace with your Twilio WhatsApp-enabled number
+            from: `whatsapp:${process.env.TWILIO_NO}`, // Replace with your Twilio WhatsApp-enabled number
             to: `whatsapp:+91${user.phone_no}`   // Replace with the recipient's WhatsApp number
         });            
 
