@@ -18,6 +18,8 @@ const createProduct = async (req, res) => {
     category,
     ratings,
     discount,
+    MRP,
+    size
   } = req.body;
 
   try {
@@ -32,6 +34,8 @@ const createProduct = async (req, res) => {
       category,
       ratings,
       discount,
+      MRP,
+      size
     });
 
     const savedProduct = await newProduct.save();

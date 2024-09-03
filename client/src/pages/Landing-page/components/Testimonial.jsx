@@ -17,7 +17,7 @@ function Testimonial() {
                         <div className="flex gap-4">
                             <img
                                 className="w-12 h-12 rounded-full"
-                                src="https://randomuser.me/api/portraits/women/12.jpg"
+                                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6Pe-T3yrHvJ7YHeOpsWZQSlXx9DC70k7kGg&s "
                                 alt="user avatar"
                                 width={400}
                                 height={400}
@@ -41,7 +41,7 @@ function Testimonial() {
                         <div className="flex gap-4">
                             <img
                                 className="w-12 h-12 rounded-full"
-                                src="https://randomuser.me/api/portraits/women/14.jpg"
+                                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSoGBO91wNf3MNYuDOEcbp7NfZw39Tb2oQ7rQ&s"
                                 alt="user avatar"
                                 width={200}
                                 height={200}
@@ -66,7 +66,7 @@ function Testimonial() {
                         <div className="flex gap-4">
                             <img
                                 className="w-12 h-12 rounded-full"
-                                src="https://randomuser.me/api/portraits/women/18.jpg"
+                                src="https://images.squarespace-cdn.com/content/v1/56c1f79540261d17781d60d2/261ee829-ebef-4401-b76c-b6bb62f3a3cd/2023-Anam-Shahil.jpg+copy.jpg "
                                 alt="user avatar"
                                 width={200}
                                 height={200}
@@ -90,7 +90,7 @@ function Testimonial() {
                         <div className="flex gap-4">
                             <img
                                 className="w-12 h-12 rounded-full"
-                                src="https://randomuser.me/api/portraits/women/2.jpg"
+                                src="https://thumbs.dreamstime.com/b/passport-photo-young-arabic-woman-isolated-white-background-cut-out-73451979.jpg "
                                 alt="user avatar"
                                 width={200}
                                 height={200}
@@ -114,7 +114,7 @@ function Testimonial() {
                         <div className="flex gap-4">
                             <img
                                 className="w-12 h-12 rounded-full"
-                                src="https://randomuser.me/api/portraits/women/62.jpg"
+                                src="https://iimk.ac.in/uploads/admission_application/medium/EPGP1340381.jpg"
                                 alt="user avatar"
                                 width={200}
                                 height={200}
