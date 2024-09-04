@@ -20,10 +20,10 @@ function Footer() {
                             Delivering Freshness At Door Step.
                         </p>
                         <div className="mt-[18px] flex gap-4">
-                            <a
+                            <Link
                                 className="hover:scale-110"
                                 target="_blank"
-                                href="#"
+                                to="https://www.facebook.com/profile.php?id=61564814416073&mibextid=ZbWKwL"
                             >
                                 <img
                                     alt="facebook icon"
@@ -35,11 +35,11 @@ function Footer() {
                                     style={{ color: "transparent" }}
                                     src="https://img.icons8.com/fluent/30/000000/facebook-new.png"
                                 />
-                            </a>
-                            <a
+                            </Link>
+                            <Link
                                 className="hover:scale-110"
                                 target="_blank"
-                                href="/"
+                                to="https://www.linkedin.com/in/anajwala-products-89318a323/?originalSubdomain=in"
                             >
                                 <img
                                     alt="linkdin icon"
@@ -51,11 +51,11 @@ function Footer() {
                                     style={{ color: "transparent" }}
                                     src="https://img.icons8.com/fluent/30/000000/linkedin-2.png"
                                 />
-                            </a>
-                            <a
+                            </Link>
+                            <Link
                                 className="hover:scale-110"
                                 target="_blank"
-                                href="/"
+                                to="https://www.instagram.com/anajwalaproducts?igsh=MWlzZWhpeGlqMmN3bw=="
                             >
                                 <img
                                     alt="instagram icon"
@@ -67,11 +67,11 @@ function Footer() {
                                     style={{ color: "transparent" }}
                                     src="https://img.icons8.com/fluent/30/000000/instagram-new.png"
                                 />
-                            </a>
-                            <a
+                            </Link>
+                            <Link
                                 className="hover:scale-110"
                                 target="_blank"
-                                href=""
+                                to="https://wa.me/message/6OONM2KG4XORP1"
                             >
                                 <img
                                     alt="twitter icon"
@@ -81,9 +81,9 @@ function Footer() {
                                     decoding="async"
                                     data-nimg={1}
                                     style={{ color: "transparent" }}
-                                    src="https://img.icons8.com/fluent/30/000000/twitter.png"
+                                    src="https://static.vecteezy.com/system/resources/thumbnails/016/716/480/small/whatsapp-icon-free-png.png"
                                 />
-                            </a>
+                            </Link>
                             <a
                                 className="hover:scale-110"
                                 target="_blank"

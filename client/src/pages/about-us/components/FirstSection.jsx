@@ -2,6 +2,7 @@ import React from "react";
 import ReadMoreText from "../../../components/ReadMoreText";
 import { useAboutUsContent } from "../../../hooks/useAboutUsContent";
 import Banner from '../../../assets/about-us-images/first-banner-2.jpg'
+import sideImage from '../../../assets/about-us-images/m1.jpg'
 
 function FirstSection() {
 
@@ -63,18 +64,18 @@ function FirstSection() {
                 </div>
                 <div className="lg:flex items-center w-full lg:w-1/2">
                     <img
-                        className="lg:block hidden w-full"
-                        src="https://i.ibb.co/2kxWpNm/Group-740.png"
+                        className="lg:block hidden w-full h-88"
+                        src={sideImage}
                         alt="people discussing on board"
                     />
                     <img
                         className="lg:hidden sm:block hidden w-full h-3/4"
-                        src="https://i.ibb.co/ZLgK3NQ/Group-788.png"
+                        src={sideImage}
                         alt="people discussing on board"
                     />
                     <img
                         className="sm:hidden block w-full"
-                        src="https://i.ibb.co/9g2R7Xr/Group-803.png"
+                        src={sideImage}
                         alt="people discussing on board"
                     />
                 </div>

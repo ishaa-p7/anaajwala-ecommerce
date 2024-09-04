@@ -6,6 +6,7 @@ import Order from "./components/Order";
 import axios from "axios";
 import { format } from "date-fns";
 import emptyImage from '../../assets/empty-order.png'
+import Loader from "../../components/Loader";
 
 function Orders() {
     const [completedOrders, setCompletedOrders] = useState([]);
@@ -46,11 +47,7 @@ function Orders() {
 
     if (loading) {
         return (
-            <div className="h-screen flex items-center justify-center">
-                <h1 className="text-5xl my-auto text-center font-semibold">
-                    Loading...
-                </h1>
-            </div>
+            <Loader />
         );
     }
 

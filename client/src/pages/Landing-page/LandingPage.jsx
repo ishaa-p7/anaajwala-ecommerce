@@ -95,7 +95,7 @@ function LandingPage() {
                 className="italic tracking-wide no-underline hover:no-underline font-bold text-gray-800 text-xl "
                 href="#"
               >
-                I'm Freshin It
+                Delivering freshness to your doorstep
               </a>
               <div className="flex items-center" id="store-nav-content">
                 {/* <a

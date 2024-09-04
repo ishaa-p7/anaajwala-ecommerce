@@ -14,6 +14,7 @@ import { addToCart } from "../../features/cart/CartSlice";
 import { useDispatch } from "react-redux";
 
 import { Button } from "flowbite-react";
+import Loader from "../../components/Loader";
 
 function ProductPage() {
     let { id } = useParams();
@@ -101,9 +102,7 @@ function ProductPage() {
 
     if (loading) {
         return (
-            <div className="h-screen ">
-                <h1 className="text-4xl my-auto text-center">Loading...</h1>
-            </div>
+            <Loader />
         );
     }
 
@@ -271,7 +270,7 @@ function ProductPage() {
                                     </svg>
                                 </div>
                                 <p className="ml-2 text-sm font-medium text-gray-500">
-                                    1,209 Reviews
+                                    {product.ratings.numberOfReviews} Reviews
                                 </p>
                             </div>
                             <h2 className="mt-8 text-base text-gray-900">
@@ -499,7 +498,7 @@ function ProductPage() {
                                         Reviews
                                         <span className="ml-2 block rounded-full bg-gray-500 px-2 py-px text-xs font-bold text-gray-100">
                                             {" "}
-                                            1,209{" "}
+                                            {product.ratings.numberOfReviews}{" "}
                                         </span>
                                     </a>
                                 </nav>

@@ -3,7 +3,7 @@ import faraz from '../assets/team/faraz.jpg'
 import manasvi from '../assets/team/manasvi.jpg'
 import subhan from '../assets/team/subhan.jpg'
 import isha from '../assets/team/isha.jpeg'
-import suyog from '../assets/team/suyog.jpg'
+import shruti from '../assets/team/shruti.jpg'
 import jayaMam from '../assets/team/jayaMam.jpg'
 import lalitSir from '../assets/mentor-image/lalitSir.jpg'
 import ashishSir from '../assets/mentor-image/ashishSir.jpg'
@@ -46,6 +46,14 @@ const useTeamData = ()=>{
             linkdin : "https://www.linkedin.com/in/manasvi-ajmera-b2000525a/"
         },
         {
+            image : shruti,
+            name : "Shruti dwivedi",
+            profile : "Asst.Manager & Lead social media",
+            description : "Shruti Dwivedi, Asst. Manager & Lead for Social Media at Anajwala, drives impactful digital strategies and enhances brand presence across platforms, ensuring our commitment to quality reaches every customer online.",
+            github : "",
+            linkdin : ""
+        },
+        {
             image : subhan,
             name : "Subhan Ahmed",
             profile : "Lead Mechanical Engineer",
@@ -53,19 +61,12 @@ const useTeamData = ()=>{
             github : "",
             linkdin : "https://www.linkedin.com/in/subhan-ahmed-6595b1254/"
         },
-        {
-            image : suyog,
-            name : "Suyog jagdale",
-            profile : "Mechanical engineer",
-            description : "Suyog Jagdale, a talented mechanical engineer, played a key role in developing the Effi-Cycle(GSRacers) for our project, focusing on design optimization and efficiency.",
-            github : "",
-            linkdin : "https://www.linkedin.com/in/suyog-jagdale-b2b3082a8/"
-        },
         
     ]
 
     return teamData
 }
+
 
 const useMentorData = ()=>{
 
