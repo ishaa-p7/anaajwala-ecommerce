@@ -54,7 +54,30 @@ const createOrder = async (req, res) => {
     res.status(201).json({ message: 'Order created successfully', order: savedOrder });
 
     const message = await client.messages.create({
-      body: `Hi ${customerName}! \nYour order has successfully been placed!\nOrder Id : ${savedOrder._id}`,
+      body: `Hello ${savedOrder.customerName}! 👋
+
+Thank you for shopping with Anajwala. We're excited to let you know that your order has been successfully placed!
+
+🛒 *Order Details:*
+- *Order ID:* ${savedOrder._id}
+- *Total Amount:* ₹${savedOrder.totalPrice}
+
+🏡 *Delivery Address:*
+${savedOrder.address}
+${savedOrder.pincode}
+
+📞 *Contact Information:*
+- *Phone Number:* +91 ${savedOrder.customer_phone_no}
+
+If you have any questions or need to make changes to your order, feel free to reach out to us.
+
+Thank you once again for choosing Anajwala. We hope you enjoy your purchase!
+
+Best regards,
+The Anajwala Team
+📧 support@anajwala.com | ☎ +91 88889990358
+🌐 www.anajwala.com
+`,
       from: `whatsapp:${process.env.TWILIO_NO}`, // Replace with your Twilio WhatsApp-enabled number
       to: `whatsapp:+91${customer_phone_no}`   // Replace with the recipient's WhatsApp number
   });

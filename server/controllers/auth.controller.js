@@ -165,7 +165,7 @@ const resetPassword = async(req , res , next)=>{
         res.json(user)
 
         const message = await client.messages.create({
-            body: `Your password was updated successfully.\n Don't forget the new one!!!`,
+            body: `Your password was updated successfully.\nDon't forget the new one!!!`,
             from: `whatsapp:${process.env.TWILIO_NO}`, // Replace with your Twilio WhatsApp-enabled number
             to: `whatsapp:+91${user.phone_no}`   // Replace with the recipient's WhatsApp number
         });            
