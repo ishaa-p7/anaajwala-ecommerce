@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import {
   clearError,
@@ -30,10 +30,12 @@ import TermsOfUse from "./pages/Policy-pages/TermsOfUse.jsx";
 import ReturnRefund from "./pages/Policy-pages/ReturnRefund.jsx";
 import BillingTerms from "./pages/Policy-pages/BillingTerms.jsx";
 import Loader from "./components/Loader.jsx";
+import ScrollToTop from "./components/ScrollToTop.jsx";
 
 function App() {
 
   const [loading , setLoading ] = useState(true)
+  // const { pathname } = useLocation();
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -45,6 +47,7 @@ function App() {
     fetchUserOnLoad()
   }, []);
 
+
   if(loading){
     return (
       <Loader />
@@ -53,6 +56,7 @@ function App() {
 
   return (
     <BrowserRouter>
+    <ScrollToTop />
       <Routes>
         <Route path="" element={<Layout />}>
           <Route path="/" element={<LandingPage />} />
