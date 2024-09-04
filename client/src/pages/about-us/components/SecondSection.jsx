@@ -125,7 +125,7 @@ function SecondSection() {
                     </h2> */}
 
                     {/* important */}
-                    <div className=" h-60 md:h-full w-full bg-slate-200 mt-5">
+                    <div className=" h-60 md:h-full w-full bg-slate-200 mt-5 mb-10 md:mb-10">
                         <img src="https://twobrothersindiashop.com/cdn/shop/files/Khapli-Flour-Lifestyle1-_2_1800x.jpg?v=1718091883" alt="" srcset="" />
                     </div>
 

@@ -2,6 +2,8 @@ import React from "react";
 import logo from "../assets/logo.jpg.ico";
 import { Link } from "react-router-dom";
 import FooterLogo from "../assets/footerLogo.png";
+import youtube from '../assets/youtube.jpg'
+import playstore from '../assets/playstore.webp'
 
 function Footer() {
     return (
@@ -15,7 +17,7 @@ function Footer() {
                         </h1>
                         <p />
                         <p className="mt-[18px] text-[15px] font-normal text-lg text-white/[80%]">
-                        Delivering Freshness At Door Step.
+                            Delivering Freshness At Door Step.
                         </p>
                         <div className="mt-[18px] flex gap-4">
                             <a
@@ -123,7 +125,8 @@ function Footer() {
                                     className="font-Inter text-[14px] font-medium text-white"
                                 >
                                     +91 8889990352
-                                </a><br />
+                                </a>
+                                <br />
                                 <a
                                     href="tel:+911800123444"
                                     className="font-Inter text-[14px] font-medium text-white"
@@ -182,7 +185,8 @@ function Footer() {
                                     href="mailto:help@lorem.com"
                                     className="font-Inter text-[14px] font-medium text-[#fff]"
                                 >
-                                    Start Up Cell Idea Lab , Sgsits, Park Road ,Indore (M.P)
+                                    Start Up Cell Idea Lab , Sgsits, Park Road
+                                    ,Indore (M.P)
                                 </a>
                                 <p className="font-Inter text-[12px] font-medium text-white">
                                     Address
@@ -253,6 +257,7 @@ function Footer() {
                             <div className="flex gap-4 sm:flex-col">
                                 <a target="_blank" href="#">
                                     <img
+                                        // className="bg-white"
                                         alt="facebook icon"
                                         loading="lazy"
                                         width={168}
@@ -260,7 +265,7 @@ function Footer() {
                                         decoding="async"
                                         data-nimg={1}
                                         style={{ color: "transparent" }}
-                                        src="https://mcqmate.com/public/images/icons/playstore.svg"
+                                        src={playstore}
                                     />
                                 </a>
                                 <a target="_blank" href="#">
@@ -272,8 +277,8 @@ function Footer() {
                                         decoding="async"
                                         data-nimg={1}
                                         style={{ color: "transparent" }}
-                                        src="https://mcqmate.com/public/images/icons/youtube.svg"
-                                        className=" rounded-2xl h-12 border"
+                                        src={youtube}
+                                        className=" rounded-2xl h-12 border object-cover"
                                     />
                                 </a>
                             </div>
