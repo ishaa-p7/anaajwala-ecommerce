@@ -13,7 +13,7 @@ import Chooseus from "./components/Chooseus";
 import Harsh1 from "../../assets/Harsh1.jpg"
 import Testimonial from "./components/Testimonial";
 import HeroGrid from "./components/HeroGrid";
-
+import Loader from "../../components/Loader";
 
 
 function LandingPage() {
@@ -43,11 +43,7 @@ function LandingPage() {
 
   if (loading) {
     return (
-      <div className="h-screen flex items-center justify-center">
-        <h1 className="text-5xl my-auto text-center font-semibold">
-          Loading...
-        </h1>
-      </div>
+      <Loader />
     );
   }
 

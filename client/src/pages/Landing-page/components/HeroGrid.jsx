@@ -1,7 +1,7 @@
 import React from "react";
 import { Carousel } from "flowbite-react";
 import ReadMore from "../../../components/ReadMore ";
-import c1 from '../../../assets/landing-images/c1.jpg'
+import c5 from '../../../assets/landing-images/c5.png'
 import c2 from '../../../assets/landing-images/c2.jpg'
 import c3 from '../../../assets/landing-images/c3.jpg'
 import c4 from '../../../assets/landing-images/c4.jpg'
@@ -9,6 +9,8 @@ import b10 from '../../../assets/landing-images/b10.jpg'
 import g1 from '../../../assets/landing-images/g1.jpg'
 import g2 from '../../../assets/landing-images/g2.jpg'
 import g3 from '../../../assets/landing-images/g3.jpg'
+import g4 from '../../../assets/landing-images/g4.jpg'
+import m1 from '../../../assets/landing-images/m1.jpg'
 import b7 from '../../../assets/landing-images/r1.avif'
 import logo from '../../../assets/footerLogo.png'
 import imgLogo from '../../../assets/landing-images/img-logo.png'
@@ -39,7 +41,7 @@ function HeroGrid() {
                                 // src={banner4}
                                 className="w-full h-full object-cover"
                                 src={
-                                    "https://images.unsplash.com/photo-1469474968028-56623f02e42e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHwxfHxuYXR1cmV8ZW58MHwwfHx8MTcyMTA0MjYwMXww&ixlib=rb-4.0.3&q=80&w=1080"
+                                    m1
                                 }
                                 alt="..."
                             />
@@ -78,7 +80,7 @@ function HeroGrid() {
                     {/* Two small items */}
                     <div className="relative overflow-hidden rounded-2xl shadow-lg group">
                         <img
-                            src={c1}
+                            src={c5}
                             alt="Food"
                             className="w-full h-48 object-cover"
                         />
@@ -136,9 +138,9 @@ function HeroGrid() {
                     {/* bottom cards */}
                     <div className="relative overflow-hidden rounded-2xl shadow-lg group">
                         <img
-                            src={g3}
+                            src={g4}
                             alt="Sport"
-                            className="w-full h-48 object-cover object-center"
+                            className="w-full h-48 object-contain object-center"
                         />
                         <div className="absolute inset-0 bg-black bg-opacity-60 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                             <div className="absolute bottom-0 left-0 right-0 p-4">

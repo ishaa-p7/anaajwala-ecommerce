@@ -63,7 +63,7 @@ const getProduct = async (req , res , next)=>{
 
 const getAllProducts = async (req , res , next)=>{
   try {
-    const products = await Product.find();
+    const products = await Product.find().sort('size');
     res.json(products);
   } catch (error) {
     next(error)

@@ -29,6 +29,7 @@ import Privacy from "./pages/Policy-pages/Privacy.jsx";
 import TermsOfUse from "./pages/Policy-pages/TermsOfUse.jsx";
 import ReturnRefund from "./pages/Policy-pages/ReturnRefund.jsx";
 import BillingTerms from "./pages/Policy-pages/BillingTerms.jsx";
+import Loader from "./components/Loader.jsx";
 
 function App() {
 
@@ -46,11 +47,7 @@ function App() {
 
   if(loading){
     return (
-      <div className="h-screen flex items-center justify-center">
-        <h1 className="text-5xl my-auto text-center font-semibold">
-          Loading...
-        </h1>
-      </div>
+      <Loader />
     )
   }
 

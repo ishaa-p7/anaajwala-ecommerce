@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import ProductCard from '../Landing-page/components/ProductCard'
+import Loader from "../../components/Loader";
 
 function Products() {
     const [products, setProducts] = useState([]); //this will have array of products
@@ -31,11 +32,7 @@ function Products() {
 
     if (loading) {
         return (
-            <div className="h-screen flex items-center justify-center">
-                <h1 className="text-5xl my-auto text-center font-semibold">
-                    Loading...
-                </h1>
-            </div>
+          <Loader />
         );
     }
 
