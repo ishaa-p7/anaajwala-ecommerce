@@ -1,5 +1,5 @@
 import { Button, Navbar, Drawer } from "flowbite-react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { signoutUser } from "../features/user/userSlice.js";
 import { useState } from "react";
@@ -10,6 +10,7 @@ import Logo from "../assets/logo.png";
 export default function NavbarComponent() {
     const currentUser = useSelector((state) => state.user);
     const dispatch = useDispatch();
+    const navigate = useNavigate()
 
     const [isOpen, setIsOpen] = useState(false);
 
@@ -74,7 +75,7 @@ export default function NavbarComponent() {
                     <Navbar.Toggle />
                 </div>
                 <Navbar.Collapse>
-                    <Navbar.Link>
+                    <Navbar.Link onClick={()=>navigate('/')}>
                         <NavLink
                             className={
                                 ({ isActive }) =>
@@ -87,7 +88,7 @@ export default function NavbarComponent() {
                             Home
                         </NavLink>
                     </Navbar.Link>
-                    <Navbar.Link>
+                    <Navbar.Link onClick={()=>navigate('/products')}>
                         <NavLink
                             className={
                                 ({ isActive }) =>
@@ -100,7 +101,7 @@ export default function NavbarComponent() {
                             Products
                         </NavLink>
                     </Navbar.Link>
-                    <Navbar.Link>
+                    <Navbar.Link onClick={()=>navigate('/about-us')}>
                         <NavLink
                             className={
                                 ({ isActive }) =>
@@ -113,7 +114,7 @@ export default function NavbarComponent() {
                             Our Story
                         </NavLink>
                     </Navbar.Link>
-                    <Navbar.Link>
+                    <Navbar.Link onClick={() => setIsOpen(true)}>
                         {" "}
                         {/* <NavLink
                             className={
@@ -136,13 +137,12 @@ export default function NavbarComponent() {
                                         ? "text-blue-600 font-bold"
                                         : "text-gray-600 font-extrabold"
                                 } cursor-pointer`}
-                            onClick={() => setIsOpen(true)}
                         >
                             My Cart
                             {/* <CartDrawer isOpen={isOpen} handleClose={handleClose}  /> */}
                         </span>
                     </Navbar.Link>
-                    <Navbar.Link>
+                    <Navbar.Link onClick={()=>navigate('/user/orders')}>
                         {" "}
                         <NavLink
                             className={
@@ -156,7 +156,7 @@ export default function NavbarComponent() {
                             My Orders
                         </NavLink>
                     </Navbar.Link>
-                    <Navbar.Link>
+                    <Navbar.Link onClick={()=>navigate('/contact-us')}>
                         <NavLink
                             className={
                                 ({ isActive }) =>
